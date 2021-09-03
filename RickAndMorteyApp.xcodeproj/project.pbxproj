@@ -10,11 +10,11 @@
 		089352F74E48D9F7252AEAEE /* Pods_RickAndMorteyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF0E072AD2B971D1C47CB01 /* Pods_RickAndMorteyApp.framework */; };
 		FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0779C326E23C8D0060DDD8 /* AppDelegate.swift */; };
 		FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */; };
-		FB0779C826E23C8D0060DDD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0779C726E23C8D0060DDD8 /* ViewController.swift */; };
 		FB0779CB26E23C8D0060DDD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0779C926E23C8D0060DDD8 /* Main.storyboard */; };
 		FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB0779CC26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld */; };
 		FB0779D026E23C8F0060DDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */; };
 		FB0779D326E23C8F0060DDD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */; };
+		FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +24,12 @@
 		FB0779C026E23C8D0060DDD8 /* RickAndMorteyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorteyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0779C326E23C8D0060DDD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB0779C726E23C8D0060DDD8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB0779CA26E23C8D0060DDD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB0779CD26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickAndMorteyApp.xcdatamodel; sourceTree = "<group>"; };
 		FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB0779D226E23C8F0060DDD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB0779D426E23C8F0060DDD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,6 @@
 				5CF8F2C8E47B6A79C6011E5E /* Pods-RickAndMorteyApp.debug.xcconfig */,
 				E7BE68599A4C35CBC31BB6CD /* Pods-RickAndMorteyApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,8 +84,8 @@
 			children = (
 				FB0779C326E23C8D0060DDD8 /* AppDelegate.swift */,
 				FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */,
-				FB0779C726E23C8D0060DDD8 /* ViewController.swift */,
 				FB0779C926E23C8D0060DDD8 /* Main.storyboard */,
+				FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */,
 				FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */,
 				FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */,
 				FB0779D426E23C8F0060DDD8 /* Info.plist */,
@@ -191,7 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0779C826E23C8D0060DDD8 /* ViewController.swift in Sources */,
+				FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */,
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
