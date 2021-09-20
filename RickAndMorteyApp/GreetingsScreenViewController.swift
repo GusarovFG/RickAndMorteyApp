@@ -21,11 +21,14 @@ class GreetingsScreenViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        
-        self.imageScrollView.delegate = self
+
+        self.skipButton.isEnabled = false
+
         self.imageScrollPageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         self.imageScrollPageController.currentPage = 0
         self.imageScrollPageController.numberOfPages = images.count
+
+        self.imageScrollView.delegate = self
         configurateScrollView(self.imageScrollView)
 
         
@@ -49,26 +52,12 @@ class GreetingsScreenViewController: UIViewController {
             scrollView.addSubview(imageView)
 
         }
-
-
     }
 
     @objc private func pageControlDidChange (_ sender: UIPageControl) {
         let current = sender.currentPage
         imageScrollView.setContentOffset(CGPoint(x: CGFloat(current) * view.frame.size.width, y: 0), animated: true)
-
-
     }
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
 }
 
 extension GreetingsScreenViewController: UIScrollViewDelegate {
@@ -76,5 +65,9 @@ extension GreetingsScreenViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         imageScrollPageController.currentPage = Int(imageScrollView.contentOffset.x / imageScrollView.frame.size.width)
+        if imageScrollPageController.currentPage == 2 {
+            skipButton.isEnabled = true
+        }
+
     }
 }
