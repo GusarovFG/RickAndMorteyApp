@@ -105,9 +105,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-ux-gqp">
-                                <rect key="frame" x="168" y="607" width="78" height="28"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-ux-gqp">
+                                <rect key="frame" x="128" y="607" width="159" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-4M-fE4">
                                 <rect key="frame" x="170" y="730" width="74" height="33"/>
@@ -126,10 +127,10 @@
                         <constraints>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="bottom" secondItem="wEc-ux-gqp" secondAttribute="bottom" constant="227" id="1eX-Zl-Ued"/>
                             <constraint firstItem="hFu-4M-fE4" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="170" id="4cw-I8-AIX"/>
-                            <constraint firstItem="wEc-ux-gqp" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="168" id="6AC-nS-36O"/>
+                            <constraint firstItem="wEc-ux-gqp" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="128" id="6AC-nS-36O"/>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="hFu-4M-fE4" secondAttribute="trailing" constant="170" id="6h9-uE-dGD"/>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="bottom" secondItem="hFu-4M-fE4" secondAttribute="bottom" constant="99" id="R41-Ui-mX5"/>
-                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="wEc-ux-gqp" secondAttribute="trailing" constant="168" id="du1-bg-JmB"/>
+                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="wEc-ux-gqp" secondAttribute="trailing" constant="127" id="du1-bg-JmB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B5Z-od-JaY"/>
@@ -152,6 +153,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
