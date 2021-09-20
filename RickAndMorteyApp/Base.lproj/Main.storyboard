@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eNs-7F-3n8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -13,7 +13,6 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -94,20 +93,18 @@
                         <outlet property="passwordTextField" destination="w75-q2-CrW" id="tva-gF-pgV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.43478260869566" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Greetings Screen View Controller-->
         <scene sceneID="mkX-o7-JNL">
             <objects>
-                <viewController id="eNs-7F-3n8" sceneMemberID="viewController">
+                <viewController id="eNs-7F-3n8" customClass="GreetingsScreenViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="srs-cQ-CNA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hcn-zq-tzM">
-                                <rect key="frame" x="16" y="291" width="382" height="285"/>
-                            </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-ux-gqp">
                                 <rect key="frame" x="168" y="607" width="78" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,6 +114,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Skip"/>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqK-bA-PVz">
+                                <rect key="frame" x="20" y="316" width="374" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="51R-dM-FtS"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="vlR-lz-IvE"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mtv-Sq-WgN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -125,19 +128,20 @@
                             <constraint firstItem="hFu-4M-fE4" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="170" id="4cw-I8-AIX"/>
                             <constraint firstItem="wEc-ux-gqp" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="168" id="6AC-nS-36O"/>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="hFu-4M-fE4" secondAttribute="trailing" constant="170" id="6h9-uE-dGD"/>
-                            <constraint firstItem="Hcn-zq-tzM" firstAttribute="top" secondItem="mtv-Sq-WgN" secondAttribute="top" constant="247" id="9R1-Xb-RPw"/>
-                            <constraint firstItem="wEc-ux-gqp" firstAttribute="top" secondItem="Hcn-zq-tzM" secondAttribute="bottom" constant="31" id="An5-3N-GeT"/>
-                            <constraint firstItem="Hcn-zq-tzM" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="16" id="HtQ-mA-LNY"/>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="bottom" secondItem="hFu-4M-fE4" secondAttribute="bottom" constant="99" id="R41-Ui-mX5"/>
                             <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="wEc-ux-gqp" secondAttribute="trailing" constant="168" id="du1-bg-JmB"/>
-                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="Hcn-zq-tzM" secondAttribute="trailing" constant="16" id="oye-8C-5xN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B5Z-od-JaY"/>
+                    <connections>
+                        <outlet property="imageScrollPageController" destination="wEc-ux-gqp" id="XSb-ZT-5AH"/>
+                        <outlet property="imageScrollView" destination="cqK-bA-PVz" id="z7U-ow-wbr"/>
+                        <outlet property="skipButton" destination="hFu-4M-fE4" id="Ghl-XW-qqK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TvP-mt-CDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875" y="80"/>
+            <point key="canvasLocation" x="-875.36231884057975" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
