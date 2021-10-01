@@ -10,31 +10,41 @@ import UIKit
 class GreetingsScreenViewController: UIViewController {
 
     let images = [UIImage(named: "rick"), UIImage(named: "asd"), UIImage(named: "mortey")]
+    let userDefaultsManager = UserDefaults.standard
+    
 
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var imageScrollPageController: UIPageControl!
     @IBOutlet weak var skipButton: UIButton!
 
-
-
-    
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
-        self.skipButton.isEnabled = false
 
-        self.imageScrollPageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
-        self.imageScrollPageController.currentPage = 0
-        self.imageScrollPageController.numberOfPages = images.count
+        imageScrollPageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
+        imageScrollPageController.currentPage = 0
+        imageScrollPageController.numberOfPages = images.count
 
-        self.imageScrollView.delegate = self
+        imageScrollView.delegate = self
         configurateScrollView(self.imageScrollView)
 
-        
+        skipButton.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        if userDefaultsManager.object(forKey: "Greeting") == nil {
+            let vc = self.storyboard?.instantiateViewController(identifier: "GreetingsScreenViewController") as! GreetingsScreenViewController
+            self.view.window?.rootViewController = vc
+        } else {
+            let vc = self.storyboard?.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
+            self.view.window?.rootViewController = vc
+        }
+    }
+
 
     private func configurateScrollView(_ scrollView: UIScrollView) {
 
@@ -58,6 +68,17 @@ class GreetingsScreenViewController: UIViewController {
         let current = sender.currentPage
         imageScrollView.setContentOffset(CGPoint(x: CGFloat(current) * view.frame.size.width, y: 0), animated: true)
     }
+
+    @IBAction func skipButtonPressed(_ sender: Any) {
+
+        userDefaultsManager.set(true, forKey: "Greeting")
+
+        let vc = self.storyboard?.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+
+        self.present(vc, animated: true)
+        }
 }
 
 extension GreetingsScreenViewController: UIScrollViewDelegate {

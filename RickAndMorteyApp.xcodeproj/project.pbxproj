@@ -15,6 +15,8 @@
 		FB0779D026E23C8F0060DDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */; };
 		FB0779D326E23C8F0060DDD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */; };
 		FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */; };
+		FB31142D27070E580041A0DB /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31142C27070E580041A0DB /* CharactersController.swift */; };
+		FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */; };
 		FB357D6C26F8F66F008AECD7 /* GreetingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		FB0779D226E23C8F0060DDD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB0779D426E23C8F0060DDD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FB31142C27070E580041A0DB /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
+		FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,15 +90,57 @@
 			children = (
 				FB0779C326E23C8D0060DDD8 /* AppDelegate.swift */,
 				FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */,
-				FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */,
-				FB0779C926E23C8D0060DDD8 /* Main.storyboard */,
-				FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */,
+				FB31143027070EDD0041A0DB /* CustomViews */,
+				FB31142B27070DBB0041A0DB /* Models */,
+				FB31142A27070DB10041A0DB /* Presenters */,
+				FB31142827070D830041A0DB /* Controllers */,
+				FB31142927070D9D0041A0DB /* Screens */,
 				FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */,
-				FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */,
 				FB0779D426E23C8F0060DDD8 /* Info.plist */,
 				FB0779CC26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld */,
 			);
 			path = RickAndMorteyApp;
+			sourceTree = "<group>";
+		};
+		FB31142827070D830041A0DB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */,
+				FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */,
+				FB31142C27070E580041A0DB /* CharactersController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FB31142927070D9D0041A0DB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */,
+				FB0779C926E23C8D0060DDD8 /* Main.storyboard */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FB31142A27070DB10041A0DB /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		FB31142B27070DBB0041A0DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB31143027070EDD0041A0DB /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */,
+				FB31142D27070E580041A0DB /* CharactersController.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */,
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
+				FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */,
 				FB357D6C26F8F66F008AECD7 /* GreetingsScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
