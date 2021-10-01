@@ -25,14 +25,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
 
+        let LoginsVC = self.storyboard.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
+        LoginsVC.modalPresentationStyle = .fullScreen
+        rootVC.present(LoginsVC, animated: true)
+        
         if userDefaultsManager.object(forKey: "Greeting") == nil {
-            let vc = self.storyboard.instantiateViewController(identifier: "GreetingsScreenViewController") as! GreetingsScreenViewController
-            vc.modalPresentationStyle = .fullScreen
-            rootVC.present(vc, animated: true)
-        } else {
-            let vc = self.storyboard.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
-            vc.modalPresentationStyle = .fullScreen
-            rootVC.present(vc, animated: true)
+            let greetingVC = self.storyboard.instantiateViewController(identifier: "GreetingsScreenViewController") as! GreetingsScreenViewController
+            greetingVC.modalTransitionStyle = .crossDissolve
+            greetingVC.modalPresentationStyle = .fullScreen
+            LoginsVC.present(greetingVC, animated: true)
         }
     }
 

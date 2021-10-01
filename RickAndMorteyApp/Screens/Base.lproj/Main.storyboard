@@ -33,6 +33,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonPressing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZ7-Ob-7eG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euz-Eu-uSH">
                                 <rect key="frame" x="16" y="682" width="382" height="24"/>
@@ -90,6 +93,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="euz-Eu-uSH" id="17Y-z7-Y7C"/>
+                        <outlet property="loginTextField" destination="eMf-gh-3Ly" id="Spq-jY-IaU"/>
                         <outlet property="passwordTextField" destination="w75-q2-CrW" id="tva-gF-pgV"/>
                     </connections>
                 </viewController>

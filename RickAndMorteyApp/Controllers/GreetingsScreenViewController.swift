@@ -25,6 +25,8 @@ class GreetingsScreenViewController: UIViewController {
         imageScrollPageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         imageScrollPageController.currentPage = 0
         imageScrollPageController.numberOfPages = images.count
+        imageScrollPageController.pageIndicatorTintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.2)
+        imageScrollPageController.currentPageIndicatorTintColor = .blue
 
         imageScrollView.delegate = self
         configurateScrollView(self.imageScrollView)
@@ -58,13 +60,8 @@ class GreetingsScreenViewController: UIViewController {
 
     @IBAction func skipButtonPressed(_ sender: Any) {
 
-        userDefaultsManager.set(true, forKey: "Greeting")
-
-        let vc = self.storyboard?.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
-
-        self.present(vc, animated: true)
+        
+        self.dismiss(animated: true)
         }
 }
 
