@@ -100,7 +100,7 @@
         <!--Characters-->
         <scene sceneID="jkg-yL-jsd">
             <objects>
-                <viewController id="LTl-ot-aqH" customClass="CharactersViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Characters" id="LTl-ot-aqH" customClass="CharactersViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GsT-27-TYS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +303,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hta-fk-Ohi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RzP-Et-FE4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navi" automaticallyAdjustsScrollViewInsets="NO" id="RzP-Et-FE4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qSI-hR-Kcw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

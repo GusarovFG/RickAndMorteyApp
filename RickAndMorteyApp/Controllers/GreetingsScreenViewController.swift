@@ -31,20 +31,7 @@ class GreetingsScreenViewController: UIViewController {
 
         skipButton.isEnabled = false
 
-        // Do any additional setup after loading the view.
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-
-        if userDefaultsManager.object(forKey: "Greeting") == nil {
-            let vc = self.storyboard?.instantiateViewController(identifier: "GreetingsScreenViewController") as! GreetingsScreenViewController
-            self.view.window?.rootViewController = vc
-        } else {
-            let vc = self.storyboard?.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
-            self.view.window?.rootViewController = vc
-        }
-    }
-
 
     private func configurateScrollView(_ scrollView: UIScrollView) {
 
