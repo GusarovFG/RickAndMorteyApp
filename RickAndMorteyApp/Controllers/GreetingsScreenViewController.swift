@@ -60,7 +60,7 @@ class GreetingsScreenViewController: UIViewController {
 
     @IBAction func skipButtonPressed(_ sender: Any) {
 
-        
+        userDefaultsManager.setValue(true, forKey: "Greeting")
         self.dismiss(animated: true)
         }
 }

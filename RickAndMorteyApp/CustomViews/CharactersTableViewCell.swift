@@ -9,15 +9,38 @@ import UIKit
 
 class CharactersTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: IBOutlets
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var characterImageView: UIImageView! {
+        didSet {
+            characterImageView.contentMode = .scaleAspectFit
+            characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    // MARK: - Public methods
+    func configure(with character: Character?) {
+        nameLabel.text = character?.name
+        if character?.status == "Alive" {
+            statusLabel.tintColor = .green
+        } else {
+            statusLabel.tintColor = .red
+        }
+        statusLabel.text = "• \(character?.status ?? "")"
+
+        guard let imageURL = URL(string: character?.image ?? "") else { return }
+        ImageManager.shared.fetchImage(from: imageURL) { data, response in
+            DispatchQueue.main.async {
+                self.characterImageView.image = UIImage(data: data)
+            }
+        }
+    }
+    @IBAction func favoriteButtonPressed(_ sender: Any) {
+        
     }
 
 }
