@@ -18,6 +18,8 @@
 		FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2973E72709F347004722D5 /* CharactersModel.swift */; };
 		FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2973E92709F581004722D5 /* NetworkManager.swift */; };
 		FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2973ED270A0D6F004722D5 /* MainCharactersTableViewController.swift */; };
+		FB2B01FD270C933D004E0087 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B01FC270C933D004E0087 /* CustomTabBarController.swift */; };
+		FB2B01FF270C9424004E0087 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B01FE270C9424004E0087 /* CustomTabBar.swift */; };
 		FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */; };
 		FB357D6C26F8F66F008AECD7 /* GreetingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		FB2973E72709F347004722D5 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		FB2973E92709F581004722D5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FB2973ED270A0D6F004722D5 /* MainCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCharactersTableViewController.swift; sourceTree = "<group>"; };
+		FB2B01FC270C933D004E0087 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		FB2B01FE270C9424004E0087 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +100,7 @@
 				FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */,
 				FB31143027070EDD0041A0DB /* CustomViews */,
 				FB31142B27070DBB0041A0DB /* Models */,
-				FB31142A27070DB10041A0DB /* Presenters */,
+				FB31142A27070DB10041A0DB /* Services */,
 				FB31142827070D830041A0DB /* Controllers */,
 				FB31142927070D9D0041A0DB /* Screens */,
 				FB0779CF26E23C8F0060DDD8 /* Assets.xcassets */,
@@ -125,12 +129,12 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		FB31142A27070DB10041A0DB /* Presenters */ = {
+		FB31142A27070DB10041A0DB /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FB2973E92709F581004722D5 /* NetworkManager.swift */,
 			);
-			path = Presenters;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FB31142B27070DBB0041A0DB /* Models */ = {
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
+				FB2B01FC270C933D004E0087 /* CustomTabBarController.swift */,
+				FB2B01FE270C9424004E0087 /* CustomTabBar.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */,
 				FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */,
+				FB2B01FD270C933D004E0087 /* CustomTabBarController.swift in Sources */,
+				FB2B01FF270C9424004E0087 /* CustomTabBar.swift in Sources */,
 				FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */,
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
 				FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */,
