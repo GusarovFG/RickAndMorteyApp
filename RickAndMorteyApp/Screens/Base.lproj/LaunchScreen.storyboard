@@ -23,10 +23,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6ue-PG-2Wz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="47S-Bw-mIN"/>
+                            <constraint firstItem="6ue-PG-2Wz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="358" id="6tG-g1-bcE"/>
                             <constraint firstItem="6ue-PG-2Wz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="358" id="L3f-3z-PE9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ue-PG-2Wz" secondAttribute="trailing" constant="63" id="Ula-Ue-8Yf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ue-PG-2Wz" secondAttribute="trailing" constant="63" id="gb5-7h-eQ9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6ue-PG-2Wz" secondAttribute="bottom" constant="348" id="jaI-ak-zg7"/>
                             <constraint firstItem="6ue-PG-2Wz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="rEA-LY-w3i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6ue-PG-2Wz" secondAttribute="bottom" constant="348" id="usB-E9-dQs"/>
                         </constraints>
                     </view>
                 </viewController>

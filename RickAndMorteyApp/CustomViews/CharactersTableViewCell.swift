@@ -20,16 +20,6 @@ class CharactersTableViewCell: UITableViewCell {
 
         }
     }
-    func image(_ url: String) -> UIImage {
-        guard let imageURL = URL(string: url ) else { return UIImage(systemName: "eye")! }
-        var image = UIImage()
-        ImageManager.shared.fetchImage(from: url) { data, response in
-            DispatchQueue.main.async {
-                image = UIImage(data: data) ?? UIImage(systemName: "eye")!
-            }
-        }
-        return image
-    }
 
     // MARK: - Public methods
     func configure(with character: Character?) {
@@ -41,7 +31,6 @@ class CharactersTableViewCell: UITableViewCell {
         }
         statusLabel.text = "• \(character?.status ?? "")"
 
-        guard let imageURL = URL(string: character?.image ?? "") else { return }
         ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
             DispatchQueue.main.async {
                 self.characterImageView.image = UIImage(data: data)

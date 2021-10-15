@@ -1,5 +1,5 @@
 //
-//  CustomHeaderView.swift
+//  CustomHeader.swift
 //  RickAndMorteyApp
 //
 //  Created by Фаддей Гусаров on 15.10.2021.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class CustomHeaderView: UITableViewHeaderFooterView {
+class CustomHeader: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var charImage: UIImageView!
+    @IBOutlet weak var charName: UILabel!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -17,4 +19,5 @@ class CustomHeaderView: UITableViewHeaderFooterView {
     }
     */
 
+    @IBOutlet weak var favoriteButtonPressed: UIButton!
 }

@@ -13,15 +13,18 @@ class DetailCharactersTableViewController: UITableViewController {
 
 //    weak var detailDelegate: DetailCharacterDelegate?
     var character: Character?
-    var characterImage: UIImage?
-    var episodes: [String] = []
-    var parsEpisodes: [Episode?] = []
+    private var characterImage: UIImage?
+    private var header: CustomHeader!
+    private var charImage: UIImage?
+
 
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getEpisodes()
+        getImage()
+        tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
+        tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
 
 //        character = detailDelegate?.fetchChar()
         // Uncomment the following line to preserve selection between presentations
@@ -53,7 +56,9 @@ class DetailCharactersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
         var content = cell.defaultContentConfiguration()
+
 
         if indexPath == [0,0] {
             content.text = "Status"
@@ -76,51 +81,43 @@ class DetailCharactersTableViewController: UITableViewController {
             cell.contentConfiguration = content
 
         } else if indexPath == [1,0] {
+
             content.text = character?.location.name
             cell.contentConfiguration = content
 
-        }   else {
-            NetworkManager.shared.fetchEpisode(from: character?.episode[indexPath.row] ?? "") { result in
-                switch result {
-                case .success(let episode):
-                    content.text = episode.name
-                    cell.contentConfiguration = content
-                case .failure(let error):
-                    print(error)
-                }
-            }
 
+        }   else if indexPath >= [2,0] {
+            content.text = character?.episode[indexPath.row]
+            print(indexPath)
+            content.secondaryText = character?.episode[indexPath.row]
+            cell.contentConfiguration = content
     }
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var titlee = ""
-        if section == 0 {
-            titlee = "NAME"
-        } else if section == 1{
-            titlee = "LOCATION"
+        var title = ""
+         if section == 1{
+            title = "LOCATION"
         } else if section == 2{
-            titlee = "EPISODES"
+            title = "EPISODES"
         }
-        return titlee
+        return title
     }
 
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard section == 0 else { return nil }
-//        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
-//        let headerView = UIView(frame: frame)
-//        let imageView = UIImageView()
-//        imageView.image = self.characterImage ?? UIImage(systemName: "eye")
-//        headerView.addSubview(imageView)
-//        headerView.backgroundColor = UIColor.darkGray
-//        return headerView
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        guard section == 0 else { return 30 }
-//        return 150
-//        }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView") as? CustomHeader
+        headerView?.charImage.image = self.charImage
+        headerView?.charName.text = self.character?.name
+        return headerView
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView")
+        guard section == 0 else { return 30 }
+        return headerView?.frame.height ?? 100
+        }
 
 
     /*
@@ -167,17 +164,16 @@ class DetailCharactersTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    private func getEpisodes(){
-        for i in 0..<((character?.episode.count)!) {
-            NetworkManager.shared.fetchEpi(from: character?.episode[i]) { episode in
-                DispatchQueue.main.async {
-                    self.parsEpisodes.append(episode)
-                    print(self.parsEpisodes)
-                }
+    func getImage(){
+        ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
+            DispatchQueue.main.async {
+                self.charImage = UIImage(data: data)
+                self.tableView.reloadData()
             }
         }
     }
 }
+
 
 
 
