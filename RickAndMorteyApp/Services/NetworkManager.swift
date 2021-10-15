@@ -38,6 +38,30 @@ class NetworkManager {
         }.resume()
     }
 
+    func fetchEpi(from url: String?, with complition: @escaping (Episode) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            guard let data = data else { return }
+
+            do {
+                let episode = try JSONDecoder().decode(Episode.self, from: data)
+                DispatchQueue.main.async {
+                    complition(episode)
+                }
+            } catch let error {
+                print(error)
+            }
+
+        }.resume()
+    }
+
     func fetchEpisode(from url: String, completion: @escaping(Result<Episode, Error>) -> Void) {
         guard let url = URL(string: url) else { return }
 
@@ -85,14 +109,15 @@ class ImageManager {
 
     private init() {}
 
-    func fetchImage(from url: URL, complition: @escaping (Data, URLResponse) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
+    func fetchImage(from url: String, complition: @escaping (Data, URLResponse) -> ()) {
+        guard let imageURL = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: imageURL) { data, response, error in
             guard let data = data, let response = response else {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
 
-            guard url == response.url else { return }
+            guard imageURL == response.url else { return }
 
             complition(data, response)
 

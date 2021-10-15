@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -97,7 +98,6 @@
         <!--Root View Controller-->
         <scene sceneID="WdW-PO-knp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yyI-w8-jGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="Characters" id="01e-cN-ua3" customClass="MainCharactersTableViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qv8-ka-oOV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -105,7 +105,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CharacterCell" rowHeight="60" id="qtH-w9-9it" customClass="CharactersTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qtH-w9-9it" id="oUM-2s-Mba">
                                     <rect key="frame" x="0.0" y="0.0" width="384.5" height="60"/>
@@ -165,6 +165,7 @@
                                     <outlet property="favoriteButton" destination="aEd-3G-jCi" id="j8F-ki-FVy"/>
                                     <outlet property="nameLabel" destination="gXc-FV-3f8" id="Psb-Ig-uwt"/>
                                     <outlet property="statusLabel" destination="arh-7e-p1c" id="EXK-v8-o7f"/>
+                                    <segue destination="2IQ-1r-wTS" kind="show" identifier="detailSegue" id="Je9-Yv-sh2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -177,13 +178,42 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="35a-az-kV3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyI-w8-jGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2546" y="-573"/>
+        </scene>
+        <!--Detail Characters Table View Controller-->
+        <scene sceneID="Twd-9x-FwN">
+            <objects>
+                <tableViewController storyboardIdentifier="Detail" id="2IQ-1r-wTS" customClass="DetailCharactersTableViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="5tw-AJ-0S8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LJa-NI-hgB">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LJa-NI-hgB" id="xdK-gC-ElJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2IQ-1r-wTS" id="oXQ-xj-77L"/>
+                            <outlet property="delegate" destination="2IQ-1r-wTS" id="I8B-zE-hXT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0T8-b5-AdV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ru-eC-3IS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="88"/>
         </scene>
         <!--Item-->
         <scene sceneID="OvK-f3-BJ0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Enn-pv-sJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="charactersNavi" modalPresentationStyle="fullScreen" id="guf-aP-gna" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JeZ-d2-g0O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jkz-pE-IP5">
@@ -197,6 +227,7 @@
                         <segue destination="01e-cN-ua3" kind="relationship" relationship="rootViewController" id="05m-ok-TvW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Enn-pv-sJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1684" y="-573"/>
         </scene>
@@ -209,7 +240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-ux-gqp">
-                                <rect key="frame" x="128" y="607" width="159" height="28"/>
+                                <rect key="frame" x="128" y="609" width="159" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor"/>
                             </pageControl>
@@ -261,6 +292,7 @@
                 <tabBarController storyboardIdentifier="navi" automaticallyAdjustsScrollViewInsets="NO" id="V1X-n1-WGU" customClass="CustomTabBarController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Lo-ON-nrs" customClass="CustomTabBar" customModule="RickAndMorteyApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

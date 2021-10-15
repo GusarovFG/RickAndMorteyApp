@@ -30,7 +30,7 @@ struct Character: Decodable {
     let image: String
     let episode: [String]
     let url: String
-
+    let created: String
 }
 
 struct Location: Decodable {

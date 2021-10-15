@@ -22,6 +22,9 @@
 		FB2B01FF270C9424004E0087 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B01FE270C9424004E0087 /* CustomTabBar.swift */; };
 		FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */; };
 		FB357D6C26F8F66F008AECD7 /* GreetingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */; };
+		FB60C84527197DD4005DFA8F /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84427197DD4005DFA8F /* CustomHeaderView.swift */; };
+		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
+		FB61F300271899EE00D07848 /* DetailCharacterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2FF271899EE00D07848 /* DetailCharacterDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		FB2B01FE270C9424004E0087 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsScreenViewController.swift; sourceTree = "<group>"; };
+		FB60C84427197DD4005DFA8F /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
+		FB61F2FF271899EE00D07848 /* DetailCharacterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 			children = (
 				FB0779C326E23C8D0060DDD8 /* AppDelegate.swift */,
 				FB0779C526E23C8D0060DDD8 /* SceneDelegate.swift */,
+				FB61F2FE271899CD00D07848 /* Delegates */,
 				FB31143027070EDD0041A0DB /* CustomViews */,
 				FB31142B27070DBB0041A0DB /* Models */,
 				FB31142A27070DB10041A0DB /* Services */,
@@ -115,6 +122,7 @@
 			children = (
 				FB357D6B26F8F66F008AECD7 /* GreetingsScreenViewController.swift */,
 				FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */,
+				FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */,
 				FB2973ED270A0D6F004722D5 /* MainCharactersTableViewController.swift */,
 			);
 			path = Controllers;
@@ -150,9 +158,18 @@
 			children = (
 				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
 				FB2B01FC270C933D004E0087 /* CustomTabBarController.swift */,
+				FB60C84427197DD4005DFA8F /* CustomHeaderView.swift */,
 				FB2B01FE270C9424004E0087 /* CustomTabBar.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FB61F2FE271899CD00D07848 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FB61F2FF271899EE00D07848 /* DetailCharacterDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,14 +270,17 @@
 			files = (
 				FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */,
 				FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */,
+				FB61F300271899EE00D07848 /* DetailCharacterDelegate.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */,
 				FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */,
 				FB2B01FD270C933D004E0087 /* CustomTabBarController.swift in Sources */,
 				FB2B01FF270C9424004E0087 /* CustomTabBar.swift in Sources */,
+				FB60C84527197DD4005DFA8F /* CustomHeaderView.swift in Sources */,
 				FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */,
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
 				FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */,
+				FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */,
 				FB357D6C26F8F66F008AECD7 /* GreetingsScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

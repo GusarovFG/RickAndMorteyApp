@@ -23,16 +23,12 @@ class CustomTabBarController: UITabBarController {
         let charactersVC = self.storyboard!.instantiateViewController(identifier: "charactersNavi") as! UINavigationController
         charactersVC.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(named: "Character"), selectedImage: nil)
 
-        let tab2 = UIViewController()
-        tab2.tabBarItem.isEnabled = false
-
         let tab3 = UIViewController()
         tab3.view.backgroundColor = .yellow
         tab3.tabBarItem = UITabBarItem(title: "Second", image: nil, selectedImage: nil)
 
         let viewControllers = [
             charactersVC,
-            tab2,
             tab3
         ]
 
