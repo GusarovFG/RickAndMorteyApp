@@ -238,66 +238,80 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-573"/>
         </scene>
-        <!--Greetings Screen View Controller-->
-        <scene sceneID="mkX-o7-JNL">
+        <!--Page View Controller-->
+        <scene sceneID="xp5-nU-krO">
             <objects>
-                <viewController storyboardIdentifier="GreetingsScreenViewController" id="eNs-7F-3n8" customClass="GreetingsScreenViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="srs-cQ-CNA">
+                <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Aue-N2-MVY" customClass="PageViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP2-an-idF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1757" y="88"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="557-Oa-0Fz">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="pKz-sR-36a" customClass="WelcomeViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="azZ-a2-FMp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dei-iM-FSY">
-                                <rect key="frame" x="25" y="316" width="364" height="264"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-zm-wIG">
+                                <rect key="frame" x="36" y="251" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-0m-jWz">
+                                <rect key="frame" x="35" y="325" width="344" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqK-bA-PVz">
-                                <rect key="frame" x="25" y="317" width="365" height="263"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="51R-dM-FtS"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="vlR-lz-IvE"/>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-4M-fE4">
-                                <rect key="frame" x="160" y="735" width="94" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-uI-048">
+                                <rect key="frame" x="151" y="764" width="112" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <action selector="skipButtonPressed:" destination="eNs-7F-3n8" eventType="touchUpInside" id="TN4-sY-dtY"/>
+                                    <action selector="skipButtonPressed:" destination="pKz-sR-36a" eventType="touchUpInside" id="Btr-if-Rnw"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-ux-gqp">
-                                <rect key="frame" x="96" y="650" width="222" height="26"/>
-                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6bi-Dy-Lyi">
+                                <rect key="frame" x="35" y="633" width="343" height="26"/>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.69803921570000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemBlueColor"/>
                             </pageControl>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="mtv-Sq-WgN"/>
+                        <viewLayoutGuide key="safeArea" id="eze-Cm-yxj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hFu-4M-fE4" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="160" id="4E4-Wj-ciq"/>
-                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="wEc-ux-gqp" secondAttribute="trailing" constant="96" id="BNx-K4-9iC"/>
-                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="bottom" secondItem="hFu-4M-fE4" secondAttribute="bottom" constant="94" id="cdk-Tp-iq3"/>
-                            <constraint firstItem="mtv-Sq-WgN" firstAttribute="trailing" secondItem="hFu-4M-fE4" secondAttribute="trailing" constant="160" id="lYY-XB-2lA"/>
-                            <constraint firstItem="wEc-ux-gqp" firstAttribute="leading" secondItem="mtv-Sq-WgN" secondAttribute="leading" constant="96" id="nxB-en-rTz"/>
-                            <constraint firstItem="hFu-4M-fE4" firstAttribute="top" secondItem="wEc-ux-gqp" secondAttribute="bottom" constant="59" id="pQ8-6H-1a0"/>
+                            <constraint firstItem="E8Y-uI-048" firstAttribute="leading" secondItem="eze-Cm-yxj" secondAttribute="leading" constant="151" id="1xz-np-7Fa"/>
+                            <constraint firstItem="I5v-zm-wIG" firstAttribute="top" secondItem="eze-Cm-yxj" secondAttribute="top" constant="207" id="2nO-hX-J15"/>
+                            <constraint firstItem="eze-Cm-yxj" firstAttribute="trailing" secondItem="Dgn-0m-jWz" secondAttribute="trailing" constant="35" id="7hx-96-7h4"/>
+                            <constraint firstItem="Dgn-0m-jWz" firstAttribute="centerY" secondItem="azZ-a2-FMp" secondAttribute="centerY" constant="27" id="9vw-l8-Ues"/>
+                            <constraint firstItem="eze-Cm-yxj" firstAttribute="trailing" secondItem="6bi-Dy-Lyi" secondAttribute="trailing" constant="36" id="Dfc-X7-ycx"/>
+                            <constraint firstItem="6bi-Dy-Lyi" firstAttribute="leading" secondItem="eze-Cm-yxj" secondAttribute="leading" constant="35" id="GUN-Xy-ZEw"/>
+                            <constraint firstItem="6bi-Dy-Lyi" firstAttribute="top" secondItem="Dgn-0m-jWz" secondAttribute="bottom" constant="8" id="Jpt-y4-uvp"/>
+                            <constraint firstItem="Dgn-0m-jWz" firstAttribute="centerX" secondItem="azZ-a2-FMp" secondAttribute="centerX" id="QHg-IF-Faf"/>
+                            <constraint firstItem="Dgn-0m-jWz" firstAttribute="top" secondItem="I5v-zm-wIG" secondAttribute="bottom" constant="44" id="Zbp-jb-P0o"/>
+                            <constraint firstItem="eze-Cm-yxj" firstAttribute="trailing" secondItem="I5v-zm-wIG" secondAttribute="trailing" constant="35" id="dmV-4t-pRo"/>
+                            <constraint firstItem="eze-Cm-yxj" firstAttribute="bottom" secondItem="E8Y-uI-048" secondAttribute="bottom" constant="68" id="hXz-dr-cxC"/>
+                            <constraint firstItem="I5v-zm-wIG" firstAttribute="leading" secondItem="eze-Cm-yxj" secondAttribute="leading" constant="36" id="jtx-Dk-V6Z"/>
+                            <constraint firstItem="eze-Cm-yxj" firstAttribute="trailing" secondItem="E8Y-uI-048" secondAttribute="trailing" constant="151" id="mYO-Mz-gZA"/>
+                            <constraint firstItem="Dgn-0m-jWz" firstAttribute="leading" secondItem="eze-Cm-yxj" secondAttribute="leading" constant="35" id="qAu-tv-w50"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="B5Z-od-JaY"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                            <integer key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="imageScrollPageController" destination="wEc-ux-gqp" id="XSb-ZT-5AH"/>
-                        <outlet property="imageScrollView" destination="cqK-bA-PVz" id="z7U-ow-wbr"/>
-                        <outlet property="skipButton" destination="hFu-4M-fE4" id="Ghl-XW-qqK"/>
+                        <outlet property="currentPageControl" destination="6bi-Dy-Lyi" id="pwB-mf-iLe"/>
+                        <outlet property="descriptionTextView" destination="Dgn-0m-jWz" id="xtD-o6-f4m"/>
+                        <outlet property="headerLabel" destination="I5v-zm-wIG" id="byu-C3-CIo"/>
+                        <outlet property="skipButton" destination="E8Y-uI-048" id="8ev-fR-CuY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TvP-mt-CDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKB-mH-xvl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875.36231884057975" y="79.6875"/>
+            <point key="canvasLocation" x="-1014" y="88"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="13K-9f-DtB">
@@ -324,11 +338,14 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

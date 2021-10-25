@@ -30,10 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootVC.present(LoginsVC, animated: true)
         
         if userDefaultsManager.object(forKey: "Greeting") == nil {
-            let greetingVC = self.storyboard.instantiateViewController(identifier: "GreetingsScreenViewController") as! GreetingsScreenViewController
+            let greetingVC = self.storyboard.instantiateViewController(identifier: "pageViewController") as! PageViewController
             greetingVC.modalTransitionStyle = .crossDissolve
             greetingVC.modalPresentationStyle = .fullScreen
-            LoginsVC.present(greetingVC, animated: true)
+            LoginsVC.present(greetingVC, animated: false)
         }
     }
 

@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var showPassIcon = true
+    private var showPassIcon = true
 
 
     @IBOutlet weak var loginTextField: UITextField!
