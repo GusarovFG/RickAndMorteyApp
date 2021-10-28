@@ -41,7 +41,7 @@
                                     <action selector="loginButtonPressing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZ7-Ob-7eG"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-gh-3Ly">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-gh-3Ly">
                                 <rect key="frame" x="20" y="431" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -61,7 +61,6 @@
                             <constraint firstItem="eMf-gh-3Ly" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0gG-2C-UIt"/>
                             <constraint firstItem="6oC-CC-20d" firstAttribute="top" relation="lessThanOrEqual" secondItem="eMf-gh-3Ly" secondAttribute="bottom" constant="300" id="1nn-De-1XV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6oC-CC-20d" secondAttribute="trailing" constant="20" id="3vk-yG-nDS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eMf-gh-3Ly" secondAttribute="trailing" constant="20" id="6y2-lm-h9x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="euz-Eu-uSH" secondAttribute="trailing" constant="185" id="9bL-3l-aw9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w75-q2-CrW" secondAttribute="trailing" constant="20" id="EL6-Ah-lby"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="1Z8-Ol-nco" secondAttribute="bottom" constant="621" id="ILi-95-z9O"/>
@@ -69,7 +68,6 @@
                             <constraint firstItem="eMf-gh-3Ly" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nyu-lR-Ajz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6oC-CC-20d" secondAttribute="bottom" constant="47" id="OO2-gS-Cgd"/>
                             <constraint firstItem="1Z8-Ol-nco" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="Q5c-7G-Dh8"/>
-                            <constraint firstItem="eMf-gh-3Ly" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QcC-fD-e8e"/>
                             <constraint firstItem="w75-q2-CrW" firstAttribute="top" secondItem="eMf-gh-3Ly" secondAttribute="bottom" constant="8" symbolic="YES" id="Yi2-pv-TCZ"/>
                             <constraint firstItem="w75-q2-CrW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bfz-b9-pS8"/>
                             <constraint firstItem="6oC-CC-20d" firstAttribute="top" secondItem="euz-Eu-uSH" secondAttribute="bottom" constant="18" id="dQs-0l-Rqh"/>
@@ -330,6 +328,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdR-Pg-cfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="737.68115942028987" y="79.6875"/>
+        </scene>
+        <!--Statistic View Controller-->
+        <scene sceneID="SHB-SI-Lnf">
+            <objects>
+                <viewController storyboardIdentifier="statistic" id="9lV-Id-fpf" customClass="StatisticViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lof-ir-pc3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VZi-sJ-6A1">
+                                <rect key="frame" x="141.5" y="93" width="131" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hry-tm-KVy">
+                                <rect key="frame" x="133" y="298" width="148" height="290"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fo-OI-G1A">
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="75"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-wZ-Cuf">
+                                        <rect key="frame" x="0.0" y="100" width="148" height="90"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFh-wu-w15">
+                                        <rect key="frame" x="0.0" y="200" width="148" height="90"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="75"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IW-2Z-93B">
+                                <rect key="frame" x="145" y="636" width="125" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset Time">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetTapped:" destination="9lV-Id-fpf" eventType="touchUpInside" id="uaR-it-Ffa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cFU-6Y-FAJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VZi-sJ-6A1" firstAttribute="top" secondItem="cFU-6Y-FAJ" secondAttribute="top" constant="49" id="0bn-Hy-Xux"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="bottom" secondItem="Hry-tm-KVy" secondAttribute="bottom" constant="274" id="2sc-2L-E9v"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VZi-sJ-6A1" secondAttribute="trailing" id="3xj-Dq-5Mb"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="trailing" secondItem="Hry-tm-KVy" secondAttribute="trailing" constant="133" id="9DK-M1-9b6"/>
+                            <constraint firstItem="Hry-tm-KVy" firstAttribute="leading" secondItem="cFU-6Y-FAJ" secondAttribute="leading" constant="133" id="9bv-FQ-8we"/>
+                            <constraint firstItem="5IW-2Z-93B" firstAttribute="leading" secondItem="cFU-6Y-FAJ" secondAttribute="leading" constant="145" id="aH7-70-XHK"/>
+                            <constraint firstItem="VZi-sJ-6A1" firstAttribute="centerX" secondItem="Lof-ir-pc3" secondAttribute="centerX" id="iMJ-OS-sTf"/>
+                            <constraint firstItem="5IW-2Z-93B" firstAttribute="top" secondItem="Hry-tm-KVy" secondAttribute="bottom" constant="48" id="p8l-Bd-coh"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="trailing" secondItem="5IW-2Z-93B" secondAttribute="trailing" constant="144" id="qGp-7a-nS2"/>
+                            <constraint firstItem="VZi-sJ-6A1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cFU-6Y-FAJ" secondAttribute="leading" id="uEv-bc-1pa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hourHabel" destination="9fo-OI-G1A" id="c4H-eO-2cN"/>
+                        <outlet property="minuteLabel" destination="mDL-wZ-Cuf" id="FMZ-qA-GLg"/>
+                        <outlet property="secondLabel" destination="pFh-wu-w15" id="Aar-pj-00H"/>
+                        <outlet property="timerStackView" destination="Hry-tm-KVy" id="Of4-IQ-227"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzn-6s-8IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.68115942028987" y="758.70535714285711"/>
         </scene>
     </scenes>
     <resources>

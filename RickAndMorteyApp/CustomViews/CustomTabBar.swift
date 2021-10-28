@@ -19,7 +19,7 @@ final class CustomTabBar: UITabBar {
         button.layer.cornerRadius = button.frame.width / 2
         button.layer.masksToBounds = true
         button.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(UIImage(named: "Heart"), for: .normal)
         button.contentMode = .center
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -35,6 +35,7 @@ final class CustomTabBar: UITabBar {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.unselectedItemTintColor = .white
 
         applyAppearance()
     }
@@ -58,10 +59,9 @@ final class CustomTabBar: UITabBar {
 
     private func applyAppearance() {
 
-        barTintColor = .clear
-        shadowImage = UIImage()
-        backgroundImage = UIImage()
-        tintColor = .white
+        self.barTintColor = .yellow
+        self.tintColor = .white
+        
     }
 }
 
