@@ -31,6 +31,7 @@
 		FB60C8522719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */; };
 		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
 		FBCE9D00272B159300C91E7C /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE9CFF272B159300C91E7C /* StatisticViewController.swift */; };
+		FBCE9D02272B3BCA00C91E7C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLocationAndEpisodeCell.xib; sourceTree = "<group>"; };
 		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
 		FBCE9CFF272B159300C91E7C /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2973E92709F581004722D5 /* NetworkManager.swift */,
+				FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				FB31786227272F43000D25D5 /* WelcomeViewController.swift in Sources */,
 				FB317867272747DF000D25D5 /* AttributeStringExtension.swift in Sources */,
 				FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */,
+				FBCE9D02272B3BCA00C91E7C /* CoreDataManager.swift in Sources */,
 				FB60C84E2719BB28005DFA8F /* CustomHeader.swift in Sources */,
 				FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
