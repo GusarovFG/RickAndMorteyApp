@@ -13,9 +13,9 @@ class MainCharactersTableViewController: UITableViewController{
 
     private var rickAndMorty: RickAndMorty?
     private var characters: [Character] = []
+    private var filteredChracter: [Character] = []
     private var beginFetch = false
     private let searchController = UISearchController(searchResultsController: nil)
-    private var filteredChracter: [Character] = []
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -97,7 +97,7 @@ class MainCharactersTableViewController: UITableViewController{
 
 
     private func fetchData(_ url: String?) {
-        NetworkManager.shared.fetchData(from: url) {  ricksAndMortys in
+        NetworkManager.shared.fetchCharacters(from: url) {  ricksAndMortys in
             DispatchQueue.main.async {
                 self.rickAndMorty = ricksAndMortys
                 self.characters = ricksAndMortys.results
@@ -107,9 +107,9 @@ class MainCharactersTableViewController: UITableViewController{
     }
 
     private func fetchNextCharacters() {
-                beginFetch = true
+        beginFetch = true
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
-            NetworkManager.shared.fetchData(from: self.rickAndMorty?.info.next) { ricksAndMorteys in
+            NetworkManager.shared.fetchCharacters(from: self.rickAndMorty?.info.next) { ricksAndMorteys in
                 self.rickAndMorty = ricksAndMorteys
                 self.characters.append(contentsOf: ricksAndMorteys.results.compactMap{$0})
                 self.tableView.reloadData()

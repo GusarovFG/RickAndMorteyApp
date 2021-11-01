@@ -425,25 +425,26 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fo-OI-G1A">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="90"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="75"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.69803921568627447" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-wZ-Cuf">
                                                 <rect key="frame" x="0.0" y="100" width="124.5" height="90"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFh-wu-w15">
                                                 <rect key="frame" x="0.0" y="200" width="124.5" height="90"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="75"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IW-2Z-93B">
                                         <rect key="frame" x="0.0" y="334" width="124.5" height="38"/>
+                                        <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Reset Time">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
@@ -473,16 +474,16 @@
             </objects>
             <point key="canvasLocation" x="737.68115942028987" y="758.70535714285711"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Episodes Table View Controller-->
         <scene sceneID="4ty-P0-IqV">
             <objects>
-                <tableViewController id="rPz-2o-4FD" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="episodesVC" id="rPz-2o-4FD" customClass="EpisodesTableViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="rMt-p3-xCh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vHx-yn-4O2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episodeCell" id="vHx-yn-4O2">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vHx-yn-4O2" id="xvF-IS-eer">
@@ -496,10 +497,29 @@
                             <outlet property="delegate" destination="rPz-2o-4FD" id="gRt-Wg-ph7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Z1O-m6-oyU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXe-nm-1WH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683" y="759"/>
+            <point key="canvasLocation" x="2545" y="759"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fdh-Qb-f5g">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="29V-yH-LVM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hwS-JC-vOG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rPz-2o-4FD" kind="relationship" relationship="rootViewController" id="h9i-hg-xch"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aTq-y6-MHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682.608695652174" y="758.70535714285711"/>
         </scene>
     </scenes>
     <resources>

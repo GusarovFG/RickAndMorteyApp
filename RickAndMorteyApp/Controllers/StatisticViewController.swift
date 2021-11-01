@@ -16,7 +16,6 @@ class StatisticViewController: UIViewController {
 
 
     var timer:Timer = Timer()
-//    var counts = TimerCount()
     var count: Int16 = 0
     var timerCounting: Bool = false
 
@@ -35,11 +34,11 @@ class StatisticViewController: UIViewController {
     }
 
     @IBAction func resetTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Reset Timer?", message: "Are you sure you would like to reset the Timer?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (_) in
+        let alert = UIAlertController(title: "Reset time", message: "Do you want to reset time?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (_) in
         }))
 
-        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
             self.timer.invalidate()
             self.count = 0
             let timeString = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
@@ -73,7 +72,6 @@ class StatisticViewController: UIViewController {
         secondLabel.text = timeString.2
         hourHabel.text = timeString.0
         minuteLabel.text = timeString.1
-//        counts.timerCount = count
     }
 
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {

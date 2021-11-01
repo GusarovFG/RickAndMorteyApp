@@ -32,7 +32,7 @@ class CustomTabBarController: UITabBarController {
         let statisticVC = self.storyboard!.instantiateViewController(identifier: "statistic") as! StatisticViewController
         statisticVC.tabBarItem = UITabBarItem(title: "Statistic", image: UIImage(named: "Statistic"), selectedImage: nil)
 
-        let episidesVC = UIViewController()
+        let episidesVC = self.storyboard?.instantiateViewController(withIdentifier: "episodesVC") as! EpisodesTableViewController
         episidesVC.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "Episodes"), selectedImage: nil)
 
         let viewControllers = [charactersVC, locationVC, favoritesVC, statisticVC, episidesVC]

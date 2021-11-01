@@ -10,7 +10,11 @@ import Foundation
 struct RickAndMorty: Decodable {
     let info: Info
     let results: [Character]
+}
 
+struct Episodes: Decodable {
+    let info: Info
+    let results: [Episode]
 }
 
 struct Info: Decodable {
@@ -42,9 +46,8 @@ struct Episode: Decodable {
     let name: String
     let date: String
     let episode: String
-    let characters: [Character]
-
-
+    let characters: [String]
+ 
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case date = "air_date"
@@ -52,5 +55,4 @@ struct Episode: Decodable {
         case characters = "characters"
     }
 }
-
 

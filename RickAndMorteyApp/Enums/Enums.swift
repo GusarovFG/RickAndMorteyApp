@@ -9,6 +9,7 @@ import Foundation
 
 enum URLS: String {
     case rickAndMortyapi = "https://rickandmortyapi.com/api/character"
+    case episodes = "https://rickandmortyapi.com/api/episode"
 }
 
 enum textsForHyperLinks: String {
