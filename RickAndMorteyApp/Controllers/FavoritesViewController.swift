@@ -12,8 +12,6 @@ class FavoritesViewController: UIViewController {
 
     var characters: [FavoritesCharacter] = []
     var image: UIImage?
-//    var locations: [String] = ["sadfgasdf", "aswdfgeh"]
-//    var episodes: [String] = ["s222adfgasdf", "as222wdfgeh"]
 
 
     @IBOutlet weak var tableView: UITableView!

@@ -10,9 +10,11 @@ import UIKit
 class DetailCharactersTableViewController: UITableViewController {
 
     var character: Character?
+    var episode: Episode?
     private var characterImage: UIImage?
     private var header: CustomHeader!
     private var charImage: UIImage?
+
 
     
 
@@ -24,20 +26,11 @@ class DetailCharactersTableViewController: UITableViewController {
         getImage()
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
-
-
-//        character = detailDelegate?.fetchChar()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
 
@@ -91,7 +84,7 @@ class DetailCharactersTableViewController: UITableViewController {
             print(indexPath)
             content.secondaryText = character?.episode[indexPath.row]
             cell.contentConfiguration = content
-    }
+        }
         return cell
     }
 

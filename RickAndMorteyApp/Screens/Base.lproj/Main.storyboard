@@ -490,6 +490,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2IQ-1r-wTS" kind="show" identifier="episodeDetail" id="KBf-oe-pRO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -522,6 +525,9 @@
             <point key="canvasLocation" x="1682.608695652174" y="758.70535714285711"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KBf-oe-pRO"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="image 1" width="284" height="120"/>

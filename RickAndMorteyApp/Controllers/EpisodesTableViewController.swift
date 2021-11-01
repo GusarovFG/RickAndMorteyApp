@@ -36,6 +36,8 @@ class EpisodesTableViewController: UITableViewController {
         return cell
     }
 
+    
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -72,15 +74,17 @@ class EpisodesTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "episodeDetail" {
+            guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+            let detailVC = segue.destination as? DetailCharactersTableViewController
+            detailVC?.episode = epis[indexPath.row]
+        }
     }
-    */
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
