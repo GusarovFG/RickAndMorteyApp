@@ -33,8 +33,9 @@ struct Character: Decodable {
     let created: String
 }
 
-struct Location: Decodable {
-    let name: String
+class Location: NSObject, Decodable {
+    let name: String?
+    
 }
 
 struct Episode: Decodable {

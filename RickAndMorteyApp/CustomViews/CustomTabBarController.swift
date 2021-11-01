@@ -16,6 +16,7 @@ class CustomTabBarController: UITabBarController {
 
         addTabs()
         addGestureRecognized()
+
     }
 
     private func addTabs() {
@@ -24,18 +25,17 @@ class CustomTabBarController: UITabBarController {
         charactersVC.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(named: "Character"), selectedImage: nil)
 
         let locationVC = UIViewController()
-        locationVC.view.backgroundColor = .yellow
         locationVC.tabBarItem = UITabBarItem(title: "Location", image: UIImage(named: "Location"), selectedImage: nil)
+
+        let favoritesVC = self.storyboard?.instantiateViewController(withIdentifier: "favorits") as! UINavigationController
 
         let statisticVC = self.storyboard!.instantiateViewController(identifier: "statistic") as! StatisticViewController
         statisticVC.tabBarItem = UITabBarItem(title: "Statistic", image: UIImage(named: "Statistic"), selectedImage: nil)
-        statisticVC.tabBarItem.badgeColor = .yellow
 
         let episidesVC = UIViewController()
-        episidesVC.view.backgroundColor = .yellow
         episidesVC.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "Episodes"), selectedImage: nil)
 
-        let viewControllers = [charactersVC, locationVC, statisticVC, episidesVC]
+        let viewControllers = [charactersVC, locationVC, favoritesVC, statisticVC, episidesVC]
 
 
         self.setViewControllers(viewControllers, animated: false)
@@ -49,9 +49,9 @@ class CustomTabBarController: UITabBarController {
 
     @objc func middleButtonDidTap(sender: UIButton) {
         sender.tintColor = .yellow
-        let LoginsVC = self.storyboard!.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
-        LoginsVC.modalPresentationStyle = .fullScreen
-        self.present(LoginsVC, animated: true)
+        self.selectedIndex = 2
+        let favoriteVC = self.storyboard?.instantiateViewController(withIdentifier: "favoriteVC") as! FavoritesViewController
+        favoriteVC.tableView?.reloadData()
     }
 
 }

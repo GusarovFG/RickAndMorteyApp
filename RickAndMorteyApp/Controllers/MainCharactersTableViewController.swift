@@ -57,7 +57,7 @@ class MainCharactersTableViewController: UITableViewController{
         let offSetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
-        if offSetY > contentHeight - scrollView.frame.height {
+        if offSetY > contentHeight - scrollView.frame.height, !isFiltering {
             if !beginFetch {
                 fetchNextCharacters()
             }

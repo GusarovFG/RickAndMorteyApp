@@ -12,23 +12,25 @@ class StatisticViewController: UIViewController {
     @IBOutlet weak var hourHabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var timerStackView: UIStackView!
+    @IBOutlet weak var timerStackView: UIStackView?
 
 
     var timer:Timer = Timer()
-    static var count:Int = 0
+//    var counts = TimerCount()
+    var count: Int16 = 0
     var timerCounting: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         startStopTimer()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
-            timerStackView.axis = .horizontal
+            timerStackView?.axis = .horizontal
         } else {
-            timerStackView.axis = .vertical
+            timerStackView?.axis = .vertical
         }
     }
 
@@ -39,7 +41,7 @@ class StatisticViewController: UIViewController {
 
         alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (_) in
             self.timer.invalidate()
-            StatisticViewController.count = 0
+            self.count = 0
             let timeString = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             self.secondLabel.text = timeString.2
             self.hourHabel.text = timeString.0
@@ -59,17 +61,19 @@ class StatisticViewController: UIViewController {
         } else {
             timerCounting = true
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+
         }
     }
 
     @objc func timerCounter() {
 
-        StatisticViewController.count = StatisticViewController.count + 1
-        let time = secondsToHoursMinutesSeconds(seconds: StatisticViewController.count)
+        self.count += 1
+        let time = secondsToHoursMinutesSeconds(seconds: Int(self.count))
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         secondLabel.text = timeString.2
         hourHabel.text = timeString.0
         minuteLabel.text = timeString.1
+//        counts.timerCount = count
     }
 
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {

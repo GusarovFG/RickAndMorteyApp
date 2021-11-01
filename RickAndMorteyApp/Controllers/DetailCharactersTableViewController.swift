@@ -9,13 +9,12 @@ import UIKit
 
 class DetailCharactersTableViewController: UITableViewController {
 
-
-
-//    weak var detailDelegate: DetailCharacterDelegate?
     var character: Character?
     private var characterImage: UIImage?
     private var header: CustomHeader!
     private var charImage: UIImage?
+
+    
 
 
 
@@ -25,6 +24,7 @@ class DetailCharactersTableViewController: UITableViewController {
         getImage()
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
+
 
 //        character = detailDelegate?.fetchChar()
         // Uncomment the following line to preserve selection between presentations
@@ -108,6 +108,7 @@ class DetailCharactersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView") as? CustomHeader
+        headerView?.favoriteButtonPressed.addTarget(self, action: #selector(qwe), for: .touchUpInside)
         headerView?.charImage.image = self.charImage
         headerView?.charName.text = self.character?.name
         return headerView
@@ -127,8 +128,8 @@ class DetailCharactersTableViewController: UITableViewController {
             }
         }
     }
+    @objc func qwe(){
+        CoreDataManager.shared.insertInEntity(char: self.character!)
+    }
 }
-
-
-
 

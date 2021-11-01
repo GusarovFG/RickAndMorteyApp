@@ -15,31 +15,33 @@ class CharactersTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var characterImageView: UIImageView! {
         didSet {
-            characterImageView.contentMode = .scaleAspectFit
-            characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+            characterImageView?.contentMode = .scaleAspectFit
+            characterImageView?.layer.cornerRadius = (characterImageView?.frame.height ?? 0) / 2
 
         }
     }
 
     // MARK: - Public methods
     func configure(with character: Character?) {
-        nameLabel.text = character?.name
+        nameLabel?.text = character?.name
         if character?.status == "Alive" {
-            statusLabel.tintColor = .green
+            statusLabel?.textColor = .systemGreen
         } else {
-            statusLabel.tintColor = .red
+            statusLabel?.textColor = .systemRed
         }
-        statusLabel.text = "• \(character?.status ?? "")"
+        statusLabel?.text = "• \(character?.status ?? "")"
 
         ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
             DispatchQueue.main.async {
-                self.characterImageView.image = UIImage(data: data)
+                self.characterImageView?.image = UIImage(data: data)
             }
         }
     }
 
     @IBAction func favoriteButtonPressed(_ sender: Any) {
+
         
+
     }
 
 }
