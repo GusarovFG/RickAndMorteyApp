@@ -1,17 +1,14 @@
 //
-//  GoogleMapManager.swift
+//  MapViewController.swift
 //  RickAndMorteyApp
 //
 //  Created by Фаддей Гусаров on 03.11.2021.
 //
-
-import Foundation
 import GooglePlaces
 import GoogleMaps
+import UIKit
 
-class GoogleMapManager {
-
-    static let shared = GoogleMapManager()
+class MapViewController: UIViewController {
 
     private let googleMapsApiKey = "AIzaSyBTJL9Ge4DxkwqEzkfOcqo10LZABDf1DWY"
     var locationManager: CLLocationManager!
@@ -21,16 +18,16 @@ class GoogleMapManager {
     var preciseLocationZoomLevel: Float = 15.0
     var approximateLocationZoomLevel: Float = 10.0
 
-    private init() {}
 
 
-    func setGoogleMap() -> UIView {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
         GMSServices.provideAPIKey(googleMapsApiKey)
 
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-
+        view = mapView
 
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
@@ -38,7 +35,17 @@ class GoogleMapManager {
         marker.snippet = "Australia"
         marker.map = mapView
 
-        return mapView
     }
-}
+    
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

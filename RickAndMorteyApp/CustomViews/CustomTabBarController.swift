@@ -35,6 +35,7 @@ class CustomTabBarController: UITabBarController {
         let episidesVC = self.storyboard?.instantiateViewController(withIdentifier: "episodes") as! UINavigationController
         episidesVC.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "Episodes"), selectedImage: nil)
 
+
         let viewControllers = [charactersVC, locationVC, favoritesVC, statisticVC, episidesVC]
 
 

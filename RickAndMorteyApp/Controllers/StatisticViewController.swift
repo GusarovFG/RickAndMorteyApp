@@ -4,18 +4,18 @@
 //
 //  Created by Фаддей Гусаров on 28.10.2021.
 //
-
+import GooglePlaces
 import GoogleMaps
 import UIKit
 
 class StatisticViewController: UIViewController {
 
+    @IBOutlet weak var hourHabel: UILabel?
     @IBOutlet weak var viewWithTimer: UIView!
-    @IBOutlet weak var hourHabel: UILabel!
-    @IBOutlet weak var minuteLabel: UILabel!
-    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel?
+    @IBOutlet weak var secondLabel: UILabel?
     @IBOutlet weak var timerStackView: UIStackView?
-    @IBOutlet weak var statisticSegmentedControl: UISegmentedControl!
+
 
 
 
@@ -26,9 +26,10 @@ class StatisticViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+
 
         startStopTimer()
+
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -48,9 +49,9 @@ class StatisticViewController: UIViewController {
             self.timer.invalidate()
             self.count = 0
             let timeString = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
-            self.secondLabel.text = timeString.2
-            self.hourHabel.text = timeString.0
-            self.minuteLabel.text = timeString.1
+            self.secondLabel?.text = timeString.2
+            self.hourHabel?.text = timeString.0
+            self.minuteLabel?.text = timeString.1
             self.timerCounting.toggle()
             self.startStopTimer()
         }))
@@ -75,9 +76,9 @@ class StatisticViewController: UIViewController {
         self.count += 1
         let time = secondsToHoursMinutesSeconds(seconds: Int(self.count))
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-        secondLabel.text = timeString.2
-        hourHabel.text = timeString.0
-        minuteLabel.text = timeString.1
+        secondLabel?.text = timeString.2
+        hourHabel?.text = timeString.0
+        minuteLabel?.text = timeString.1
     }
 
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
@@ -93,15 +94,5 @@ class StatisticViewController: UIViewController {
 
 
 
-    @IBAction func statisticSegmentedControlerIsChanged(_ sender: UISegmentedControl) {
-        
-        switch sender.selectedSegmentIndex  {
-        case 0:
-            self.viewWithTimer.isHidden = false
-        case 1:
-            self.viewWithTimer.isHidden = true
-        default:
-            break
-        }
-    }
+
 }
