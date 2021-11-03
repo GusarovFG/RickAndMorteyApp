@@ -122,7 +122,7 @@ class MainCharactersTableViewController: UITableViewController{
         var image = UIImage()
         ImageManager.shared.fetchImage(from: url) { data, response in
             DispatchQueue.global().async {
-                image = UIImage(data: data) ?? UIImage(systemName: "eye")!
+                image = UIImage(data: data) ?? UIImage(systemName: "person")!
             }
         }
         return image

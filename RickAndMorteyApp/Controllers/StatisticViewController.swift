@@ -5,14 +5,19 @@
 //  Created by Фаддей Гусаров on 28.10.2021.
 //
 
+import GoogleMaps
 import UIKit
 
 class StatisticViewController: UIViewController {
 
+    @IBOutlet weak var viewWithTimer: UIView!
     @IBOutlet weak var hourHabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var timerStackView: UIStackView?
+    @IBOutlet weak var statisticSegmentedControl: UISegmentedControl!
+
+
 
 
     var timer:Timer = Timer()
@@ -21,6 +26,7 @@ class StatisticViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
 
         startStopTimer()
     }
@@ -83,5 +89,19 @@ class StatisticViewController: UIViewController {
         let minuteString = String(format: "%02d", minutes)
         let hourString = String(format: "%02d", hours)
         return (hourString,minuteString,secondString)
+    }
+
+
+
+    @IBAction func statisticSegmentedControlerIsChanged(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex  {
+        case 0:
+            self.viewWithTimer.isHidden = false
+        case 1:
+            self.viewWithTimer.isHidden = true
+        default:
+            break
+        }
     }
 }

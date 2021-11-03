@@ -19,14 +19,16 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         passwordToggleButton()
-        errorLabel.isHidden = true
+        self.errorLabel.isHidden = true
     }
 
     @IBAction func loginButtonPressing(_ sender: Any) {
 
         let regularExpressionsForLogin = try? NSRegularExpression(pattern: ("Rick"))
         let regularExpressionsForPassword = try? NSRegularExpression(pattern: "Mortey")
+
         if  regularExpressionsForLogin?.numberOfMatches(in: loginTextField.text ?? "", range: NSRange(location: 0, length: loginTextField.text?.count ?? 0)) == 0, regularExpressionsForPassword?.numberOfMatches(in: passwordTextField.text ?? "", range: NSRange(location: 0, length: passwordTextField.text?.count ?? 0)) == 0 {
             errorLabel.isHidden = false
             loginTextField.textColor = .red
@@ -47,10 +49,12 @@ class LoginViewController: UIViewController {
 
     private func passwordToggleButton() {
         let button = UIButton()
+
         button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.frame = CGRect(x: CGFloat(self.passwordTextField.frame.size.width - 20), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.addTarget(self, action: #selector(showPassButton), for: .touchUpInside)
         button.tintColor = .black
+
         self.passwordTextField.rightViewMode = .always
         self.passwordTextField.rightView = button
 
@@ -60,4 +64,10 @@ class LoginViewController: UIViewController {
 
 }
 
+extension LoginViewController: UITextFieldDelegate {
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

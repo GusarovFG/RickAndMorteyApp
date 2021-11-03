@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,6 +35,9 @@
 		FB60C8522719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */; };
 		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
 		FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */; };
+		FBC986142732EDB9005ECD3A /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */; };
+		FBC986162732F8F1005ECD3A /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986152732F8F1005ECD3A /* NavigationViewController.swift */; };
+		FBC986182733081B005ECD3A /* GoogleMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986172733081B005ECD3A /* GoogleMapManager.swift */; };
 		FBCE9D00272B159300C91E7C /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE9CFF272B159300C91E7C /* StatisticViewController.swift */; };
 		FBCE9D02272B3BCA00C91E7C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,9 @@
 		FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLocationAndEpisodeCell.xib; sourceTree = "<group>"; };
 		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
 		FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
+		FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		FBC986152732F8F1005ECD3A /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		FBC986172733081B005ECD3A /* GoogleMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapManager.swift; sourceTree = "<group>"; };
 		FBCE9CFF272B159300C91E7C /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +158,7 @@
 				FBCE9CFF272B159300C91E7C /* StatisticViewController.swift */,
 				FB2AE0AB272EEE7B00061357 /* FavoritesViewController.swift */,
 				FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */,
+				FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */,
 				FB317865272747B7000D25D5 /* Extensions */,
 			);
 			path = Controllers;
@@ -170,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2973E92709F581004722D5 /* NetworkManager.swift */,
+				FBC986172733081B005ECD3A /* GoogleMapManager.swift */,
 				FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */,
 			);
 			path = Services;
@@ -193,6 +201,7 @@
 				FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */,
 				FB60C84D2719BB28005DFA8F /* CustomHeader.swift */,
 				FB2AE0AD272F3B3D00061357 /* FavoriteTableViewCell.swift */,
+				FBC986152732F8F1005ECD3A /* NavigationViewController.swift */,
 				FBCE9CFE272B116E00C91E7C /* XIBS */,
 			);
 			path = CustomViews;
@@ -235,6 +244,7 @@
 				FB0779BC26E23C8D0060DDD8 /* Sources */,
 				FB0779BD26E23C8D0060DDD8 /* Frameworks */,
 				FB0779BE26E23C8D0060DDD8 /* Resources */,
+				A83C47FE7484AB95FC51A202 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +326,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A83C47FE7484AB95FC51A202 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -326,11 +353,13 @@
 				FB31786227272F43000D25D5 /* WelcomeViewController.swift in Sources */,
 				FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */,
 				FB317867272747DF000D25D5 /* AttributeStringExtension.swift in Sources */,
+				FBC986162732F8F1005ECD3A /* NavigationViewController.swift in Sources */,
 				FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */,
 				FBCE9D02272B3BCA00C91E7C /* CoreDataManager.swift in Sources */,
 				FB60C84E2719BB28005DFA8F /* CustomHeader.swift in Sources */,
 				FB0779DC26E251BC0060DDD8 /* LoginViewController.swift in Sources */,
 				FB2AE0AC272EEE7B00061357 /* FavoritesViewController.swift in Sources */,
+				FBC986142732EDB9005ECD3A /* LocationsTableViewController.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */,
 				FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */,
@@ -338,6 +367,7 @@
 				FB31786427272F56000D25D5 /* PageViewController.swift in Sources */,
 				FB60C8502719CBF6005DFA8F /* DetailLocationTableViewCell.swift in Sources */,
 				FB2B01FF270C9424004E0087 /* CustomTabBar.swift in Sources */,
+				FBC986182733081B005ECD3A /* GoogleMapManager.swift in Sources */,
 				FB0779CE26E23C8D0060DDD8 /* RickAndMorteyApp.xcdatamodeld in Sources */,
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
 				FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */,

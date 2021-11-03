@@ -29,10 +29,10 @@ class CustomTabBarController: UITabBarController {
 
         let favoritesVC = self.storyboard?.instantiateViewController(withIdentifier: "favorits") as! UINavigationController
 
-        let statisticVC = self.storyboard!.instantiateViewController(identifier: "statistic") as! StatisticViewController
+        let statisticVC = self.storyboard!.instantiateViewController(identifier: "statistics") as! UINavigationController
         statisticVC.tabBarItem = UITabBarItem(title: "Statistic", image: UIImage(named: "Statistic"), selectedImage: nil)
 
-        let episidesVC = self.storyboard?.instantiateViewController(withIdentifier: "episodesVC") as! EpisodesTableViewController
+        let episidesVC = self.storyboard?.instantiateViewController(withIdentifier: "episodes") as! UINavigationController
         episidesVC.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "Episodes"), selectedImage: nil)
 
         let viewControllers = [charactersVC, locationVC, favoritesVC, statisticVC, episidesVC]
