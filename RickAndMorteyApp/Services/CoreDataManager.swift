@@ -51,6 +51,7 @@ class CoreDataManager {
 
         guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesCharacter", in: persistentContainer.viewContext) else { return }
         let favChar = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
+        
         favChar.id = Int16(char.id)
         favChar.name = char.name
         favChar.gender = char.gender
@@ -61,11 +62,47 @@ class CoreDataManager {
         saveContext()
     }
 
-    func delete(entity: String){
-        guard let entity = NSEntityDescription.entity(forEntityName: entity, in: persistentContainer.viewContext) else { return }
-        let favChar = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
-        persistentContainer.viewContext.delete(favChar)
+    func setTimerCount(count: Int64) {
+        let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+
+        objects.first?.timerCount = count
+
         saveContext()
+    }
+
+    func fetchTimerCount() -> Int64 {
+        let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+
+        return objects.first?.timerCount ?? 0
+
+    }
+
+    func deleteCharacter(index: Int){
+        let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        
+        persistentContainer.viewContext.delete(objects[index])
+        saveContext()
+    }
+
+    func addMarker(latitude: Double, lontitude: Double) {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Marker", in: persistentContainer.viewContext) else { return }
+        let marker = Marker(entity: entity, insertInto: persistentContainer.viewContext)
+        marker.latitude = latitude
+        marker.longtitude = lontitude
+        print("asasasasasasasasasasasasasasasasasasasasas     \(marker)")
+
+        saveContext()
+
+    }
+
+    func fetchMarkers() -> [Marker] {
+        let fetchRequest: NSFetchRequest<Marker> = Marker.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        print(objects)
+        return objects
     }
 
     func saveContext () {

@@ -16,13 +16,14 @@ class TimerManager {
     var minuteLabel = ""
     var secondLabel = ""
 
+    var count: Int64 = 0
     private var timer:Timer = Timer()
-    private var count: Int16 = 0
     private var timerCounting: Bool = false
 
     private init() {}
 
     func startStopTimer() {
+
 
         if(timerCounting) {
             timerCounting = false
@@ -35,14 +36,16 @@ class TimerManager {
     }
 
     @objc private func timerCounter() {
-
+        self.count = CoreDataManager.shared.fetchTimerCount()
         self.count += 1
+        CoreDataManager.shared.setTimerCount(count: self.count)
         let time = secondsToHoursMinutesSeconds(seconds: Int(self.count))
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         self.secondLabel = timeString.2
         self.hourLabel = timeString.0
         self.minuteLabel = timeString.1
-        print(self.count)
+
+
     }
 
     private func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
@@ -64,6 +67,7 @@ class TimerManager {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
             self.timer.invalidate()
             self.count = 0
+            CoreDataManager.shared.setTimerCount(count: self.count)
             let timeString = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             self.secondLabel = timeString.2
             self.hourLabel = timeString.0

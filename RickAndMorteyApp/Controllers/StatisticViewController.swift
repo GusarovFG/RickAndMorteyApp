@@ -19,7 +19,7 @@ class StatisticViewController: UIViewController {
 
 
     var timer:Timer = Timer()
-    var count: Int16 = 0
+    var count: Int64 = CoreDataManager.shared.fetchTimerCount()
     var timerCounting: Bool = false
 
     override func viewDidLoad() {

@@ -17,19 +17,10 @@ class ContainersViewController: UIViewController {
         super.viewDidLoad()
         mapContainer.isHidden = true
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.title = "Statistic"
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func segmentedControlSwitched(_ sender: UISegmentedControl) {
 
@@ -39,7 +30,9 @@ class ContainersViewController: UIViewController {
             mapContainer.isHidden = true
         case 1:
             timerContainer.isHidden = true
-            mapContainer.isHidden = false
+            DispatchQueue.main.async {
+                self.mapContainer.isHidden = false
+            }
         default:
             break
         }

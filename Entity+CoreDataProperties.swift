@@ -16,6 +16,6 @@ extension Entity {
         return NSFetchRequest<Entity>(entityName: "Entity")
     }
 
-    @NSManaged public var timerCount: Int16 = 0
+    @NSManaged public var timerCount: Int64 = 0
 
 }

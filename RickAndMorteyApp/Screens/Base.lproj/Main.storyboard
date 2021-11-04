@@ -530,7 +530,6 @@
         <!--Navigation Controller-->
         <scene sceneID="6md-o7-X5E">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4uf-Kj-SKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="statistics" automaticallyAdjustsScrollViewInsets="NO" id="3aQ-VE-AnF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7c-1J-O50">
@@ -542,6 +541,7 @@
                         <segue destination="9lV-Id-fpf" kind="relationship" relationship="rootViewController" id="G4Z-sr-nJZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uf-Kj-SKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="238" y="781"/>
         </scene>
@@ -606,6 +606,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rvm-wd-W5A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GdB-it-H01" secondAttribute="trailing" id="79P-Yn-4Nr"/>
@@ -633,8 +634,12 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="map" id="gYm-i1-H5N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eh4-cf-YQ0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="gYm-i1-H5N" id="WNL-ph-1Jx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xc-5Z-2fT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -5,8 +5,11 @@
 //  Created by Фаддей Гусаров on 03.09.2021.
 //
 
-import UIKit
 import CoreData
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         TimerManager.shared.startStopTimer()
+        CoreDataManager.shared.setTimerCount(count: CoreDataManager.shared.fetchTimerCount())
+        GMSServices.provideAPIKey("AIzaSyBTJL9Ge4DxkwqEzkfOcqo10LZABDf1DWY")
+        GMSPlacesClient.provideAPIKey("AIzaSyBTJL9Ge4DxkwqEzkfOcqo10LZABDf1DWY")
+        GoogleMapManager.shared.latitude = LocationManager.shared.getLat()
+        GoogleMapManager.shared.longtitude = LocationManager.shared.getLon()
+        GoogleMapManager.shared.addMarkerToMap(latitude: LocationManager.shared.getLat(), longtitude: LocationManager.shared.getLon())
         return true
     }
 

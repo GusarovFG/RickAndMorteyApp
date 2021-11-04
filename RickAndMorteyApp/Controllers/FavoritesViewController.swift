@@ -35,15 +35,6 @@ class FavoritesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func reloadDataBySegmentedControl(_ sender: UISegmentedControl) {
         self.tableView.reloadData()
     }
@@ -53,7 +44,7 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows = 0
         switch segmentedControl.selectedSegmentIndex {
-        case 0: rows = characters.count
+        case 0: rows = CoreDataManager.shared.fetchCharacters().isEmpty ? 0 : characters.count
 //        case 1: rows = locations.count
 //        case 2: rows = episodes.count
         default:
@@ -86,7 +77,7 @@ extension FavoritesViewController: UITableViewDataSource {
         if editingStyle == .delete {
             characters.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            CoreDataManager.shared.persistentContainer.viewContext.delete(characters[indexPath.row])
+            CoreDataManager.shared.deleteCharacter(index: indexPath.row)
             CoreDataManager.shared.saveContext()
         }
     }

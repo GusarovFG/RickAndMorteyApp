@@ -36,6 +36,7 @@
 		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
 		FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */; };
 		FBA8E61D2733DCA5006DEDD7 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */; };
+		FBA8E61F2734222E006DEDD7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8E61E2734222E006DEDD7 /* LocationManager.swift */; };
 		FBC986142732EDB9005ECD3A /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */; };
 		FBC986162732F8F1005ECD3A /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986152732F8F1005ECD3A /* NavigationViewController.swift */; };
 		FBC986182733081B005ECD3A /* GoogleMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC986172733081B005ECD3A /* GoogleMapManager.swift */; };
@@ -79,6 +80,7 @@
 		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
 		FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 		FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		FBA8E61E2734222E006DEDD7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		FBC986152732F8F1005ECD3A /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		FBC986172733081B005ECD3A /* GoogleMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapManager.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FB2973E92709F581004722D5 /* NetworkManager.swift */,
 				FBC986172733081B005ECD3A /* GoogleMapManager.swift */,
 				FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */,
+				FBA8E61E2734222E006DEDD7 /* LocationManager.swift */,
 				FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */,
 			);
 			path = Services;
@@ -361,6 +364,7 @@
 			files = (
 				FB31786227272F43000D25D5 /* WelcomeViewController.swift in Sources */,
 				FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */,
+				FBA8E61F2734222E006DEDD7 /* LocationManager.swift in Sources */,
 				FB317867272747DF000D25D5 /* AttributeStringExtension.swift in Sources */,
 				FBC986162732F8F1005ECD3A /* NavigationViewController.swift in Sources */,
 				FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */,
