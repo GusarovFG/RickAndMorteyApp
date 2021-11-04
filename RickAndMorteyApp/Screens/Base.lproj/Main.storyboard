@@ -423,13 +423,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1P-Ny-Ntt" userLabel="timer">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <connections>
                                     <segue destination="xz2-WY-BaF" kind="embed" id="C5K-hz-5RK"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fH-qu-buE" userLabel="map">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <connections>
                                     <segue destination="iN0-XN-J40" kind="embed" id="Rqt-b2-PMr"/>
                                 </connections>
@@ -437,8 +437,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xLO-8n-DPL">
                                 <rect key="frame" x="80" y="98" width="254" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Timer"/>
+                                    <segment title="Map"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlSwitched:" destination="9lV-Id-fpf" eventType="valueChanged" id="aCu-GM-l9e"/>
@@ -457,8 +457,8 @@
                             <constraint firstItem="cFU-6Y-FAJ" firstAttribute="trailing" secondItem="4fH-qu-buE" secondAttribute="trailing" id="Lis-iE-5GH"/>
                             <constraint firstItem="xLO-8n-DPL" firstAttribute="leading" secondItem="cFU-6Y-FAJ" secondAttribute="leading" constant="80" id="Tgv-zA-HRv"/>
                             <constraint firstItem="n1P-Ny-Ntt" firstAttribute="leading" secondItem="cFU-6Y-FAJ" secondAttribute="leading" id="hcI-IM-f6G"/>
-                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="bottom" secondItem="4fH-qu-buE" secondAttribute="bottom" id="pdS-mE-GUp"/>
-                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="bottom" secondItem="n1P-Ny-Ntt" secondAttribute="bottom" id="wru-CQ-d17"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="bottom" secondItem="4fH-qu-buE" secondAttribute="bottom" constant="-34" id="pdS-mE-GUp"/>
+                            <constraint firstItem="cFU-6Y-FAJ" firstAttribute="bottom" secondItem="n1P-Ny-Ntt" secondAttribute="bottom" constant="-34" id="wru-CQ-d17"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hBJ-I0-pds">
@@ -474,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzn-6s-8IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="781"/>
+            <point key="canvasLocation" x="1147.8260869565217" y="780.80357142857144"/>
         </scene>
         <!--Episodes Table View Controller-->
         <scene sceneID="4ty-P0-IqV">
@@ -550,14 +550,14 @@
             <objects>
                 <viewController storyboardIdentifier="statistic" id="xz2-WY-BaF" customClass="StatisticViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODV-uO-F0D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdB-it-H01">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="c2f-kj-bkd">
-                                        <rect key="frame" x="145" y="201" width="124.5" height="372"/>
+                                        <rect key="frame" x="145" y="218" width="124.5" height="372"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hry-tm-KVy">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="290"/>
@@ -631,7 +631,7 @@
             <objects>
                 <viewController id="iN0-XN-J40" customClass="MapViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="map" id="gYm-i1-H5N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
