@@ -19,13 +19,11 @@ class StatisticViewController: UIViewController {
 
 
     var timer:Timer = Timer()
-    var count: Int64 = CoreDataManager.shared.fetchTimerCount()
     var timerCounting: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startStopTimer()
-
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -42,13 +40,12 @@ class StatisticViewController: UIViewController {
 
     func startStopTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-
     }
 
     @objc func timerCounter() {
-        self.secondLabel?.text = TimerManager.shared.secondLabel
-        self.minuteLabel?.text = TimerManager.shared.minuteLabel
-        self.hourHabel?.text = TimerManager.shared.hourLabel
 
+            self.secondLabel?.text = TimerManager.shared.secondLabel
+            self.minuteLabel?.text = TimerManager.shared.minuteLabel
+            self.hourHabel?.text = TimerManager.shared.hourLabel
     }
 }

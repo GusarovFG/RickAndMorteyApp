@@ -17,6 +17,11 @@ struct Episodes: Decodable {
     let results: [Episode]
 }
 
+struct Locations: Decodable {
+    let info: Info
+    let results: [Location]
+}
+
 struct Info: Decodable {
     let pages: Int
     let next: String?
@@ -37,8 +42,13 @@ struct Character: Decodable {
     let created: String
 }
 
-class Location: NSObject, Decodable {
-    let name: String?
+struct Location: Decodable {
+    let name: String
+    let type: String?
+    let dimension: String?
+    let residents: [String]?
+    let url: String?
+    let created: String?
     
 }
 

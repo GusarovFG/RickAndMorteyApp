@@ -9,9 +9,14 @@ import UIKit
 
 class LocationsTableViewController: UITableViewController {
 
+    private var locations: Locations?
+    private var locationsList: [Location] = []
+
+    private var beginFetch = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchLocations()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -21,25 +26,33 @@ class LocationsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return locationsList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
 
-        // Configure the cell...
+        let location = self.locationsList[indexPath.row]
+
+        content.text = location.name
+        cell.contentConfiguration = content
 
         return cell
     }
-    */
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if offSetY > contentHeight - scrollView.frame.height{
+            if !beginFetch {
+                fetchNextEpisodes()
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,14 +89,36 @@ class LocationsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "locationSegue" {
+            guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+            let detailVC = segue.destination as? DetailCharactersTableViewController
+            detailVC?.location = locationsList[indexPath.row]
+        }
     }
-    */
 
+    func fetchLocations() {
+        NetworkManager.shared.fetchLocations(from: URLS.locations.rawValue) { result in
+            DispatchQueue.main.async {
+                self.locations = result
+                self.locationsList = result.results
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    private func fetchNextEpisodes() {
+        beginFetch = true
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
+            NetworkManager.shared.fetchLocations(from: self.locations?.info.next) { result in
+                self.locations = result
+                self.locationsList.append(contentsOf: result.results.compactMap{$0})
+                self.tableView.reloadData()
+                self.beginFetch = false
+            }
+        }
+    }
 }

@@ -29,11 +29,10 @@ class MainCharactersTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
-        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
-        title = "Characters"
+        self.title = "Characters"
         self.navigationController?.navigationBar.tintColor = .white
         tableView.rowHeight = 60
-        fetchData(URLS.rickAndMortyapi.rawValue)
+        fetchData()
         setupSearchController()
     }
 
@@ -96,9 +95,10 @@ class MainCharactersTableViewController: UITableViewController{
     }
 
 
-    private func fetchData(_ url: String?) {
-        NetworkManager.shared.fetchCharacters(from: url) {  ricksAndMortys in
+    private func fetchData() {
+        NetworkManager.shared.fetchCharacters(from: URLS.rickAndMortyapi.rawValue) {  ricksAndMortys in
             DispatchQueue.main.async {
+                print(ricksAndMortys.results)
                 self.rickAndMorty = ricksAndMortys
                 self.characters = ricksAndMortys.results
                 self.tableView.reloadData()

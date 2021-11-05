@@ -16,7 +16,6 @@ class EpisodesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchEpisodes()
-        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
 
     }
 

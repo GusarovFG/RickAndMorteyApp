@@ -30,23 +30,26 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-ov-meg">
-                    <rect key="frame" x="135" y="0.0" width="279" height="120"/>
+                    <rect key="frame" x="120" y="0.0" width="294" height="120"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-oW-DiF">
-                            <rect key="frame" x="0.0" y="0.0" width="279" height="55"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-oW-DiF">
+                            <rect key="frame" x="0.0" y="0.0" width="294" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="2Hv-os-UyF"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlw-bV-cox">
-                            <rect key="frame" x="0.0" y="65" width="279" height="55"/>
+                            <rect key="frame" x="0.0" y="65" width="294" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="Jit-WV-NQX"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                             <color key="tintColor" systemColor="labelColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Add to Favorites" image="heart" catalog="system"/>
                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="Add to Favorites">
                                 <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                             </buttonConfiguration>
@@ -63,9 +66,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="j15-uq-74Z" firstAttribute="bottom" secondItem="MBK-xU-e75" secondAttribute="bottom" constant="5" id="HcN-hF-f4B"/>
+                <constraint firstItem="Ccc-ov-meg" firstAttribute="leading" secondItem="j15-uq-74Z" secondAttribute="leading" constant="120" identifier="qwe" id="Skh-4s-M9j"/>
                 <constraint firstItem="MBK-xU-e75" firstAttribute="top" secondItem="KGi-U4-MaK" secondAttribute="top" constant="5" id="X6A-Hn-pbj"/>
                 <constraint firstItem="j15-uq-74Z" firstAttribute="trailing" secondItem="Ccc-ov-meg" secondAttribute="trailing" id="XUo-kJ-RSN"/>
-                <constraint firstItem="Ccc-ov-meg" firstAttribute="leading" secondItem="MBK-xU-e75" secondAttribute="trailing" constant="20" id="mXd-cv-96m"/>
                 <constraint firstItem="MBK-xU-e75" firstAttribute="leading" secondItem="j15-uq-74Z" secondAttribute="leading" constant="5" id="mzX-Zw-d8p"/>
                 <constraint firstItem="Ccc-ov-meg" firstAttribute="bottom" secondItem="j15-uq-74Z" secondAttribute="bottom" id="seh-PX-hTo"/>
                 <constraint firstItem="Ccc-ov-meg" firstAttribute="top" secondItem="KGi-U4-MaK" secondAttribute="top" id="xkX-2i-DC1"/>
@@ -76,6 +79,7 @@
                 <outlet property="charImage" destination="MBK-xU-e75" id="9wa-mN-i50"/>
                 <outlet property="charName" destination="EbC-oW-DiF" id="fDw-F4-wUy"/>
                 <outlet property="favoriteButtonPressed" destination="wlw-bV-cox" id="k2x-kO-5zk"/>
+                <outlet property="leadingConstraintOfStackView" destination="Skh-4s-M9j" id="qim-gJ-ecX"/>
             </connections>
             <point key="canvasLocation" x="-842.02898550724649" y="16.741071428571427"/>
         </view>

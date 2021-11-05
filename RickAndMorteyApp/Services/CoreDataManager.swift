@@ -27,19 +27,19 @@ class CoreDataManager {
 
     // MARK: - Core Data Saving support
 
-    func fetchContextTimer() -> FavoritesCharacter?{
-        let chars = FavoritesCharacter()
-        let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
-
-        do {
-            let chars = try self.persistentContainer.viewContext.fetch(fetchRequest)
-            print(chars)
-        } catch {
-            let error = error as NSError
-            print(error)
-        }
-        return chars
-    }
+//    func fetchContextTimer() -> FavoritesCharacter?{
+//        let chars = FavoritesCharacter()
+//        let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
+//
+//        do {
+//            let chars = try self.persistentContainer.viewContext.fetch(fetchRequest)
+//            print(chars)
+//        } catch {
+//            let error = error as NSError
+//            print(error)
+//        }
+//        return chars
+//    }
 
     func fetchCharacters() -> [FavoritesCharacter] {
         let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
@@ -63,18 +63,25 @@ class CoreDataManager {
     }
 
     func setTimerCount(count: Int64) {
+
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
 
-        objects.first?.timerCount = count
+        if objects.isEmpty {
+            let timers = NSEntityDescription.insertNewObject(forEntityName: "TimerCount", into: persistentContainer.viewContext)
+            timers.setValue(count, forKey: "timerCount")
+        } else {
+            objects.first?.timerCount = count
+        }
 
         saveContext()
+
     }
 
     func fetchTimerCount() -> Int64 {
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
-
+    
         return objects.first?.timerCount ?? 0
 
     }

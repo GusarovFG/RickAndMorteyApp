@@ -11,7 +11,9 @@ class DetailCharactersTableViewController: UITableViewController {
 
     var character: Character?
     var episode: Episode?
-    private var characterImage: UIImage?
+    var location: Location?
+
+
     private var header: CustomHeader!
     private var charImage: UIImage?
 
@@ -24,7 +26,6 @@ class DetailCharactersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getImage()
-        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
     }
@@ -37,65 +38,136 @@ class DetailCharactersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfSection = 0
-        if section == 0 {
-            numberOfSection = 4
-        } else if section == 1 {
-            numberOfSection = 1
-        } else {
-            numberOfSection = character?.episode.count ?? 0
+
+        if episode == nil, location == nil {
+            switch section {
+            case 0:
+                numberOfSection = 4
+            case 1:
+                numberOfSection = 1
+            default:
+                numberOfSection = character?.episode.count ?? 0
+            }
+        } else if character == nil, location == nil {
+            switch section {
+            case 0:
+                numberOfSection = 2
+            default:
+                break
+            }
+        } else if character == nil, episode == nil {
+            switch section {
+            case 0:
+                numberOfSection = 3
+            default:
+                break
+            }
         }
+
+
         return numberOfSection
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
 
+        if episode == nil, location == nil {
 
-        if indexPath == [0,0] {
-            content.text = "Status"
-            content.secondaryText = character?.status
-            cell.contentConfiguration = content
+            switch indexPath {
+            case [0,0]:
+                content.text = "Status"
+                content.secondaryText = character?.status
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Type"
+                content.secondaryText = character?.species
+                cell.contentConfiguration = content
+            case [0,2]:
+                content.text = "Gender"
+                content.secondaryText = character?.gender
+                cell.contentConfiguration = content
+            case [0,3]:
+                content.text = "Date"
+                content.secondaryText = character?.created
+                cell.contentConfiguration = content
+            case [1,0]:
+                content.text = character?.location.name
+                cell.contentConfiguration = content
+            case [2,0]:
+                content.text = character?.episode[indexPath.row]
+                content.secondaryText = character?.episode[indexPath.row]
+                cell.contentConfiguration = content
+            default:
+                break
+            }
+        } else if character == nil, location == nil {
 
-        } else if indexPath == [0,1] {
-            content.text = "Type"
-            content.secondaryText = character?.species
-            cell.contentConfiguration = content
+            switch indexPath {
+            case [0,0]:
+                content.text = "Date"
+                content.secondaryText = episode?.date
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Code"
+                content.secondaryText = episode?.episode
+                cell.contentConfiguration = content
+            default:
+                break
+            }
+        } else if character == nil, episode == nil {
 
-        } else if indexPath == [0,2] {
-            content.text = "Gender"
-            content.secondaryText = character?.gender
-            cell.contentConfiguration = content
-
-        } else if indexPath == [0,3] {
-            content.text = "Date"
-            content.secondaryText = character?.created
-            cell.contentConfiguration = content
-
-        } else if indexPath == [1,0] {
-
-            content.text = character?.location.name
-            cell.contentConfiguration = content
-
-
-        }   else if indexPath >= [2,0] {
-            content.text = character?.episode[indexPath.row]
-            print(indexPath)
-            content.secondaryText = character?.episode[indexPath.row]
-            cell.contentConfiguration = content
+            switch indexPath {
+            case [0,0]:
+                content.text = "Type"
+                content.secondaryText = location?.type
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Dimension"
+                content.secondaryText = location?.dimension
+                cell.contentConfiguration = content
+            case [0,2]:
+                content.text = "Date"
+                content.secondaryText = location?.created
+                cell.contentConfiguration = content
+            default:
+                break
+            }
         }
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var title = ""
-         if section == 1{
-            title = "LOCATION"
-        } else if section == 2{
-            title = "EPISODES"
+
+        if episode == nil, location == nil {
+            switch section {
+            case 1:
+                title = "LOCATION"
+            case 2:
+                title = "EPISODES"
+            case 3:
+                title = "SIMILIAR CHARACTERS"
+            default:
+                break
+            }
+        } else if character == nil, location == nil {
+            switch section {
+            case 1:
+                title = "CHARACTERS IN EPISODE"
+            default:
+                break
+            }
+        } else if character == nil, episode == nil {
+            switch section {
+            case 1:
+                title = "CHARACTERS IN LOCATION"
+            default:
+                break
+            }
         }
+
         return title
     }
 
@@ -105,6 +177,17 @@ class DetailCharactersTableViewController: UITableViewController {
         headerView?.favoriteButtonPressed.addTarget(self, action: #selector(qwe), for: .touchUpInside)
         headerView?.charImage.image = self.charImage
         headerView?.charName.text = self.character?.name
+
+        if episode == nil, location == nil {
+            headerView?.charName.text = self.character?.name
+        } else if character == nil, location == nil {
+            headerView?.charName.text = self.episode?.name
+            headerView?.leadingConstraintOfStackView.constant = 10
+        } else if character == nil, episode == nil {
+            headerView?.charName.text = self.location?.name
+            headerView?.leadingConstraintOfStackView.constant = 10
+
+        }
         return headerView
     }
 
@@ -112,7 +195,7 @@ class DetailCharactersTableViewController: UITableViewController {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView")
         guard section == 0 else { return 30 }
         return headerView?.frame.height ?? 100
-        }
+    }
 
     func getImage(){
         ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
@@ -122,6 +205,81 @@ class DetailCharactersTableViewController: UITableViewController {
             }
         }
     }
+
+    func setupSectionsAndCells(character: Character?,
+                               episode: Episode?,
+                               location: Location?,
+                               indexPath: IndexPath,
+                               setupCell: UITableViewCell) -> UITableViewCell {
+        var cell = setupCell
+        cell = self.tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+        var content = setupCell.defaultContentConfiguration()
+        if episode == nil, location == nil {
+
+            switch self.tableView.indexPath(for: setupCell) {
+            case [0,0]:
+                content.text = "Status"
+                content.secondaryText = character?.status
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Type"
+                content.secondaryText = character?.species
+                cell.contentConfiguration = content
+            case [0,2]:
+                content.text = "Gender"
+                content.secondaryText = character?.gender
+                cell.contentConfiguration = content
+            case [0,3]:
+                content.text = "Date"
+                content.secondaryText = character?.created
+                cell.contentConfiguration = content
+            case [1,0]:
+                content.text = character?.location.name
+                cell.contentConfiguration = content
+            case [2,0]:
+                content.text = character?.episode[indexPath.row]
+                content.secondaryText = character?.episode[indexPath.row]
+                cell.contentConfiguration = content
+            default:
+                break
+            }
+        } else if character == nil, location == nil {
+
+            switch self.tableView.indexPath(for: setupCell) {
+            case [0,0]:
+                content.text = "Date"
+                content.secondaryText = episode?.date
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Code"
+                content.secondaryText = episode?.episode
+                cell.contentConfiguration = content
+            default:
+                break
+            }
+        } else if character == nil, episode == nil {
+
+            switch self.tableView.indexPath(for: setupCell) {
+            case [0,0]:
+                content.text = "Type"
+                content.secondaryText = location?.type
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Dimension"
+                content.secondaryText = location?.dimension
+                cell.contentConfiguration = content
+            case [0,2]:
+                content.text = "Date"
+                content.secondaryText = location?.created
+                cell.contentConfiguration = content
+            default:
+                break
+            }
+        }
+        return cell
+    }
+
+
     @objc func qwe(){
         CoreDataManager.shared.insertInEntity(char: self.character!)
     }

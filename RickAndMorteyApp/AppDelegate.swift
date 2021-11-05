@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         TimerManager.shared.startStopTimer()
-        CoreDataManager.shared.setTimerCount(count: CoreDataManager.shared.fetchTimerCount())
         GMSServices.provideAPIKey("AIzaSyBTJL9Ge4DxkwqEzkfOcqo10LZABDf1DWY")
         GMSPlacesClient.provideAPIKey("AIzaSyBTJL9Ge4DxkwqEzkfOcqo10LZABDf1DWY")
         GoogleMapManager.shared.latitude = LocationManager.shared.getLat()

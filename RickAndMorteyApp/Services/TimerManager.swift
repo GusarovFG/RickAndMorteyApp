@@ -16,6 +16,7 @@ class TimerManager {
     var minuteLabel = ""
     var secondLabel = ""
 
+    var qwe: TimerCount?
     var count: Int64 = 0
     private var timer:Timer = Timer()
     private var timerCounting: Bool = false
@@ -23,20 +24,18 @@ class TimerManager {
     private init() {}
 
     func startStopTimer() {
-
-
-        if(timerCounting) {
-            timerCounting = false
+        if(timerCounting){
+            
+            self.timerCounting = false
             timer.invalidate()
         } else {
-            timerCounting = true
+            self.timerCounting = true
+            self.count = CoreDataManager.shared.fetchTimerCount()
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-
         }
     }
 
     @objc private func timerCounter() {
-        self.count = CoreDataManager.shared.fetchTimerCount()
         self.count += 1
         CoreDataManager.shared.setTimerCount(count: self.count)
         let time = secondsToHoursMinutesSeconds(seconds: Int(self.count))
@@ -44,8 +43,6 @@ class TimerManager {
         self.secondLabel = timeString.2
         self.hourLabel = timeString.0
         self.minuteLabel = timeString.1
-
-
     }
 
     private func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {

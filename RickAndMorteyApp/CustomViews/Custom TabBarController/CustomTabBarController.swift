@@ -24,7 +24,7 @@ class CustomTabBarController: UITabBarController {
         let charactersVC = self.storyboard!.instantiateViewController(identifier: "charactersNavi") as! UINavigationController
         charactersVC.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(named: "Character"), selectedImage: nil)
 
-        let locationVC = UIViewController()
+        let locationVC = self.storyboard!.instantiateViewController(identifier: "locationsNavi") as! UINavigationController
         locationVC.tabBarItem = UITabBarItem(title: "Location", image: UIImage(named: "Location"), selectedImage: nil)
 
         let favoritesVC = self.storyboard?.instantiateViewController(withIdentifier: "favorits") as! UINavigationController

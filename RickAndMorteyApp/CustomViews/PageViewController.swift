@@ -18,7 +18,7 @@ class PageViewController: UIPageViewController {
         dataSource = self
 
         if let welcomeVC = showViewControllerAtIndex(0) {
-            setViewControllers([welcomeVC], direction: .forward, animated: true, completion: nil)
+            setViewControllers([welcomeVC], direction: .forward, animated: false, completion: nil)
         }
 
     }
@@ -56,7 +56,4 @@ extension PageViewController: UIPageViewControllerDataSource {
         return showViewControllerAtIndex(pageNumber)
 
     }
-
-
-
 }

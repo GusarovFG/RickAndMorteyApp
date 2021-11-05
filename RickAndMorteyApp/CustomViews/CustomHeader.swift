@@ -12,7 +12,8 @@ class CustomHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var charImage: UIImageView!
     @IBOutlet weak var charName: UILabel!
     @IBOutlet weak var favoriteButtonPressed: UIButton!
-
+    @IBOutlet weak var leadingConstraintOfStackView: NSLayoutConstraint!
+    
 
 
 
