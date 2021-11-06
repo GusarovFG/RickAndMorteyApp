@@ -42,7 +42,7 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! CollectionViewCell
         cell.setupNameLabel(name: self.name )
         return cell
-    }
+    }   
 
 
 }

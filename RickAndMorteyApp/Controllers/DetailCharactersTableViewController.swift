@@ -22,16 +22,24 @@ class DetailCharactersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         getImage()
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
+
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        var sectionCount = 0
+        if episode == nil, location == nil {
+            sectionCount = 4
+        } else if character == nil, location == nil {
+            sectionCount = 2
+        } else if character == nil, episode == nil {
+            sectionCount = 2
+        }
+        return sectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +63,8 @@ class DetailCharactersTableViewController: UITableViewController {
             switch section {
             case 0:
                 numberOfSection = 2
+            case 1:
+                numberOfSection = 1
             default:
                 break
             }
@@ -62,11 +72,12 @@ class DetailCharactersTableViewController: UITableViewController {
             switch section {
             case 0:
                 numberOfSection = 3
+            case 1:
+                numberOfSection = 1
             default:
                 break
             }
         }
-
         return numberOfSection
     }
 
@@ -76,7 +87,6 @@ class DetailCharactersTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
 
         if episode == nil, location == nil {
-
             switch indexPath {
             case [0,0]:
                 content.text = "Status"
@@ -84,7 +94,7 @@ class DetailCharactersTableViewController: UITableViewController {
                 cell.contentConfiguration = content
             case [0,1]:
                 content.text = "Type"
-                content.secondaryText = character?.species
+                content.secondaryText = character?.status
                 cell.contentConfiguration = content
             case [0,2]:
                 content.text = "Gender"
@@ -97,66 +107,21 @@ class DetailCharactersTableViewController: UITableViewController {
             case [1,0]:
                 content.text = character?.location.name
                 cell.contentConfiguration = content
-
-            case [3,0]:
-                let collCell = tableView.dequeueReusableCell(withIdentifier: "collTableViewCell", for: indexPath) as! CollectionViewTableViewCell
-                cell = collCell
-
+//            case [3,0]:
+//                let charCell = tableView.dequeueReusableCell(withIdentifier: "collection", for: indexPath) as! CollectionViewTableViewCell
+//                cell = charCell
             default:
-                if indexPath <= [2,0], indexPath < [3,0] {
-                    let episodesCell = tableView.dequeueReusableCell(withIdentifier: "cellWithAction", for: indexPath)
-                    var cont = episodesCell.defaultContentConfiguration()
-                    cont.text = self.character?.episode.first
-                    episodesCell.contentConfiguration = cont
-                    cell = episodesCell
+                if indexPath >= [2,0], indexPath < [3,0] {
+                    content.text = character?.episode[indexPath.row]
+                    cell.contentConfiguration = content
                 }
             }
         } else if character == nil, location == nil {
 
-            switch indexPath {
-            case [0,0]:
-                content.text = "Date"
-                content.secondaryText = episode?.date
-                cell.contentConfiguration = content
-            case [0,1]:
-                content.text = "Code"
-                content.secondaryText = episode?.episode
-                cell.contentConfiguration = content
-            default:
-                break
-            }
         } else if character == nil, episode == nil {
 
-            switch indexPath {
-            case [0,0]:
-                content.text = "Type"
-                content.secondaryText = location?.type
-                cell.contentConfiguration = content
-            case [0,1]:
-                content.text = "Dimension"
-                content.secondaryText = location?.dimension
-                cell.contentConfiguration = content
-            case [0,2]:
-                content.text = "Date"
-                content.secondaryText = location?.created
-                cell.contentConfiguration = content
-            default:
-                break
-            }
         }
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height: CGFloat = 0
-        if episode == nil, location == nil {
-            if indexPath >= [3,0] {
-                height = 160
-            } else {
-               height = UITableView.automaticDimension
-            }
-        }
-        return height
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -240,6 +205,10 @@ class DetailCharactersTableViewController: UITableViewController {
         } else if character == nil, episode == nil {
             CoreDataManager.shared.saveLocation(location: self.location!)
         }
+    }
+    @IBAction func sharedButtomPressed(_ sender: UIBarButtonItem) {
+        let shareController = UIActivityViewController(activityItems: ["Name: \(self.character?.name ?? "")"," Status:  \(self.character?.status ?? "")",       " Gender: \(self.character?.gender ?? "")"], applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
     }
 }
 
