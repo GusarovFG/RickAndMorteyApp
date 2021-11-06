@@ -26,15 +26,22 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressing(_ sender: Any) {
 
-        let regularExpressionsForLogin = try? NSRegularExpression(pattern: ("Rick"))
-        let regularExpressionsForPassword = try? NSRegularExpression(pattern: "Mortey")
-
-        if  regularExpressionsForLogin?.numberOfMatches(in: loginTextField.text ?? "", range: NSRange(location: 0, length: loginTextField.text?.count ?? 0)) == 0, regularExpressionsForPassword?.numberOfMatches(in: passwordTextField.text ?? "", range: NSRange(location: 0, length: passwordTextField.text?.count ?? 0)) == 0 {
+        //        let regularExpressionsForLogin = try? NSRegularExpression(pattern: ("Rick"))
+        //        let regularExpressionsForPassword = try? NSRegularExpression(pattern: "Mortey")
+        //
+        //        if  regularExpressionsForLogin?.numberOfMatches(in: loginTextField.text ?? "", range: NSRange(location: 0, length: loginTextField.text?.count ?? 0)) == 0, regularExpressionsForPassword?.numberOfMatches(in: passwordTextField.text ?? "", range: NSRange(location: 0, length: passwordTextField.text?.count ?? 0)) == 0 {
+        //            errorLabel.isHidden = false
+        //            loginTextField.textColor = .red
+        //            passwordTextField.textColor = .red
+        //        } else {
+        //            self.dismiss(animated: true)
+        //        }
+        if KeyChainManager.shared.checkLoginCredentials(login: loginTextField.text ?? "", password: passwordTextField.text ?? ""){
+            self.dismiss(animated: true)
+        } else {
             errorLabel.isHidden = false
             loginTextField.textColor = .red
             passwordTextField.textColor = .red
-        } else {
-            self.dismiss(animated: true)
         }
 
 
@@ -57,7 +64,7 @@ class LoginViewController: UIViewController {
 
         self.passwordTextField.rightViewMode = .always
         self.passwordTextField.rightView = button
-
+        
 
 
     }

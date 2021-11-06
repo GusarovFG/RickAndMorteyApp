@@ -30,6 +30,7 @@
 		FB31786A27274B7B000D25D5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31786927274B7B000D25D5 /* Enums.swift */; };
 		FB523F9827367AC500751B1A /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB523F9727367AC500751B1A /* CollectionViewTableViewCell.swift */; };
 		FB523F9B2736AE8F00751B1A /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */; };
+		FB523F9D2736B7F400751B1A /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB523F9C2736B7F400751B1A /* KeyChainManager.swift */; };
 		FB60C84C2719B33B005DFA8F /* CustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C84B2719B33B005DFA8F /* CustomHeader.xib */; };
 		FB60C84E2719BB28005DFA8F /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84D2719BB28005DFA8F /* CustomHeader.swift */; };
 		FB60C8502719CBF6005DFA8F /* DetailLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */; };
@@ -78,6 +79,7 @@
 		FB31786927274B7B000D25D5 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FB523F9727367AC500751B1A /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		FB523F9C2736B7F400751B1A /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		FB60C84B2719B33B005DFA8F /* CustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeader.xib; sourceTree = "<group>"; };
 		FB60C84D2719BB28005DFA8F /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */,
 				FBA8E61E2734222E006DEDD7 /* LocationManager.swift */,
 				FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */,
+				FB523F9C2736B7F400751B1A /* KeyChainManager.swift */,
 				FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */,
 			);
 			path = Services;
@@ -325,6 +328,7 @@
 				FB0779BD26E23C8D0060DDD8 /* Frameworks */,
 				FB0779BE26E23C8D0060DDD8 /* Resources */,
 				A83C47FE7484AB95FC51A202 /* [CP] Copy Pods Resources */,
+				BEAEC4A5555166ED1F0D6226 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,6 +427,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BEAEC4A5555166ED1F0D6226 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickAndMorteyApp/Pods-RickAndMorteyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -442,6 +463,7 @@
 				FB2AE0AC272EEE7B00061357 /* FavoritesViewController.swift in Sources */,
 				FBC986142732EDB9005ECD3A /* LocationsTableViewController.swift in Sources */,
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
+				FB523F9D2736B7F400751B1A /* KeyChainManager.swift in Sources */,
 				FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */,
 				FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */,
 				FB523F9827367AC500751B1A /* CollectionViewTableViewCell.swift in Sources */,
