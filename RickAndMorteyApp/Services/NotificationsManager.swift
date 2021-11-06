@@ -19,7 +19,6 @@ class NotificationsManager {
 
     func requestAuthorization() {
         notificationsCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            print(granted)
             guard granted else {return}
             self.getNotificationSettings()
         }

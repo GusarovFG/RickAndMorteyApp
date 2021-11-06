@@ -109,6 +109,7 @@ class MainCharactersTableViewController: UITableViewController{
         beginFetch = true
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
             NetworkManager.shared.fetchCharacters(from: self.rickAndMorty?.info.next) { ricksAndMorteys in
+                
                 self.rickAndMorty = ricksAndMorteys
                 self.characters.append(contentsOf: ricksAndMorteys.results.compactMap{$0})
                 self.tableView.reloadData()
@@ -137,11 +138,16 @@ extension MainCharactersTableViewController: UISearchResultsUpdating {
     }
 
     private func filterContentForSearchText(_ searchText: String) {
-        filteredChracter = characters.filter { chracter in
-            chracter.name.lowercased().contains(searchText.lowercased())
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            NetworkManager.shared.fetchCharacters(from: URLS.filteredCharacter.rawValue + searchText) { result in
+                self.rickAndMorty = result
+                self.filteredChracter = result.results
+                print(result)
+                self.tableView.reloadData()
+            }
         }
 
-        tableView.reloadData()
+
     }
 }
 

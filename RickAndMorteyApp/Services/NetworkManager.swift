@@ -152,6 +152,26 @@ class NetworkManager {
             }
         }.resume()
     }
+
+    func fetchEpisode(from url: String, completion: @escaping(Episode) -> Void) {
+        guard let url = URL(string: url) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "no descripption")
+                return
+            }
+
+            do {
+                let result = try JSONDecoder().decode(Episode.self, from: data)
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
 }
 
 class ImageManager {

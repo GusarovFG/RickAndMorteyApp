@@ -11,14 +11,17 @@ class CollectionViewTableViewCell: UITableViewCell{
 
     var characters: [Character] = []
     var name = "Name"
+    var image = UIImageView()
 
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.delegate = self
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collection")
         self.collectionView.reloadData()
-        self.sizeToFit()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,6 +44,7 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! CollectionViewCell
         cell.setupNameLabel(name: self.name )
+        cell.image = self.image
         return cell
     }   
 

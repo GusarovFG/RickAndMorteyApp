@@ -135,7 +135,6 @@ class CoreDataManager {
     func fetchMarkers() -> [Marker] {
         let fetchRequest: NSFetchRequest<Marker> = Marker.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
-        print(objects)
         return objects
     }
 

@@ -12,6 +12,7 @@ class DetailCharactersTableViewController: UITableViewController {
     var character: Character?
     var episode: Episode?
     var location: Location?
+    var qwe: [Episode?] = []
     var filteredCharacters: FilteredCharacters?
     var filteredCharactersURL = URLS.filteredCharacter.rawValue
 
@@ -21,10 +22,10 @@ class DetailCharactersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         getImage()
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
+        tableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: "collectionCell")
 
     }
 
@@ -94,7 +95,7 @@ class DetailCharactersTableViewController: UITableViewController {
                 cell.contentConfiguration = content
             case [0,1]:
                 content.text = "Type"
-                content.secondaryText = character?.status
+                content.secondaryText = character?.species
                 cell.contentConfiguration = content
             case [0,2]:
                 content.text = "Gender"
@@ -107,13 +108,18 @@ class DetailCharactersTableViewController: UITableViewController {
             case [1,0]:
                 content.text = character?.location.name
                 cell.contentConfiguration = content
-//            case [3,0]:
-//                let charCell = tableView.dequeueReusableCell(withIdentifier: "collection", for: indexPath) as! CollectionViewTableViewCell
-//                cell = charCell
+            case [3,0]:
+                let charCell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! CollectionViewTableViewCell
+
+                cell = charCell
             default:
                 if indexPath >= [2,0], indexPath < [3,0] {
-                    content.text = character?.episode[indexPath.row]
-                    cell.contentConfiguration = content
+                    NetworkManager.shared.fetchEpisode(from: self.character?.episode[indexPath.row] ?? "", completion: { result in
+                        DispatchQueue.main.async {
+                            content.text = result.name
+                            cell.contentConfiguration = content
+                        }
+                    })
                 }
             }
         } else if character == nil, location == nil {
@@ -195,8 +201,6 @@ class DetailCharactersTableViewController: UITableViewController {
         }
     }
 
-
-
     @objc func addToFavorites(){
         if episode == nil, location == nil {
             CoreDataManager.shared.saveCharacter(char: self.character!)
@@ -206,11 +210,42 @@ class DetailCharactersTableViewController: UITableViewController {
             CoreDataManager.shared.saveLocation(location: self.location!)
         }
     }
+
+
     @IBAction func sharedButtomPressed(_ sender: UIBarButtonItem) {
-        let shareController = UIActivityViewController(activityItems: ["Name: \(self.character?.name ?? "")"," Status:  \(self.character?.status ?? "")",       " Gender: \(self.character?.gender ?? "")"], applicationActivities: nil)
-        present(shareController, animated: true, completion: nil)
+        if episode == nil, location == nil {
+            let shareController = UIActivityViewController(activityItems: ["Name: \(self.character?.name ?? "")"," Status:  \(self.character?.status ?? "")",       " Gender: \(self.character?.gender ?? "")"], applicationActivities: nil)
+            present(shareController, animated: true, completion: nil)
+        } else if character == nil, location == nil {
+            let shareController = UIActivityViewController(activityItems: ["Name: \(self.episode?.name ?? "")"," Date:  \(self.episode?.date ?? "")", " Episode: \(self.episode?.episode ?? "")"], applicationActivities: nil)
+            present(shareController, animated: true, completion: nil)
+        } else if character == nil, episode == nil {
+            let shareController = UIActivityViewController(activityItems: ["Name: \(self.location?.name ?? "")"," Dimension:  \(self.location?.dimension ?? "")", " Type: \(self.location?.type ?? "")"], applicationActivities: nil)
+            present(shareController, animated: true, completion: nil)
+        }
     }
 }
 
+extension DetailCharactersTableViewController: UICollectionViewDataSource, UICollectionViewDelegate  {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! CollectionViewCell
+        NetworkManager.shared.fetchCharacter(from: (URLS.filteredCharacter.rawValue + (self.character?.name.components(separatedBy: " ").first ?? ""))) { result in
+            DispatchQueue.main.async {
+                cell.name.text = result.name
+                ImageManager.shared.fetchImage(from: result.image) { data, response in
+                    cell.image.image = UIImage(data: data) ?? UIImage(systemName: "person")!
+                }
+            }
+        }
+        return cell
+    }
+
+
+}
 
 
