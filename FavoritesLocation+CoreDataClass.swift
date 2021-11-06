@@ -2,7 +2,7 @@
 //  FavoritesLocation+CoreDataClass.swift
 //  
 //
-//  Created by Фаддей Гусаров on 31.10.2021.
+//  Created by Фаддей Гусаров on 05.11.2021.
 //
 //
 

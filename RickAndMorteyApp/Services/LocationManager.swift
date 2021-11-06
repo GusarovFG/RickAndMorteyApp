@@ -56,7 +56,6 @@ extension LocationManager: CLLocationManagerDelegate {
     public func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let location = locations.first else { return }
         currentLocation = location.coordinate
-        print("\(currentLocation!.latitude), lng: \(currentLocation!.longitude)")
         delegate?.didUpdateLocation(location)
     }
 }

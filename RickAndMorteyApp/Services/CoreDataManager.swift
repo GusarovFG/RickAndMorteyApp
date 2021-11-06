@@ -27,39 +27,67 @@ class CoreDataManager {
 
     // MARK: - Core Data Saving support
 
-//    func fetchContextTimer() -> FavoritesCharacter?{
-//        let chars = FavoritesCharacter()
-//        let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
-//
-//        do {
-//            let chars = try self.persistentContainer.viewContext.fetch(fetchRequest)
-//            print(chars)
-//        } catch {
-//            let error = error as NSError
-//            print(error)
-//        }
-//        return chars
-//    }
-
     func fetchCharacters() -> [FavoritesCharacter] {
         let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         return objects
     }
 
-    func insertInEntity(char: Character){
+    func saveCharacter(char: Character){
 
         guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesCharacter", in: persistentContainer.viewContext) else { return }
-        let favChar = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
+        let favoriteCharacter = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
         
-        favChar.id = Int16(char.id)
-        favChar.name = char.name
-        favChar.gender = char.gender
-        favChar.species = char.species
-        favChar.status = char.status
-        favChar.image = char.image
+        favoriteCharacter.id = Int16(char.id)
+        favoriteCharacter.name = char.name
+        favoriteCharacter.gender = char.gender
+        favoriteCharacter.species = char.species
+        favoriteCharacter.status = char.status
+        favoriteCharacter.image = char.image
+        favoriteCharacter.episode = char.episode as NSObject
+//        favoriteCharacter.location = char.location
+        favoriteCharacter.url = char.url
+
 
         saveContext()
+    }
+
+    func saveEpisode(episode: Episode){
+        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesEpisodes", in: persistentContainer.viewContext) else { return }
+        let favoriteEpisode = FavoritesEpisodes(entity: entity, insertInto: persistentContainer.viewContext)
+
+        favoriteEpisode.name = episode.name
+        favoriteEpisode.episode = episode.episode
+        favoriteEpisode.date = episode.date
+        favoriteEpisode.characters = episode.characters as NSObject
+        
+        saveContext()
+    }
+
+    func fetchEpisodes() -> [FavoritesEpisodes]{
+        let fetchRequest: NSFetchRequest<FavoritesEpisodes> = FavoritesEpisodes.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        return objects
+    }
+
+    func saveLocation(location: Location) {
+        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesLocation", in: persistentContainer.viewContext) else { return }
+        let favoriteLocation = FavoritesLocation(entity: entity, insertInto: persistentContainer.viewContext)
+
+        favoriteLocation.name = location.name
+        favoriteLocation.created = location.created
+        favoriteLocation.dimension = location.dimension
+        favoriteLocation.url = location.url
+        favoriteLocation.type = location.type
+
+        saveContext()
+
+    }
+
+    func fetchLocations() -> [FavoritesLocation] {
+        let fetchRequest: NSFetchRequest<FavoritesLocation> = FavoritesLocation.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        return objects
     }
 
     func setTimerCount(count: Int64) {
@@ -75,8 +103,8 @@ class CoreDataManager {
         }
 
         saveContext()
-
     }
+
 
     func fetchTimerCount() -> Int64 {
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
@@ -99,7 +127,6 @@ class CoreDataManager {
         let marker = Marker(entity: entity, insertInto: persistentContainer.viewContext)
         marker.latitude = latitude
         marker.longtitude = lontitude
-        print("asasasasasasasasasasasasasasasasasasasasas     \(marker)")
 
         saveContext()
 

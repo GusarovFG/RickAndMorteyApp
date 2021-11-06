@@ -1,5 +1,5 @@
 //
-//  FavoritesCharacter+CoreDataClass.swift
+//  Marker+CoreDataClass.swift
 //  
 //
 //  Created by Фаддей Гусаров on 05.11.2021.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
-public class FavoritesCharacter: NSManagedObject {
+@objc(Marker)
+public class Marker: NSManagedObject {
 
 }

@@ -37,6 +37,29 @@ class NetworkManager {
         }.resume()
     }
 
+    func fetchFilteredCharacters(from url: String?, with complition: @escaping (FilteredCharacters) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            guard let data = data else { return }
+
+            do {
+                let rickAndMorty = try JSONDecoder().decode(FilteredCharacters.self, from: data)
+                DispatchQueue.main.async {
+                    complition(rickAndMorty)
+                }
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
+
     func fetchEpisodess(from url: String?, with complition: @escaping (Episodes) -> Void) {
         guard let stringURL = url else { return }
         guard let url = URL(string: stringURL) else { return }

@@ -37,7 +37,7 @@ class GoogleMapManager {
         for i in markers {
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: i.latitude, longitude: i.longtitude))
             marker.map = mapView
-            print(i)
+            
         }
 
         

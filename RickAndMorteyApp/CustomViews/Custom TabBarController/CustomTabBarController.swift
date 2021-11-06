@@ -51,8 +51,7 @@ class CustomTabBarController: UITabBarController {
     @objc func middleButtonDidTap(sender: UIButton) {
         sender.tintColor = .yellow
         self.selectedIndex = 2
-        let favoriteVC = self.storyboard?.instantiateViewController(withIdentifier: "favoriteVC") as! FavoritesViewController
-        favoriteVC.tableView?.reloadData()
+
     }
 
 }

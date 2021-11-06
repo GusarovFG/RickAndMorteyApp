@@ -2,7 +2,7 @@
 //  FavoritesEpisodes+CoreDataProperties.swift
 //  
 //
-//  Created by Фаддей Гусаров on 31.10.2021.
+//  Created by Фаддей Гусаров on 05.11.2021.
 //
 //
 
@@ -16,9 +16,9 @@ extension FavoritesEpisodes {
         return NSFetchRequest<FavoritesEpisodes>(entityName: "FavoritesEpisodes")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var characters: [String]?
     @NSManaged public var date: String?
     @NSManaged public var episode: String?
-    @NSManaged public var characters: [FavoritesCharacter]
+    @NSManaged public var name: String?
 
 }

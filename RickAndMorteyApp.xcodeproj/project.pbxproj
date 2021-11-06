@@ -28,11 +28,17 @@
 		FB31786427272F56000D25D5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31786327272F56000D25D5 /* PageViewController.swift */; };
 		FB317867272747DF000D25D5 /* AttributeStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB317866272747DF000D25D5 /* AttributeStringExtension.swift */; };
 		FB31786A27274B7B000D25D5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31786927274B7B000D25D5 /* Enums.swift */; };
+		FB523F9827367AC500751B1A /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB523F9727367AC500751B1A /* CollectionViewTableViewCell.swift */; };
+		FB523F9B2736AE8F00751B1A /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */; };
 		FB60C84C2719B33B005DFA8F /* CustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C84B2719B33B005DFA8F /* CustomHeader.xib */; };
 		FB60C84E2719BB28005DFA8F /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84D2719BB28005DFA8F /* CustomHeader.swift */; };
 		FB60C8502719CBF6005DFA8F /* DetailLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */; };
 		FB60C8522719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */; };
 		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
+		FB711CB22735C6950018EF19 /* FavoritsCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CB12735C6950018EF19 /* FavoritsCharactersViewController.swift */; };
+		FB711CB52735C6B60018EF19 /* FavoritersLocatiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CB42735C6B60018EF19 /* FavoritersLocatiosViewController.swift */; };
+		FB711CB72735C6C40018EF19 /* FavoriteEpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CB62735C6C40018EF19 /* FavoriteEpisodesViewController.swift */; };
+		FB711CC12735E6330018EF19 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CC02735E6330018EF19 /* CollectionViewCell.swift */; };
 		FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */; };
 		FBA8E61D2733DCA5006DEDD7 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */; };
 		FBA8E61F2734222E006DEDD7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8E61E2734222E006DEDD7 /* LocationManager.swift */; };
@@ -70,11 +76,17 @@
 		FB31786327272F56000D25D5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		FB317866272747DF000D25D5 /* AttributeStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeStringExtension.swift; sourceTree = "<group>"; };
 		FB31786927274B7B000D25D5 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		FB523F9727367AC500751B1A /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		FB60C84B2719B33B005DFA8F /* CustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeader.xib; sourceTree = "<group>"; };
 		FB60C84D2719BB28005DFA8F /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationTableViewCell.swift; sourceTree = "<group>"; };
 		FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLocationAndEpisodeCell.xib; sourceTree = "<group>"; };
 		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
+		FB711CB12735C6950018EF19 /* FavoritsCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsCharactersViewController.swift; sourceTree = "<group>"; };
+		FB711CB42735C6B60018EF19 /* FavoritersLocatiosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritersLocatiosViewController.swift; sourceTree = "<group>"; };
+		FB711CB62735C6C40018EF19 /* FavoriteEpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEpisodesViewController.swift; sourceTree = "<group>"; };
+		FB711CC02735E6330018EF19 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 		FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		FBA8E61E2734222E006DEDD7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -157,10 +169,9 @@
 			children = (
 				FB758E6627304B8E00BDE5A0 /* EpisodesTableViewController.swift */,
 				FBC986132732EDB9005ECD3A /* LocationsTableViewController.swift */,
-				FB711CAD2735544D0018EF19 /* Start Controller */,
 				FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */,
-				FB2973ED270A0D6F004722D5 /* MainCharactersTableViewController.swift */,
-				FB2AE0AB272EEE7B00061357 /* FavoritesViewController.swift */,
+				FB711CAD2735544D0018EF19 /* Start Controller */,
+				FB711CB02735C6690018EF19 /* FavoriteContainersView */,
 				FB711CAC273554100018EF19 /* ContainerViewWithTimerAndMAp */,
 			);
 			path = Controllers;
@@ -182,6 +193,7 @@
 				FBC986172733081B005ECD3A /* GoogleMapManager.swift */,
 				FBA8E61C2733DCA5006DEDD7 /* TimerManager.swift */,
 				FBA8E61E2734222E006DEDD7 /* LocationManager.swift */,
+				FB523F9A2736AE8F00751B1A /* NotificationsManager.swift */,
 				FBCE9D01272B3BCA00C91E7C /* CoreDataManager.swift */,
 			);
 			path = Services;
@@ -223,6 +235,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		FB523F9927367C5000751B1A /* CollectionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB523F9727367AC500751B1A /* CollectionViewTableViewCell.swift */,
+				FB711CC02735E6330018EF19 /* CollectionViewCell.swift */,
+			);
+			path = CollectionTableViewCell;
+			sourceTree = "<group>";
+		};
 		FB711CAC273554100018EF19 /* ContainerViewWithTimerAndMAp */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +257,7 @@
 		FB711CAD2735544D0018EF19 /* Start Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB2973ED270A0D6F004722D5 /* MainCharactersTableViewController.swift */,
 				FB31786127272F43000D25D5 /* WelcomeViewController.swift */,
 				FB0779DB26E251BC0060DDD8 /* LoginViewController.swift */,
 			);
@@ -257,8 +279,28 @@
 				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
 				FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */,
 				FB2AE0AD272F3B3D00061357 /* FavoriteTableViewCell.swift */,
+				FB523F9927367C5000751B1A /* CollectionTableViewCell */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		FB711CB02735C6690018EF19 /* FavoriteContainersView */ = {
+			isa = PBXGroup;
+			children = (
+				FB2AE0AB272EEE7B00061357 /* FavoritesViewController.swift */,
+				FB711CB32735C69E0018EF19 /* Containers */,
+			);
+			path = FavoriteContainersView;
+			sourceTree = "<group>";
+		};
+		FB711CB32735C69E0018EF19 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				FB711CB12735C6950018EF19 /* FavoritsCharactersViewController.swift */,
+				FB711CB42735C6B60018EF19 /* FavoritersLocatiosViewController.swift */,
+				FB711CB62735C6C40018EF19 /* FavoriteEpisodesViewController.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 		FBCE9CFE272B116E00C91E7C /* XIBS */ = {
@@ -391,6 +433,7 @@
 				FB31786227272F43000D25D5 /* WelcomeViewController.swift in Sources */,
 				FB758E6727304B8E00BDE5A0 /* EpisodesTableViewController.swift in Sources */,
 				FBA8E61F2734222E006DEDD7 /* LocationManager.swift in Sources */,
+				FB711CB22735C6950018EF19 /* FavoritsCharactersViewController.swift in Sources */,
 				FB317867272747DF000D25D5 /* AttributeStringExtension.swift in Sources */,
 				FB2973EA2709F581004722D5 /* NetworkManager.swift in Sources */,
 				FBCE9D02272B3BCA00C91E7C /* CoreDataManager.swift in Sources */,
@@ -401,7 +444,9 @@
 				FB0779C426E23C8D0060DDD8 /* AppDelegate.swift in Sources */,
 				FB2973EE270A0D6F004722D5 /* MainCharactersTableViewController.swift in Sources */,
 				FB2973E82709F347004722D5 /* CharactersModel.swift in Sources */,
+				FB523F9827367AC500751B1A /* CollectionViewTableViewCell.swift in Sources */,
 				FBA8E61D2733DCA5006DEDD7 /* TimerManager.swift in Sources */,
+				FB711CB52735C6B60018EF19 /* FavoritersLocatiosViewController.swift in Sources */,
 				FB2B01FD270C933D004E0087 /* CustomTabBarController.swift in Sources */,
 				FB31786427272F56000D25D5 /* PageViewController.swift in Sources */,
 				FB60C8502719CBF6005DFA8F /* DetailLocationTableViewCell.swift in Sources */,
@@ -412,8 +457,11 @@
 				FB0779C626E23C8D0060DDD8 /* SceneDelegate.swift in Sources */,
 				FB31143227070F1B0041A0DB /* CharactersTableViewCell.swift in Sources */,
 				FBCE9D00272B159300C91E7C /* StatisticViewController.swift in Sources */,
+				FB711CC12735E6330018EF19 /* CollectionViewCell.swift in Sources */,
 				FBC9861A27330FE5005ECD3A /* MapViewController.swift in Sources */,
 				FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */,
+				FB523F9B2736AE8F00751B1A /* NotificationsManager.swift in Sources */,
+				FB711CB72735C6C40018EF19 /* FavoriteEpisodesViewController.swift in Sources */,
 				FB31786A27274B7B000D25D5 /* Enums.swift in Sources */,
 				FB2AE0AE272F3B3D00061357 /* FavoriteTableViewCell.swift in Sources */,
 			);

@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -66,6 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
+        NotificationsManager.shared.scheduleNotifitacons()
         CoreDataManager.shared.saveContext()
     }
 

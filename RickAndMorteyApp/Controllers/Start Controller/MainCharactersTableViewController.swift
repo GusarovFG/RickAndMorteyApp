@@ -98,7 +98,6 @@ class MainCharactersTableViewController: UITableViewController{
     private func fetchData() {
         NetworkManager.shared.fetchCharacters(from: URLS.rickAndMortyapi.rawValue) {  ricksAndMortys in
             DispatchQueue.main.async {
-                print(ricksAndMortys.results)
                 self.rickAndMorty = ricksAndMortys
                 self.characters = ricksAndMortys.results
                 self.tableView.reloadData()

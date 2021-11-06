@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Marker+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Marker+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:FavoritesLocation+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:FavoritesLocation+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:FavoritesCharacter+CoreDataClass.swift">
    </FileRef>
    <FileRef
@@ -14,13 +26,10 @@
       location = "group:FavoritesEpisodes+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:FavoritesLocation+CoreDataClass.swift">
+      location = "group:TimerCount+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:FavoritesLocation+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Entity+CoreDataProperties.swift">
+      location = "group:TimerCount+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:RickAndMorteyApp.xcodeproj">

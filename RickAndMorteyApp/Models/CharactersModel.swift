@@ -22,6 +22,11 @@ struct Locations: Decodable {
     let results: [Location]
 }
 
+struct FilteredCharacters: Decodable {
+    let info: Info
+    let results: [Character]
+}
+
 struct Info: Decodable {
     let pages: Int
     let next: String?

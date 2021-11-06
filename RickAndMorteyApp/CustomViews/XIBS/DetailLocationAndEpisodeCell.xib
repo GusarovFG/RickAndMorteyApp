@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz8-Qb-AGY">
-                        <rect key="frame" x="13" y="0.0" width="49.5" height="44"/>
+                        <rect key="frame" x="309" y="0.0" width="49.5" height="44"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
@@ -31,7 +31,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Zz8-Qb-AGY" secondAttribute="bottom" id="8jb-3I-pzP"/>
-                    <constraint firstAttribute="trailing" secondItem="Zz8-Qb-AGY" secondAttribute="trailing" constant="322" id="caM-vo-CC7"/>
+                    <constraint firstAttribute="trailing" secondItem="Zz8-Qb-AGY" secondAttribute="trailing" constant="26" id="caM-vo-CC7"/>
                     <constraint firstItem="Zz8-Qb-AGY" firstAttribute="top" secondItem="8ZX-Jv-jZs" secondAttribute="top" id="mvQ-aT-XrA"/>
                 </constraints>
             </tableViewCellContentView>

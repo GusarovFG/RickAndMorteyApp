@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GoogleMapManager.shared.latitude = LocationManager.shared.getLat()
         GoogleMapManager.shared.longtitude = LocationManager.shared.getLon()
         GoogleMapManager.shared.addMarkerToMap(latitude: LocationManager.shared.getLat(), longtitude: LocationManager.shared.getLon())
+        NotificationsManager.shared.requestAuthorization()
+        
         return true
     }
 

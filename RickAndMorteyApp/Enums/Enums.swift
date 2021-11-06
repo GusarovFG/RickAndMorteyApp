@@ -11,6 +11,7 @@ enum URLS: String {
     case rickAndMortyapi = "https://rickandmortyapi.com/api/character"
     case episodes = "https://rickandmortyapi.com/api/episode"
     case locations = "https://rickandmortyapi.com/api/location"
+    case filteredCharacter = "https://rickandmortyapi.com/api/character/?name="
 }
 
 enum textsForHyperLinks: String {
