@@ -19,7 +19,7 @@ extension FavoritesLocation {
     @NSManaged public var name: String?
     @NSManaged public var type: String?
     @NSManaged public var dimension: String?
-    @NSManaged public var residents: [String]?
+    @NSManaged public var residents: [String]
     @NSManaged public var url: String?
     @NSManaged public var created: String?
 

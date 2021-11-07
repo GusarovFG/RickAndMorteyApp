@@ -26,7 +26,7 @@ class FavoritsCharactersViewController: UIViewController {
     }
 }
 
-extension FavoritsCharactersViewController: UITableViewDataSource {
+extension FavoritsCharactersViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.characters.count
     }
@@ -34,7 +34,7 @@ extension FavoritsCharactersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
         let character = characters[indexPath.row]
-        cell.configure(with: character)
+        cell.configureForFavorite(with: character)
         print(indexPath)
         return cell
     }
@@ -51,14 +51,5 @@ extension FavoritsCharactersViewController: UITableViewDataSource {
         }
     }
 
-    func getImage(url: String, indexPath: Int) -> UIImage? {
-        var image = UIImage()
-        ImageManager.shared.fetchImage(from: url) { data, response in
-            DispatchQueue.main.async {
-                image = UIImage(data: data) ?? UIImage(systemName: "eye")!
-            }
-        }
-        return image
-    }
 
 }

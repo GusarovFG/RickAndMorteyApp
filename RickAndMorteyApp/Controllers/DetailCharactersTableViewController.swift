@@ -26,6 +26,7 @@ class DetailCharactersTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
         tableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: "collectionCell")
+        tableView.register(UINib(nibName: "FavoriteCell", bundle: nil), forCellReuseIdentifier: "FavoriteTableViewCell")
 
     }
 
@@ -65,7 +66,7 @@ class DetailCharactersTableViewController: UITableViewController {
             case 0:
                 numberOfSection = 2
             case 1:
-                numberOfSection = 1
+                numberOfSection = episode?.characters.count ?? 0
             default:
                 break
             }
@@ -74,7 +75,7 @@ class DetailCharactersTableViewController: UITableViewController {
             case 0:
                 numberOfSection = 3
             case 1:
-                numberOfSection = 1
+                numberOfSection = location?.residents?.count ?? 0
             default:
                 break
             }
@@ -108,23 +109,62 @@ class DetailCharactersTableViewController: UITableViewController {
                 content.text = character?.location.name
                 cell.contentConfiguration = content
             case [3,0]:
-                let charCell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! CollectionViewTableViewCell
-                cell = charCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! CollectionViewTableViewCell
+
             default:
                 if indexPath >= [2,0], indexPath < [3,0] {
+                    cell = tableView.dequeueReusableCell(withIdentifier: "episCell", for: indexPath)
                     NetworkManager.shared.fetchEpisode(from: self.character?.episode[indexPath.row] ?? "", completion: { result in
-                            content.text = result.name
-                            cell.contentConfiguration = content
+                        content.text = result.name
+                        cell.contentConfiguration = content
                     })
                 }
             }
         } else if character == nil, location == nil {
-//            switch indexPath {
-//            case [0,0]:
-//                content.text =
-//            }
+            switch indexPath {
+            case [0,0]:
+                content.text = "Date"
+                content.secondaryText = episode?.date
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Code"
+                content.secondaryText = episode?.episode
+                cell.contentConfiguration = content
+            default:
+                let charactersCell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
+                NetworkManager.shared.fetchCharacter(from: self.episode?.characters[indexPath.row] ?? "") { result in
+                    DispatchQueue.main.async {
+                        let character = result
+                        charactersCell.configureForCharacter(with: character)
+                    }
+                }
+                return charactersCell
+            }
 
         } else if character == nil, episode == nil {
+            switch indexPath {
+            case [0,0]:
+                content.text = "Type"
+                content.secondaryText = location?.type
+                cell.contentConfiguration = content
+            case [0,1]:
+                content.text = "Dimension"
+                content.secondaryText = location?.dimension
+                cell.contentConfiguration = content
+            case [0,2]:
+                content.text = "Date"
+                content.secondaryText = location?.created
+                cell.contentConfiguration = content
+            default:
+                let charactersCell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
+                NetworkManager.shared.fetchCharacter(from: self.location?.residents?[indexPath.row] ?? "") { result in
+                    DispatchQueue.main.async {
+                        let character = result
+                        charactersCell.configureForCharacter(with: character)
+                    }
+                }
+                return charactersCell
+            }
 
         }
         return cell

@@ -39,7 +39,6 @@ struct Character: Decodable {
     let status: String
     let species: String
     let gender: String
-    let origin: Location
     let location: Location
     let image: String
     let episode: [String]

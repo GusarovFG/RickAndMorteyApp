@@ -325,6 +325,7 @@
                                     <outlet property="favoriteButton" destination="a01-FZ-oxT" id="Tpu-kW-yf3"/>
                                     <outlet property="nameLabel" destination="mmX-qD-gQg" id="gps-hH-iju"/>
                                     <outlet property="statusLabel" destination="ClI-9m-LaB" id="57R-8h-yPK"/>
+                                    <segue destination="2IQ-1r-wTS" kind="show" identifier="detailSegue" id="u5Q-iJ-D57"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -350,21 +351,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" textLabel="5aM-Ek-VDQ" detailTextLabel="6JM-92-tcg" rowHeight="44" style="IBUITableViewCellStyleValue1" id="Jzx-0I-M6A">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" textLabel="ak9-QP-Gmq" detailTextLabel="3JI-SM-hhl" rowHeight="44" style="IBUITableViewCellStyleValue1" id="Jzx-0I-M6A">
                                 <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jzx-0I-M6A" id="sfP-kX-Qp6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5aM-Ek-VDQ">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ak9-QP-Gmq">
                                             <rect key="frame" x="20" y="15" width="25" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6JM-92-tcg">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3JI-SM-hhl">
                                             <rect key="frame" x="361" y="15" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
@@ -442,6 +443,63 @@
                                 <connections>
                                     <outlet property="collectionView" destination="QUs-TY-zaQ" id="81v-ye-MaW"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteTableViewCell" rowHeight="60" id="Tao-wp-QlX" customClass="FavoriteTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="253.5" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tao-wp-QlX" id="Uzn-sY-Ek8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bk-PY-60l">
+                                            <rect key="frame" x="68" y="35" width="38" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfA-gQ-EJh">
+                                            <rect key="frame" x="68" y="6" width="48" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jT5-gi-fb1">
+                                            <rect key="frame" x="5" y="3" width="55" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="8oO-H8-hAb"/>
+                                                <constraint firstAttribute="height" constant="55" id="vGt-FE-fF2"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="1Bk-PY-60l" secondAttribute="bottom" constant="7" id="0MV-On-4up"/>
+                                        <constraint firstItem="1Bk-PY-60l" firstAttribute="leading" secondItem="jT5-gi-fb1" secondAttribute="trailing" constant="8" symbolic="YES" id="2bZ-Nn-CrT"/>
+                                        <constraint firstItem="1Bk-PY-60l" firstAttribute="top" secondItem="pfA-gQ-EJh" secondAttribute="bottom" constant="5" id="5r1-00-ucA"/>
+                                        <constraint firstItem="jT5-gi-fb1" firstAttribute="leading" secondItem="Uzn-sY-Ek8" secondAttribute="leading" constant="5" id="8Yd-uz-faM"/>
+                                        <constraint firstItem="1Bk-PY-60l" firstAttribute="top" secondItem="pfA-gQ-EJh" secondAttribute="bottom" constant="5" id="BJe-VM-BCE"/>
+                                        <constraint firstItem="pfA-gQ-EJh" firstAttribute="leading" secondItem="jT5-gi-fb1" secondAttribute="trailing" constant="8" symbolic="YES" id="b0k-Nr-a8n"/>
+                                        <constraint firstItem="jT5-gi-fb1" firstAttribute="top" secondItem="Uzn-sY-Ek8" secondAttribute="top" constant="3" id="g5U-Z7-ndJ"/>
+                                        <constraint firstItem="pfA-gQ-EJh" firstAttribute="top" secondItem="Uzn-sY-Ek8" secondAttribute="top" constant="6" id="pCo-0v-I1D"/>
+                                        <constraint firstAttribute="bottom" secondItem="jT5-gi-fb1" secondAttribute="bottom" constant="2" id="qDM-83-uPu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="pfA-gQ-EJh" id="Eij-3i-2ha"/>
+                                    <outlet property="statusLabel" destination="1Bk-PY-60l" id="jjx-aZ-qDz"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="episCell" rowHeight="60" id="Hy3-a2-NWR">
+                                <rect key="frame" x="0.0" y="313.5" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hy3-a2-NWR" id="MyT-ux-A6e">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -867,11 +925,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteEpisodeCell" textLabel="22R-Pj-1Df" detailTextLabel="FDz-bk-smE" style="IBUITableViewCellStyleSubtitle" id="NFa-V9-ooG" customClass="FavoriteTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="favoriteEpisodeCell" textLabel="22R-Pj-1Df" detailTextLabel="FDz-bk-smE" style="IBUITableViewCellStyleSubtitle" id="NFa-V9-ooG" customClass="FavoriteTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NFa-V9-ooG" id="fsu-V8-22R">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="22R-Pj-1Df">
@@ -890,6 +948,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2IQ-1r-wTS" kind="push" identifier="EpisodeSegue" id="FaY-ww-Xni"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -950,6 +1011,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2IQ-1r-wTS" kind="show" identifier="LocationSegue" id="1Zt-tN-Dy7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -994,6 +1058,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2IQ-1r-wTS" kind="show" identifier="CharacterSegue" id="O9D-do-dSd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1021,7 +1088,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Je9-Yv-sh2"/>
+        <segue reference="u5Q-iJ-D57"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>

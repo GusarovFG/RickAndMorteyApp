@@ -34,7 +34,6 @@
 		FB60C84C2719B33B005DFA8F /* CustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C84B2719B33B005DFA8F /* CustomHeader.xib */; };
 		FB60C84E2719BB28005DFA8F /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84D2719BB28005DFA8F /* CustomHeader.swift */; };
 		FB60C8502719CBF6005DFA8F /* DetailLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */; };
-		FB60C8522719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */; };
 		FB61F2EF2718473800D07848 /* DetailCharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */; };
 		FB711CB22735C6950018EF19 /* FavoritsCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CB12735C6950018EF19 /* FavoritsCharactersViewController.swift */; };
 		FB711CB52735C6B60018EF19 /* FavoritersLocatiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB711CB42735C6B60018EF19 /* FavoritersLocatiosViewController.swift */; };
@@ -83,7 +82,6 @@
 		FB60C84B2719B33B005DFA8F /* CustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeader.xib; sourceTree = "<group>"; };
 		FB60C84D2719BB28005DFA8F /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationTableViewCell.swift; sourceTree = "<group>"; };
-		FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLocationAndEpisodeCell.xib; sourceTree = "<group>"; };
 		FB61F2EE2718473800D07848 /* DetailCharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharactersTableViewController.swift; sourceTree = "<group>"; };
 		FB711CB12735C6950018EF19 /* FavoritsCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsCharactersViewController.swift; sourceTree = "<group>"; };
 		FB711CB42735C6B60018EF19 /* FavoritersLocatiosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritersLocatiosViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 		FBCE9CFE272B116E00C91E7C /* XIBS */ = {
 			isa = PBXGroup;
 			children = (
-				FB60C8512719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib */,
 				FB60C84B2719B33B005DFA8F /* CustomHeader.xib */,
 				FB2AE0AF272F3B4F00061357 /* FavoriteCell.xib */,
 			);
@@ -376,7 +373,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB60C8522719CC1A005DFA8F /* DetailLocationAndEpisodeCell.xib in Resources */,
 				FB0779D326E23C8F0060DDD8 /* LaunchScreen.storyboard in Resources */,
 				FB60C84C2719B33B005DFA8F /* CustomHeader.xib in Resources */,
 				FB0779D026E23C8F0060DDD8 /* Assets.xcassets in Resources */,
