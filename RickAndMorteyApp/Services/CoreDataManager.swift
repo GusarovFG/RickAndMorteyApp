@@ -33,11 +33,11 @@ class CoreDataManager {
         return objects
     }
 
-    func saveCharacter(char: Character){
+    func saveCharacter(char: Character) {
 
         guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesCharacter", in: persistentContainer.viewContext) else { return }
         let favoriteCharacter = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
-        
+
         favoriteCharacter.id = Int16(char.id)
         favoriteCharacter.name = char.name
         favoriteCharacter.gender = char.gender
@@ -45,11 +45,11 @@ class CoreDataManager {
         favoriteCharacter.status = char.status
         favoriteCharacter.image = char.image
         favoriteCharacter.episode = char.episode as NSObject
-//        favoriteCharacter.location = char.location
+        //        favoriteCharacter.location = char.location
         favoriteCharacter.url = char.url
 
-
         saveContext()
+
     }
 
     func saveEpisode(episode: Episode){
@@ -109,7 +109,7 @@ class CoreDataManager {
     func fetchTimerCount() -> Int64 {
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
-    
+
         return objects.first?.timerCount ?? 0
 
     }
@@ -117,7 +117,23 @@ class CoreDataManager {
     func deleteCharacter(index: Int){
         let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
         let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
-        
+        print(objects)
+        persistentContainer.viewContext.delete(objects[index])
+        saveContext()
+    }
+
+    func deleteLocation(index: Int){
+        let fetchRequest: NSFetchRequest<FavoritesLocation> = FavoritesLocation.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        print(objects)
+        persistentContainer.viewContext.delete(objects[index])
+        saveContext()
+    }
+
+    func deleteEpisode(index: Int){
+        let fetchRequest: NSFetchRequest<FavoritesEpisodes> = FavoritesEpisodes.fetchRequest()
+        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        print(objects)
         persistentContainer.viewContext.delete(objects[index])
         saveContext()
     }

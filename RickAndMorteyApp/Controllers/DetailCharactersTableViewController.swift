@@ -82,7 +82,6 @@ class DetailCharactersTableViewController: UITableViewController {
         return numberOfSection
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
@@ -110,19 +109,20 @@ class DetailCharactersTableViewController: UITableViewController {
                 cell.contentConfiguration = content
             case [3,0]:
                 let charCell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! CollectionViewTableViewCell
-
                 cell = charCell
             default:
                 if indexPath >= [2,0], indexPath < [3,0] {
                     NetworkManager.shared.fetchEpisode(from: self.character?.episode[indexPath.row] ?? "", completion: { result in
-                        DispatchQueue.main.async {
                             content.text = result.name
                             cell.contentConfiguration = content
-                        }
                     })
                 }
             }
         } else if character == nil, location == nil {
+//            switch indexPath {
+//            case [0,0]:
+//                content.text =
+//            }
 
         } else if character == nil, episode == nil {
 
@@ -163,9 +163,6 @@ class DetailCharactersTableViewController: UITableViewController {
         return title
     }
 
-
-
-
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView") as? CustomHeader
@@ -175,9 +172,19 @@ class DetailCharactersTableViewController: UITableViewController {
 
         if episode == nil, location == nil {
             headerView?.charName.text = self.character?.name
+            if CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character?.id ?? 0}).isEmpty == false {
+                headerView?.favoriteButtonPressed.setTitle("In Favorites", for: .normal)
+                headerView?.favoriteButtonPressed.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                headerView?.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+            }
         } else if character == nil, location == nil {
             headerView?.charName.text = self.episode?.name
             headerView?.leadingConstraintOfStackView.constant = 10
+            if CoreDataManager.shared.fetchEpisodes().filter({$0.name == self.episode?.name ?? ""}).isEmpty == false {
+                headerView?.favoriteButtonPressed.setTitle("In Favorites", for: .normal)
+                headerView?.favoriteButtonPressed.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                headerView?.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+            }
         } else if character == nil, episode == nil {
             headerView?.charName.text = self.location?.name
             headerView?.leadingConstraintOfStackView.constant = 10
@@ -203,11 +210,23 @@ class DetailCharactersTableViewController: UITableViewController {
 
     @objc func addToFavorites(){
         if episode == nil, location == nil {
-            CoreDataManager.shared.saveCharacter(char: self.character!)
+            if CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character?.id ?? 0}).isEmpty {
+                CoreDataManager.shared.saveCharacter(char: self.character!)
+            } else {
+                return
+            }
         } else if character == nil, location == nil {
-            CoreDataManager.shared.saveEpisode(episode: self.episode!)
+            if CoreDataManager.shared.fetchEpisodes().filter({$0.name == self.episode?.name ?? ""}).isEmpty {
+                CoreDataManager.shared.saveEpisode(episode: self.episode!)
+            } else {
+                return
+            }
         } else if character == nil, episode == nil {
-            CoreDataManager.shared.saveLocation(location: self.location!)
+            if CoreDataManager.shared.fetchLocations().filter({$0.name == self.location?.name ?? ""}).isEmpty {
+                CoreDataManager.shared.saveLocation(location: self.location!)
+            } else {
+                return
+            }
         }
     }
 
@@ -225,6 +244,7 @@ class DetailCharactersTableViewController: UITableViewController {
         }
     }
 }
+
 
 extension DetailCharactersTableViewController: UICollectionViewDataSource, UICollectionViewDelegate  {
 
@@ -247,5 +267,4 @@ extension DetailCharactersTableViewController: UICollectionViewDataSource, UICol
 
 
 }
-
 

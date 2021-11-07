@@ -15,10 +15,16 @@ class FavoriteEpisodesViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
+        self.tableView.rowHeight = 60
         self.episodes = CoreDataManager.shared.fetchEpisodes()
+
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.episodes = CoreDataManager.shared.fetchEpisodes()
+        self.tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -46,5 +52,15 @@ extension FavoriteEpisodesViewController: UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            episodes.remove(at: indexPath.row)
+            CoreDataManager.shared.deleteEpisode(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }

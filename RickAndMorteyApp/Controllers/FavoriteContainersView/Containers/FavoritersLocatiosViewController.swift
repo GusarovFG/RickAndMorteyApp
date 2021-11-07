@@ -12,15 +12,18 @@ class FavoritersLocatiosViewController: UIViewController {
     var locations: [FavoritesLocation] = []
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        self.tableView.rowHeight = 60
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.locations = CoreDataManager.shared.fetchLocations()
         self.tableView.reloadData()
     }
-
-
     /*
     // MARK: - Navigation
 
@@ -47,5 +50,16 @@ extension FavoritersLocatiosViewController: UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            locations.remove(at: indexPath.row)
+            CoreDataManager.shared.deleteLocation(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
 }

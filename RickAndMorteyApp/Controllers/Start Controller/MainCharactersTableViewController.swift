@@ -140,7 +140,6 @@ extension MainCharactersTableViewController: UISearchResultsUpdating {
     private func filterContentForSearchText(_ searchText: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NetworkManager.shared.fetchCharacters(from: URLS.filteredCharacter.rawValue + searchText) { result in
-                self.rickAndMorty = result
                 self.filteredChracter = result.results
                 print(result)
                 self.tableView.reloadData()
