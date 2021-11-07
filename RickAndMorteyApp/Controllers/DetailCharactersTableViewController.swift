@@ -188,7 +188,11 @@ class DetailCharactersTableViewController: UITableViewController {
         } else if character == nil, episode == nil {
             headerView?.charName.text = self.location?.name
             headerView?.leadingConstraintOfStackView.constant = 10
-
+            if CoreDataManager.shared.fetchLocations().filter({$0.name == self.location?.name ?? ""}).isEmpty == false {
+                headerView?.favoriteButtonPressed.setTitle("In Favorites", for: .normal)
+                headerView?.favoriteButtonPressed.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                headerView?.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+            }
         }
         return headerView
     }

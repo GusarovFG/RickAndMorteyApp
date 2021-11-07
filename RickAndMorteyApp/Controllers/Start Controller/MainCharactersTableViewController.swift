@@ -24,6 +24,11 @@ class MainCharactersTableViewController: UITableViewController{
         return searchController.isActive && !searchBarIsEmpty
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
     // MARK: - UIViewController Methods
 
     override func viewDidLoad() {
@@ -44,8 +49,14 @@ class MainCharactersTableViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharactersTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharactersTableViewCell
         let character = isFiltering ? filteredChracter[indexPath.row] : characters[indexPath.row]
+        
+        if CoreDataManager.shared.fetchCharacters().filter({$0.name == character.name }).isEmpty == false {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Character", for: indexPath) as! CharactersTableViewCell
+            cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.favoriteButton.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        }
 
         cell.configure(with: character)
 

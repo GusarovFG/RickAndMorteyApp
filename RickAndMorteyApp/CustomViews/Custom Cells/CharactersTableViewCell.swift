@@ -38,9 +38,7 @@ class CharactersTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction func favoriteButtonPressed(_ sender: Any) {
-
-        
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
 
     }
 
