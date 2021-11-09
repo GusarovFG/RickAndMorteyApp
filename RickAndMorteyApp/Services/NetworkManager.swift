@@ -179,19 +179,21 @@ class ImageManager {
     static var shared = ImageManager()
 
     private init() {}
-
+    
     func fetchImage(from url: String, complition: @escaping (Data, URLResponse) -> ()) {
         guard let imageURL = URL(string: url) else { return }
         URLSession.shared.dataTask(with: imageURL) { data, response, error in
-            guard let data = data, let response = response else {
-                print(error?.localizedDescription ?? "No error description")
-                return
+            DispatchQueue.main.async {
+                guard let data = data, let response = response else {
+                    print(error?.localizedDescription ?? "No error description")
+                    return
+                }
+                
+                guard imageURL == response.url else { return }
+                
+                complition(data, response)
             }
-
-            guard imageURL == response.url else { return }
-
-            complition(data, response)
-
+            
         }.resume()
     }
 }

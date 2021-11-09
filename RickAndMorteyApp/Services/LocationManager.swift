@@ -30,24 +30,24 @@ public class LocationManager: NSObject {
     private var currentLocation: CLLocationCoordinate2D?
 
     public func startUpdatingLocation() {
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        self.locationManager.delegate = self
+        self.locationManager.startUpdatingLocation()
     }
 
     public func stopUpdatingLocation() {
-        locationManager.stopUpdatingLocation()
+        self.locationManager.stopUpdatingLocation()
     }
 
     public func getCurrentLocation() -> CLLocationCoordinate2D? {
-        return currentLocation
+        return self.currentLocation
     }
 
     public func getLat() -> Double{
-        return currentLocation?.latitude ?? 0.0
+        return self.currentLocation?.latitude ?? 0.0
     }
 
     public func getLon() -> Double{
-        return currentLocation?.longitude ?? 0.0
+        return self.currentLocation?.longitude ?? 0.0
     }
 }
 
@@ -55,7 +55,7 @@ extension LocationManager: CLLocationManagerDelegate {
 
     public func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let location = locations.first else { return }
-        currentLocation = location.coordinate
-        delegate?.didUpdateLocation(location)
+        self.currentLocation = location.coordinate
+        self.delegate?.didUpdateLocation(location)
     }
 }

@@ -180,6 +180,7 @@
 		FB31142927070D9D0041A0DB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FBCE9CFE272B116E00C91E7C /* XIBS */,
 				FB0779D126E23C8F0060DDD8 /* LaunchScreen.storyboard */,
 				FB0779C926E23C8D0060DDD8 /* Main.storyboard */,
 			);
@@ -212,10 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				FB711CAE273554790018EF19 /* Custom TabBarController */,
-				FB711CAF2735548D0018EF19 /* Custom Cells */,
-				FB60C84D2719BB28005DFA8F /* CustomHeader.swift */,
-				FB31786327272F56000D25D5 /* PageViewController.swift */,
-				FBCE9CFE272B116E00C91E7C /* XIBS */,
+				FB9E5607273B1ABB000D05AC /* For TableView */,
+				FB9E5609273B1B04000D05AC /* PageView */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -277,10 +276,8 @@
 		FB711CAF2735548D0018EF19 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
-				FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */,
-				FB2AE0AD272F3B3D00061357 /* FavoriteTableViewCell.swift */,
-				FB523F9927367C5000751B1A /* CollectionTableViewCell */,
+				FB60C84D2719BB28005DFA8F /* CustomHeader.swift */,
+				FB9E5608273B1AE3000D05AC /* Cells */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -302,6 +299,33 @@
 				FB711CB62735C6C40018EF19 /* FavoriteEpisodesViewController.swift */,
 			);
 			path = Containers;
+			sourceTree = "<group>";
+		};
+		FB9E5607273B1ABB000D05AC /* For TableView */ = {
+			isa = PBXGroup;
+			children = (
+				FB711CAF2735548D0018EF19 /* Custom Cells */,
+			);
+			path = "For TableView";
+			sourceTree = "<group>";
+		};
+		FB9E5608273B1AE3000D05AC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FB523F9927367C5000751B1A /* CollectionTableViewCell */,
+				FB31143127070F1B0041A0DB /* CharactersTableViewCell.swift */,
+				FB60C84F2719CBF6005DFA8F /* DetailLocationTableViewCell.swift */,
+				FB2AE0AD272F3B3D00061357 /* FavoriteTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FB9E5609273B1B04000D05AC /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				FB31786327272F56000D25D5 /* PageViewController.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 		FBCE9CFE272B116E00C91E7C /* XIBS */ = {

@@ -18,29 +18,10 @@ class MapViewController: UIViewController {
     var preciseLocationZoomLevel: Float = 15.0
     var approximateLocationZoomLevel: Float = 10.0
 
-
-
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.view = GoogleMapManager.shared.setGoogleMap()
-            
         }
-
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

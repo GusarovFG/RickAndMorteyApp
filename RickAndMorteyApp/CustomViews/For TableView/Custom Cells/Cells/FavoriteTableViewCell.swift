@@ -21,13 +21,13 @@ class FavoriteTableViewCell: UITableViewCell {
     }
 
     func configureForFavorite(with character: FavoritesCharacter?) {
-        nameLabel?.text = character?.name
+        self.nameLabel?.text = character?.name
         if character?.status == "Alive" {
-            statusLabel?.textColor = .systemGreen
+            self.statusLabel?.textColor = .systemGreen
         } else {
-            statusLabel?.textColor = .systemRed
+            self.statusLabel?.textColor = .systemRed
         }
-        statusLabel?.text = "• \(character?.status ?? "")"
+        self.statusLabel?.text = "• \(character?.status ?? "")"
 
         ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
             DispatchQueue.main.async {
@@ -37,13 +37,13 @@ class FavoriteTableViewCell: UITableViewCell {
     }
 
     func configureForCharacter(with character: Character?){
-        nameLabel?.text = character?.name
+        self.nameLabel?.text = character?.name
         if character?.status == "Alive" {
-            statusLabel?.textColor = .systemGreen
+            self.statusLabel?.textColor = .systemGreen
         } else {
-            statusLabel?.textColor = .systemRed
+            self.statusLabel?.textColor = .systemRed
         }
-        statusLabel?.text = "• \(character?.status ?? "")"
+        self.statusLabel?.text = "• \(character?.status ?? "")"
 
         ImageManager.shared.fetchImage(from: character?.image ?? "") { data, response in
             DispatchQueue.main.async {

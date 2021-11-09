@@ -33,7 +33,7 @@ extension FavoritsCharactersViewController: UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
-        let character = characters[indexPath.row]
+        let character = self.characters[indexPath.row]
         cell.configureForFavorite(with: character)
         print(indexPath)
         return cell
@@ -45,7 +45,7 @@ extension FavoritsCharactersViewController: UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            characters.remove(at: indexPath.row)
+            self.characters.remove(at: indexPath.row)
             CoreDataManager.shared.deleteCharacter(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

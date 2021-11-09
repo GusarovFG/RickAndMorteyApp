@@ -30,7 +30,13 @@ class FavoritersLocatiosViewController: UIViewController {
          if segue.identifier == "LocationSegue" {
              let detailVC = segue.destination as! DetailCharactersTableViewController
              let indexPath = self.tableView.indexPathForSelectedRow
-             detailVC.location = Location(name: self.locations[indexPath?.row ?? 0].name ?? "" , type: self.locations[indexPath?.row ?? 0].type ?? "", dimension: self.locations[indexPath?.row ?? 0].dimension ?? "", residents: self.locations[indexPath?.row ?? 0].residents as? [String] ?? [] , url: self.locations[indexPath?.row ?? 0].url ?? "", created: self.locations[indexPath?.row ?? 0].created ?? "")
+             let lination = self.locations[indexPath?.row ?? 0]
+             detailVC.location = Location(name: lination.name ?? "" ,
+                                          type: lination.type ?? "",
+                                          dimension: lination.dimension ?? "",
+                                          residents: lination.residents as? [String] ?? [],
+                                          url: lination.url ?? "",
+                                          created: lination.created ?? "")
 
          }
      }
@@ -57,7 +63,7 @@ extension FavoritersLocatiosViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            locations.remove(at: indexPath.row)
+            self.locations.remove(at: indexPath.row)
             CoreDataManager.shared.deleteLocation(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

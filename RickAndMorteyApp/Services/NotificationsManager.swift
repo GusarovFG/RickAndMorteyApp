@@ -18,14 +18,14 @@ class NotificationsManager {
     let notificationsCenter = UNUserNotificationCenter.current()
 
     func requestAuthorization() {
-        notificationsCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        self.notificationsCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard granted else {return}
             self.getNotificationSettings()
         }
     }
 
     func getNotificationSettings() {
-        notificationsCenter.getNotificationSettings { settings in
+        self.notificationsCenter.getNotificationSettings { settings in
             print(settings)
         }
     }
@@ -44,7 +44,7 @@ class NotificationsManager {
         let identifire = "Locale Notification"
         let request = UNNotificationRequest(identifier: identifire, content: content, trigger: trigger)
 
-        notificationsCenter.add(request) { error in
+        self.notificationsCenter.add(request) { error in
             if let error = error {
                 print("Error \(error.localizedDescription)")
             }

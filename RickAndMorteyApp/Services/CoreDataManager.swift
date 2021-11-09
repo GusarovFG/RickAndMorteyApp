@@ -29,14 +29,13 @@ class CoreDataManager {
 
     func fetchCharacters() -> [FavoritesCharacter] {
         let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         return objects
     }
 
     func saveCharacter(char: Character) {
 
-        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesCharacter", in: persistentContainer.viewContext) else { return }
-        let favoriteCharacter = FavoritesCharacter(entity: entity, insertInto: persistentContainer.viewContext)
+        let favoriteCharacter = FavoritesCharacter(context: persistentContainer.viewContext)
 
         favoriteCharacter.id = Int16(char.id)
         favoriteCharacter.name = char.name
@@ -53,8 +52,7 @@ class CoreDataManager {
     }
 
     func saveEpisode(episode: Episode){
-        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesEpisodes", in: persistentContainer.viewContext) else { return }
-        let favoriteEpisode = FavoritesEpisodes(entity: entity, insertInto: persistentContainer.viewContext)
+        let favoriteEpisode = FavoritesEpisodes(context: persistentContainer.viewContext)
 
         favoriteEpisode.name = episode.name
         favoriteEpisode.episode = episode.episode
@@ -66,13 +64,12 @@ class CoreDataManager {
 
     func fetchEpisodes() -> [FavoritesEpisodes]{
         let fetchRequest: NSFetchRequest<FavoritesEpisodes> = FavoritesEpisodes.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         return objects
     }
 
     func saveLocation(location: Location) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritesLocation", in: persistentContainer.viewContext) else { return }
-        let favoriteLocation = FavoritesLocation(entity: entity, insertInto: persistentContainer.viewContext)
+        let favoriteLocation = FavoritesLocation(context: persistentContainer.viewContext)
 
         favoriteLocation.name = location.name
         favoriteLocation.created = location.created
@@ -86,17 +83,17 @@ class CoreDataManager {
 
     func fetchLocations() -> [FavoritesLocation] {
         let fetchRequest: NSFetchRequest<FavoritesLocation> = FavoritesLocation.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         return objects
     }
 
     func setTimerCount(count: Int64) {
 
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
 
         if objects.isEmpty {
-            let timers = NSEntityDescription.insertNewObject(forEntityName: "TimerCount", into: persistentContainer.viewContext)
+            let timers = NSEntityDescription.insertNewObject(forEntityName: "TimerCount", into: self.persistentContainer.viewContext)
             timers.setValue(count, forKey: "timerCount")
         } else {
             objects.first?.timerCount = count
@@ -105,10 +102,9 @@ class CoreDataManager {
         saveContext()
     }
 
-
     func fetchTimerCount() -> Int64 {
         let fetchRequest: NSFetchRequest<TimerCount> = TimerCount.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
 
         return objects.first?.timerCount ?? 0
 
@@ -116,31 +112,30 @@ class CoreDataManager {
 
     func deleteCharacter(index: Int){
         let fetchRequest: NSFetchRequest<FavoritesCharacter> = FavoritesCharacter.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         print(objects)
-        persistentContainer.viewContext.delete(objects[index])
+        self.persistentContainer.viewContext.delete(objects[index])
         saveContext()
     }
 
     func deleteLocation(index: Int){
         let fetchRequest: NSFetchRequest<FavoritesLocation> = FavoritesLocation.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         print(objects)
-        persistentContainer.viewContext.delete(objects[index])
+        self.persistentContainer.viewContext.delete(objects[index])
         saveContext()
     }
 
     func deleteEpisode(index: Int){
         let fetchRequest: NSFetchRequest<FavoritesEpisodes> = FavoritesEpisodes.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         print(objects)
-        persistentContainer.viewContext.delete(objects[index])
+        self.persistentContainer.viewContext.delete(objects[index])
         saveContext()
     }
 
     func addMarker(latitude: Double, lontitude: Double) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "Marker", in: persistentContainer.viewContext) else { return }
-        let marker = Marker(entity: entity, insertInto: persistentContainer.viewContext)
+        let marker = Marker(context: persistentContainer.viewContext)
         marker.latitude = latitude
         marker.longtitude = lontitude
 
@@ -150,12 +145,12 @@ class CoreDataManager {
 
     func fetchMarkers() -> [Marker] {
         let fetchRequest: NSFetchRequest<Marker> = Marker.fetchRequest()
-        let objects = (try? persistentContainer.viewContext.fetch(fetchRequest)) ?? []
+        let objects = (try? self.persistentContainer.viewContext.fetch(fetchRequest)) ?? []
         return objects
     }
 
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = self.persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

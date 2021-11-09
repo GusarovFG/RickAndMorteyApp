@@ -24,13 +24,16 @@ class StatisticViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startStopTimer()
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.title = "Statistic"
+        self.navigationController?.navigationBar.tintColor = .white
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
-            timerStackView?.axis = .horizontal
+            self.timerStackView?.axis = .horizontal
         } else {
-            timerStackView?.axis = .vertical
+            self.timerStackView?.axis = .vertical
         }
     }
 
@@ -39,7 +42,7 @@ class StatisticViewController: UIViewController {
     }
 
     func startStopTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
     }
 
     @objc func timerCounter() {

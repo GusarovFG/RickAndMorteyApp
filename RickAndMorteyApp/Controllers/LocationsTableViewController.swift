@@ -17,18 +17,15 @@ class LocationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchLocations()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.title = "Locations"
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return locationsList.count
+        return self.locationsList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,47 +45,11 @@ class LocationsTableViewController: UITableViewController {
         let contentHeight = scrollView.contentSize.height
 
         if offSetY > contentHeight - scrollView.frame.height{
-            if !beginFetch {
+            if !self.beginFetch {
                 fetchNextEpisodes()
             }
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 
      // MARK: - Navigation
 
@@ -101,17 +62,15 @@ class LocationsTableViewController: UITableViewController {
     }
 
     func fetchLocations() {
-        NetworkManager.shared.fetchLocations(from: URLS.locations.rawValue) { result in
-            DispatchQueue.main.async {
-                self.locations = result
-                self.locationsList = result.results
-                self.tableView.reloadData()
-            }
+        NetworkManager.shared.fetchLocations(from: URLS.locations.rawValue) { [weak self]  result in
+            self?.locations = result
+            self?.locationsList = result.results
+            self?.tableView.reloadData()
         }
     }
 
     private func fetchNextEpisodes() {
-        beginFetch = true
+        self.beginFetch = true
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
             NetworkManager.shared.fetchLocations(from: self.locations?.info.next) { result in
                 self.locations = result

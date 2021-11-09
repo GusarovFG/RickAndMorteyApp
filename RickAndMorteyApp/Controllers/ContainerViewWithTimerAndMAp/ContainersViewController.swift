@@ -15,7 +15,7 @@ class ContainersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapContainer.isHidden = true
+        self.mapContainer.isHidden = true
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         self.title = "Statistic"
         // Do any additional setup after loading the view.
@@ -26,10 +26,10 @@ class ContainersViewController: UIViewController {
 
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            timerContainer.isHidden = false
-            mapContainer.isHidden = true
+            self.timerContainer.isHidden = false
+            self.mapContainer.isHidden = true
         case 1:
-            timerContainer.isHidden = true
+            self.timerContainer.isHidden = true
             DispatchQueue.main.async {
                 self.mapContainer.isHidden = false
             }

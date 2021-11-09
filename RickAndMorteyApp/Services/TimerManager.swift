@@ -24,14 +24,14 @@ class TimerManager {
     private init() {}
 
     func startStopTimer() {
-        if(timerCounting){
+        if(self.timerCounting){
             
             self.timerCounting = false
-            timer.invalidate()
+            self.timer.invalidate()
         } else {
             self.timerCounting = true
             self.count = CoreDataManager.shared.fetchTimerCount()
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         }
     }
 

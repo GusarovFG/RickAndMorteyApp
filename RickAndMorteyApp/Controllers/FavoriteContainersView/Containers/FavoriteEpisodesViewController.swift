@@ -34,7 +34,11 @@ class FavoriteEpisodesViewController: UIViewController {
         if segue.identifier == "EpisodeSegue" {
             let detailVC = segue.destination as! DetailCharactersTableViewController
             let indexPath = self.tableView.indexPathForSelectedRow
-            detailVC.episode = Episode(name: self.episodes[indexPath?.row ?? 0].name ?? "", date: self.episodes[indexPath?.row ?? 0].date ?? "", episode: self.episodes[indexPath?.row ?? 0].episode ?? "", characters: (self.episodes[indexPath?.row ?? 0].characters ?? [] as NSObject) as! [String])
+            let episode = self.episodes[indexPath?.row ?? 0]
+            detailVC.episode = Episode(name: episode.name ?? "",
+                                       date: episode.date ?? "",
+                                       episode: episode.episode ?? "",
+                                       characters: (episode.characters ?? [] as NSObject) as! [String])
             
         }
     }
@@ -50,7 +54,7 @@ extension FavoriteEpisodesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteEpisodeCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let episode = episodes[indexPath.row]
+        let episode = self.episodes[indexPath.row]
         content.text = episode.name
         cell.contentConfiguration = content
         return cell
@@ -62,7 +66,7 @@ extension FavoriteEpisodesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            episodes.remove(at: indexPath.row)
+            self.episodes.remove(at: indexPath.row)
             CoreDataManager.shared.deleteEpisode(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

@@ -16,7 +16,8 @@ class CustomTabBarController: UITabBarController {
 
         addTabs()
         addGestureRecognized()
-
+        
+        self.tabBar.selectedImageTintColor = .yellow
     }
 
     private func addTabs() {
@@ -49,7 +50,7 @@ class CustomTabBarController: UITabBarController {
     }
 
     @objc func middleButtonDidTap(sender: UIButton) {
-        sender.tintColor = .yellow
+        sender.imageView?.tintColor = .yellow
         self.selectedIndex = 2
 
     }

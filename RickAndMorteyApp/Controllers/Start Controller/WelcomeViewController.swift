@@ -22,21 +22,22 @@ class WelcomeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var skipButton: UIButton!
 
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headerLabel.text = header
-        descriptionTextView.text = descriptionOfPage
-        currentPageControl.numberOfPages = numberOfPage
-        currentPageControl.currentPage = currentPage
+        self.headerLabel.text = header
+        self.descriptionTextView.text = descriptionOfPage
+        self.currentPageControl.numberOfPages = numberOfPage
+        self.currentPageControl.currentPage = currentPage
 
         updateTextView()
     }
 
     private func updateTextView() {
-        switch currentPage {
+        switch self.currentPage {
         case 0:
-            let text = descriptionTextView.text ?? ""
+            let text = self.descriptionTextView.text ?? ""
 
             let path = textsForHyperLinks.one.rawValue
 
@@ -69,10 +70,10 @@ class WelcomeViewController: UIViewController, UITextViewDelegate {
             attributes.append(attributeStringTwo)
 
             let font = descriptionTextView.font
-            descriptionTextView.attributedText = attributes
-            descriptionTextView.font = font
+            self.descriptionTextView.attributedText = attributes
+            self.descriptionTextView.font = font
         case 4:
-            let text = descriptionTextView.text ?? ""
+            let text = self.descriptionTextView.text ?? ""
             let attributes = NSMutableAttributedString()
 
             let pathOne = textsForHyperLinks.five.rawValue
@@ -94,18 +95,18 @@ class WelcomeViewController: UIViewController, UITextViewDelegate {
             attributes.append(attributeStringFive)
 
             let font = descriptionTextView.font
-            descriptionTextView.attributedText = attributes
-            descriptionTextView.font = font
+            self.descriptionTextView.attributedText = attributes
+            self.descriptionTextView.font = font
         case 5:
-            let text = descriptionTextView.text ?? ""
+            let text = self.descriptionTextView.text ?? ""
 
             let path = textsForHyperLinks.ten.rawValue
 
             let attributeString = NSAttributedString.makeHyperlink(for: path, in: text, as: "Adult Swim")
 
-            let font = descriptionTextView.font
-            descriptionTextView.attributedText = attributeString
-            descriptionTextView.font = font
+            let font = self.descriptionTextView.font
+            self.descriptionTextView.attributedText = attributeString
+            self.descriptionTextView.font = font
         default:
             break
         }
@@ -113,7 +114,7 @@ class WelcomeViewController: UIViewController, UITextViewDelegate {
 
 
     @IBAction func skipButtonPressed(_ sender: UIButton) {
-        userDefaultsManager.setValue(true, forKey: "Greeting")
+        self.userDefaultsManager.setValue(true, forKey: "Greeting")
         self.dismiss(animated: true)
     }
 

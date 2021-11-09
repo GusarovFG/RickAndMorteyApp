@@ -13,20 +13,48 @@ class LoginViewController: UIViewController {
     private var showPassIcon = true
     private let userDefaultsManager = UserDefaults.standard
 
-
+    @IBOutlet weak var ImageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonBottonConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var gifImage: UIImageView!
+    @IBOutlet weak var headGifImage: UIImageView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var portalImage: UIImageView!
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            self.ImageViewTopConstraint.constant = 20
+            self.buttonBottonConstraint.constant = 30
+        } else {
+            self.ImageViewTopConstraint.constant = 134
+            self.buttonBottonConstraint.constant = 50
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.gifImage.frame.origin.y = -100
+        self.headGifImage.frame.origin.x = 0
+        self.headGifImage.frame.origin.y = 100
+        self.headGifImage.alpha = 0
+        self.headGifImage.frame.size = CGSize(width: 0, height: 0)
+        UIView.animate(withDuration: 3) {
+            self.gifImage.frame.origin.y = 1000
+        }
+        UIView.animate(withDuration: 10) {
+            self.headGifImage.frame.origin.y = 300
+            self.headGifImage.frame.origin.x = 300
+            self.headGifImage.frame.size = CGSize(width: 500, height: 500)
+            self.headGifImage.alpha = 1
+        }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        passwordToggleButton()
+
+        self.gifImage.loadGif(asset: "giphy")
+        self.headGifImage.loadGif(asset: "giphy (3)")
+        self.passwordToggleButton()
         self.errorLabel.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -45,16 +73,16 @@ class LoginViewController: UIViewController {
             self.dismiss(animated: true)
 
         } else {
-            errorLabel.isHidden = false
-            loginTextField.textColor = .red
-            passwordTextField.textColor = .red
+            self.errorLabel.isHidden = false
+            self.loginTextField.textColor = .red
+            self.passwordTextField.textColor = .red
         }
     }
 
     @objc private func showPassButton() {
 
-        showPassIcon.toggle()
-        passwordTextField.isSecureTextEntry = showPassIcon
+        self.showPassIcon.toggle()
+        self.passwordTextField.isSecureTextEntry = showPassIcon
 
     }
 
@@ -68,22 +96,15 @@ class LoginViewController: UIViewController {
         } else {
             return
         }
-
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {return}
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardFrame = keyboardSize.cgRectValue
-
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         } else {
             return
         }
-
     }
-
 
     private func passwordToggleButton() {
         let button = UIButton()
@@ -95,9 +116,7 @@ class LoginViewController: UIViewController {
 
         self.passwordTextField.rightViewMode = .always
         self.passwordTextField.rightView = button
-
     }
-
 }
 
 extension LoginViewController: UITextFieldDelegate {

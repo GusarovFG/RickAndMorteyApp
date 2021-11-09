@@ -35,10 +35,14 @@ class MainCharactersTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         self.title = "Characters"
         self.navigationController?.navigationBar.tintColor = .white
-        tableView.rowHeight = 60
+
+        self.tableView.rowHeight = 60
+        
         fetchData()
         setupSearchController()
     }
@@ -47,12 +51,12 @@ class MainCharactersTableViewController: UITableViewController{
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        isFiltering ? filteredChracter.count : characters.count
+        self.isFiltering ? self.filteredChracter.count : self.characters.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharactersTableViewCell
-        let character = isFiltering ? filteredChracter[indexPath.row] : characters[indexPath.row]
+        let character = self.isFiltering ? self.filteredChracter[indexPath.row] : self.characters[indexPath.row]
         
         if CoreDataManager.shared.fetchCharacters().filter({$0.name == character.name }).isEmpty == false {
             cell = tableView.dequeueReusableCell(withIdentifier: "Character", for: indexPath) as! CharactersTableViewCell
@@ -78,7 +82,7 @@ class MainCharactersTableViewController: UITableViewController{
         let contentHeight = scrollView.contentSize.height
 
         if offSetY > contentHeight - scrollView.frame.height, !isFiltering {
-            if !beginFetch {
+            if !self.beginFetch {
                 fetchNextCharacters()
             }
         }
@@ -86,10 +90,9 @@ class MainCharactersTableViewController: UITableViewController{
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-
+            guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
             if let detailVC = segue.destination as? DetailCharactersTableViewController {
-                let character = isFiltering ? filteredChracter[indexPath.row] : characters[indexPath.row]
+                let character = self.isFiltering ? self.filteredChracter[indexPath.row] : self.characters[indexPath.row]
                 detailVC.character = character
             }
         }
@@ -98,12 +101,12 @@ class MainCharactersTableViewController: UITableViewController{
 
     // MARK: - Private methods
     private func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Поиск"
-        searchController.searchBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
-        searchController.searchBar.tintColor = .white
-        navigationItem.searchController = searchController
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Поиск"
+        self.searchController.searchBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.searchController.searchBar.tintColor = .white
+        navigationItem.searchController = self.searchController
         definesPresentationContext = true
 
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
@@ -114,7 +117,6 @@ class MainCharactersTableViewController: UITableViewController{
             
         }
     }
-
 
     private func fetchData() {
         NetworkManager.shared.fetchCharacters(from: URLS.rickAndMortyapi.rawValue) {  ricksAndMortys in
@@ -127,7 +129,7 @@ class MainCharactersTableViewController: UITableViewController{
     }
 
     private func fetchNextCharacters() {
-        beginFetch = true
+        self.beginFetch = true
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
             NetworkManager.shared.fetchCharacters(from: self.rickAndMorty?.info.next) { ricksAndMorteys in
                 
@@ -137,19 +139,7 @@ class MainCharactersTableViewController: UITableViewController{
                 self.beginFetch = false
             }
         }
-
     }
-    func getImage(_ url: String) -> UIImage {
-        var image = UIImage()
-        ImageManager.shared.fetchImage(from: url) { data, response in
-            DispatchQueue.global().async {
-                image = UIImage(data: data) ?? UIImage(systemName: "person")!
-            }
-        }
-        return image
-    }
-
-
 
 }
 
@@ -168,8 +158,6 @@ extension MainCharactersTableViewController: UISearchResultsUpdating {
                 self.tableView.reloadData()
             }
         }
-
-
     }
 }
 
