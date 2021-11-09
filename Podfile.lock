@@ -6,12 +6,14 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (5.1.0)
   - Locksmith (4.0.0)
+  - SwiftGifOrigin (1.7.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Locksmith
+  - SwiftGifOrigin
   - SwiftLint
 
 SPEC REPOS:
@@ -19,14 +21,16 @@ SPEC REPOS:
     - GoogleMaps
     - GooglePlaces
     - Locksmith
+    - SwiftGifOrigin
     - SwiftLint
 
 SPEC CHECKSUMS:
   GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
   GooglePlaces: c57cd5aa7e91d10fa5106c792de74f3bd6436260
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 446a3e3498198495350e178e76737c9919f06689
+PODFILE CHECKSUM: 60061cdf3dc9d7237922268a6b9cc95590f820ef
 
 COCOAPODS: 1.10.0

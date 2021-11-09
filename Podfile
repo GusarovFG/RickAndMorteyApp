@@ -9,4 +9,5 @@ target 'RickAndMorteyApp' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Locksmith'
+  pod 'SwiftGifOrigin'
 end

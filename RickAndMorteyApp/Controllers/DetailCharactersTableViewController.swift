@@ -19,8 +19,23 @@ class DetailCharactersTableViewController: UITableViewController {
     private var header: CustomHeader!
     private var charImage: UIImage?
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.alpha = 0
+        self.navigationController?.navigationBar.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.alpha = 1
+            self.navigationController?.navigationBar.alpha = 1
+            }
+
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+    }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         getImage()
         tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
@@ -87,12 +102,14 @@ class DetailCharactersTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
 
+
         if episode == nil, location == nil {
             switch indexPath {
             case [0,0]:
                 content.text = "Status"
                 content.secondaryText = character?.status
                 cell.contentConfiguration = content
+
             case [0,1]:
                 content.text = "Type"
                 content.secondaryText = character?.species

@@ -33,6 +33,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6ue-PG-2Wz" secondAttribute="bottom" constant="348" id="usB-E9-dQs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="launchImage" destination="6ue-PG-2Wz" id="4jW-47-YqB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

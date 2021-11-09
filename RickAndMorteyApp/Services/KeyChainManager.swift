@@ -15,7 +15,7 @@ class KeyChainManager {
     private init() {}
 
     let login: String = "Rick"
-    let password: String = "Mortey"
+    let password: String = "Morty"
 
 
     func checkLoginCredentials(login: String, password: String) -> Bool {

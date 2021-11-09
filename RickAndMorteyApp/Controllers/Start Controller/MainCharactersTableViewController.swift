@@ -26,6 +26,8 @@ class MainCharactersTableViewController: UITableViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.alpha = 1
+        self.navigationController?.navigationBar.alpha = 1
         self.tableView.reloadData()
     }
 
@@ -61,6 +63,14 @@ class MainCharactersTableViewController: UITableViewController{
         cell.configure(with: character)
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        UIView.animate(withDuration: 1, delay: 0.5, options: .transitionCurlUp) {
+            self.tableView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 0
+        }
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -138,6 +148,8 @@ class MainCharactersTableViewController: UITableViewController{
         }
         return image
     }
+
+
 
 }
 

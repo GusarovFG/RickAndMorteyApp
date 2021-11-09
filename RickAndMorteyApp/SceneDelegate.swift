@@ -24,20 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
-        DispatchQueue.main.async {
-            let LoginsVC = self.storyboard.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
-            LoginsVC.modalPresentationStyle = .fullScreen
-            rootVC.present(LoginsVC, animated: true)
+        let loginsVC = self.storyboard.instantiateViewController(identifier: "LoginsViewController") as! LoginViewController
+        loginsVC.modalPresentationStyle = .fullScreen
+        rootVC.present(loginsVC, animated: false)
 
-            if self.userDefaultsManager.object(forKey: "Greeting") == nil {
-                let greetingVC = self.storyboard.instantiateViewController(identifier: "pageViewController") as! PageViewController
-                greetingVC.modalTransitionStyle = .crossDissolve
-                greetingVC.modalPresentationStyle = .fullScreen
-                LoginsVC.present(greetingVC, animated: false)
-            }
+        if self.userDefaultsManager.object(forKey: "Greeting") == nil {
+            let greetingVC = self.storyboard.instantiateViewController(identifier: "pageViewController") as! PageViewController
+                loginsVC.present(greetingVC, animated: true)
         }
-
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

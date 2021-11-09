@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euz-Eu-uSH">
-                                <rect key="frame" x="50" y="731" width="314" height="24"/>
+                                <rect key="frame" x="50" y="743" width="314" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oC-CC-20d">
-                                <rect key="frame" x="20" y="765" width="374" height="50"/>
+                                <rect key="frame" x="20" y="777" width="374" height="35"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Login">
@@ -62,32 +62,31 @@
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image 1" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-Ol-nco">
-                                <rect key="frame" x="65" y="121" width="284" height="120"/>
+                                <rect key="frame" x="65" y="153" width="284" height="120"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eMf-gh-3Ly" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0gG-2C-UIt"/>
-                            <constraint firstItem="6oC-CC-20d" firstAttribute="top" relation="lessThanOrEqual" secondItem="eMf-gh-3Ly" secondAttribute="bottom" constant="300" id="1nn-De-1XV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6oC-CC-20d" secondAttribute="trailing" constant="20" id="3vk-yG-nDS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="euz-Eu-uSH" secondAttribute="trailing" constant="50" id="9bL-3l-aw9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eMf-gh-3Ly" secondAttribute="trailing" constant="20" id="CJz-6m-ibq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w75-q2-CrW" secondAttribute="trailing" constant="20" id="EL6-Ah-lby"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="1Z8-Ol-nco" secondAttribute="bottom" constant="621" id="ILi-95-z9O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Z8-Ol-nco" secondAttribute="trailing" constant="65" id="Nhj-Fc-ByT"/>
                             <constraint firstItem="eMf-gh-3Ly" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nyu-lR-Ajz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6oC-CC-20d" secondAttribute="bottom" constant="47" id="OO2-gS-Cgd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6oC-CC-20d" secondAttribute="bottom" constant="50" id="OO2-gS-Cgd"/>
                             <constraint firstItem="1Z8-Ol-nco" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="Q5c-7G-Dh8"/>
                             <constraint firstItem="w75-q2-CrW" firstAttribute="top" secondItem="eMf-gh-3Ly" secondAttribute="bottom" constant="8" symbolic="YES" id="Yi2-pv-TCZ"/>
                             <constraint firstItem="w75-q2-CrW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bfz-b9-pS8"/>
                             <constraint firstItem="6oC-CC-20d" firstAttribute="top" secondItem="euz-Eu-uSH" secondAttribute="bottom" constant="10" id="dQs-0l-Rqh"/>
                             <constraint firstItem="euz-Eu-uSH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="k6t-nD-V36"/>
-                            <constraint firstItem="1Z8-Ol-nco" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="mzK-NP-e8G"/>
+                            <constraint firstItem="1Z8-Ol-nco" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="mzK-NP-e8G"/>
                             <constraint firstItem="6oC-CC-20d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xcU-wM-hSF"/>
                             <constraint firstItem="eMf-gh-3Ly" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zYw-1B-H2s"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GDp-9z-kBj"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tag">
                             <integer key="value" value="1"/>
@@ -101,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236.23188405797103" y="79.6875"/>
+            <point key="canvasLocation" x="672.46376811594212" y="79.6875"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="VIK-Xe-7jd">
@@ -261,7 +260,7 @@
                                     <outlet property="favoriteButton" destination="aEd-3G-jCi" id="j8F-ki-FVy"/>
                                     <outlet property="nameLabel" destination="gXc-FV-3f8" id="Psb-Ig-uwt"/>
                                     <outlet property="statusLabel" destination="arh-7e-p1c" id="EXK-v8-o7f"/>
-                                    <segue destination="2IQ-1r-wTS" kind="show" identifier="detailSegue" id="Je9-Yv-sh2"/>
+                                    <segue destination="2IQ-1r-wTS" kind="push" identifier="detailSegue" id="Je9-Yv-sh2"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Character" rowHeight="60" id="nfr-gV-eHc" customClass="CharactersTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
@@ -518,12 +517,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ru-eC-3IS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544.9275362318845" y="87.723214285714278"/>
+            <point key="canvasLocation" x="3455.072463768116" y="87.723214285714278"/>
         </scene>
         <!--Item-->
         <scene sceneID="OvK-f3-BJ0">
             <objects>
-                <navigationController storyboardIdentifier="charactersNavi" modalPresentationStyle="fullScreen" id="guf-aP-gna" customClass="NavigationViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="charactersNavi" modalPresentationStyle="fullScreen" id="guf-aP-gna" customClass="RootNavigationControllerViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JeZ-d2-g0O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jkz-pE-IP5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -632,7 +631,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdR-Pg-cfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.68115942028987" y="79.6875"/>
+            <point key="canvasLocation" x="1647.826086956522" y="79.6875"/>
         </scene>
         <!--Containers View Controller-->
         <scene sceneID="SHB-SI-Lnf">
@@ -974,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVZ-dY-21I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4115.9420289855079" y="79.352678571428569"/>
+            <point key="canvasLocation" x="5026.0869565217399" y="79.352678571428569"/>
         </scene>
         <!--Favoriters Locatios View Controller-->
         <scene sceneID="soB-8A-erj">
@@ -1037,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLW-sz-826" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4837.68115942029" y="78.683035714285708"/>
+            <point key="canvasLocation" x="5747.826086956522" y="78.683035714285708"/>
         </scene>
         <!--Favorits Characters View Controller-->
         <scene sceneID="Gli-Sn-2lY">
@@ -1084,11 +1083,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBJ-mF-gBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5547.826086956522" y="78.683035714285708"/>
+            <point key="canvasLocation" x="6457.971014492754" y="78.683035714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hyF-Lr-SMp">
+            <objects>
+                <navigationController storyboardIdentifier="Root" automaticallyAdjustsScrollViewInsets="NO" id="b5G-r0-mrI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YHi-WP-HRc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="euA-8N-VwR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0L-DM-p0X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236.23188405797103" y="79.6875"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u5Q-iJ-D57"/>
+        <segue reference="Je9-Yv-sh2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
