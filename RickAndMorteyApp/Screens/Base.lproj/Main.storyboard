@@ -524,7 +524,7 @@
                             <outlet property="delegate" destination="2IQ-1r-wTS" id="I8B-zE-hXT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0T8-b5-AdV">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="0T8-b5-AdV">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="1r1-P3-qb5">
                             <connections>
                                 <action selector="sharedButtomPressed:" destination="2IQ-1r-wTS" id="fG7-sT-LX9"/>

@@ -29,8 +29,11 @@ class DetailCharactersTableViewController: UITableViewController {
     }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
+
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = .white
+
         getImage()
         self.tableView.register(UINib(nibName: "CustomHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
         self.tableView.register(UINib(nibName: "DetailLocationAndEpisodeCell", bundle: nil), forCellReuseIdentifier: "DetailLocationAndEpisodeCell")
