@@ -20,6 +20,7 @@ class EpisodesTableViewController: UITableViewController {
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         self.title = "Episodes"
         self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
 
     }
 

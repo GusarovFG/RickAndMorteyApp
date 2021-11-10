@@ -106,6 +106,29 @@ class NetworkManager {
         }.resume()
     }
 
+    func fetchLocation(from url: String?, with complition: @escaping (Location) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            guard let data = data else { return }
+
+            do {
+                let result = try JSONDecoder().decode(Location.self, from: data)
+                DispatchQueue.main.async {
+                    complition(result)
+                }
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
+
 
     func fetchEpi(from url: String?, with complition: @escaping (Episode) -> Void) {
         guard let stringURL = url else { return }

@@ -14,9 +14,9 @@ class DetailCharactersTableViewController: UITableViewController {
     var location: Location?
     var filteredCharacters: FilteredCharacters?
     private var filteredCharactersURL = URLS.filteredCharacter.rawValue
+    var charImage: UIImage?
 
     private var header: CustomHeader!
-    private var charImage: UIImage?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -269,19 +269,22 @@ class DetailCharactersTableViewController: UITableViewController {
             if CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character?.id ?? 0}).isEmpty {
                 CoreDataManager.shared.saveCharacter(char: self.character!)
             } else {
-                return
+                guard let charForDelete = CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character?.id ?? 0}).first else { return }
+                CoreDataManager.shared.persistentContainer.viewContext.delete(charForDelete)
             }
         } else if self.character == nil, self.location == nil {
             if CoreDataManager.shared.fetchEpisodes().filter({$0.name == self.episode?.name ?? ""}).isEmpty {
                 CoreDataManager.shared.saveEpisode(episode: self.episode!)
             } else {
-                return
+                guard let epiForDelete = CoreDataManager.shared.fetchEpisodes().filter({$0.name == self.episode?.name ?? ""}).first else { return }
+                CoreDataManager.shared.persistentContainer.viewContext.delete(epiForDelete)
             }
         } else if self.character == nil, self.episode == nil {
             if CoreDataManager.shared.fetchLocations().filter({$0.name == self.location?.name ?? ""}).isEmpty {
                 CoreDataManager.shared.saveLocation(location: self.location!)
             } else {
-                return
+                guard let locaForDelete = CoreDataManager.shared.fetchLocations().filter({$0.name == self.location?.name ?? ""}).first else { return }
+                CoreDataManager.shared.persistentContainer.viewContext.delete(locaForDelete)
             }
         }
     }

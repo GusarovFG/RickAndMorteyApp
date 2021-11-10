@@ -51,5 +51,26 @@ extension FavoritsCharactersViewController: UITableViewDataSource, UITableViewDe
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailCharactersTableViewController
+        NetworkManager.shared.fetchCharacter(from: self.characters[indexPath.row].url ?? "") { result in
+            detailVC.character = result
+        }
+        ImageManager.shared.fetchImage(from: self.characters[indexPath.row].image ?? "") { data, response in
+            detailVC.charImage = UIImage(data: data)
+        }
+        detailVC.modalPresentationStyle = .fullScreen
+        let button = UIButton(type: .close)
+        button.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        button.frame.size = CGSize(width: 40, height: 40)
+        button.frame.origin.x = 340
+        button.frame.origin.y = 60
+        detailVC.view.addSubview(button)
 
+        self.present(detailVC, animated: true, completion: nil)
+    }
+
+    @objc func backButtonPressed(){
+        self.dismiss(animated: true, completion: nil)
+    }
 }

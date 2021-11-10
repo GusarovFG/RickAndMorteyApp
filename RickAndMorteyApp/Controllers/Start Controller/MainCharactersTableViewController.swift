@@ -39,7 +39,7 @@ class MainCharactersTableViewController: UITableViewController{
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
         self.title = "Characters"
-        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.tintColor = .white
 
         self.tableView.rowHeight = 60
         
@@ -55,18 +55,24 @@ class MainCharactersTableViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharactersTableViewCell
         let character = self.isFiltering ? self.filteredChracter[indexPath.row] : self.characters[indexPath.row]
-        
-        if CoreDataManager.shared.fetchCharacters().filter({$0.name == character.name }).isEmpty == false {
-            cell = tableView.dequeueReusableCell(withIdentifier: "Character", for: indexPath) as! CharactersTableViewCell
-            cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            cell.favoriteButton.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+
+        if CoreDataManager.shared.fetchCharacters().filter({$0.id == character.id }).isEmpty == false {
+            let favCell = tableView.dequeueReusableCell(withIdentifier: "Character", for: indexPath) as! CharactersTableViewCell
+            favCell.character = character
+            favCell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favCell.favoriteButton.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+            favCell.configure(with: character)
+            return favCell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharactersTableViewCell
+            cell.character = character
+            cell.configure(with: character)
+            cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            cell.favoriteButton.tintColor = .gray
+            return cell
         }
 
-        cell.configure(with: character)
-
-        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -30,19 +30,20 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-ov-meg">
-                    <rect key="frame" x="120" y="0.0" width="294" height="120"/>
+                    <rect key="frame" x="120" y="0.0" width="244" height="120"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-oW-DiF">
-                            <rect key="frame" x="0.0" y="0.0" width="294" height="55"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfasdfasdfasdfasdfasdfassdfasdfasdf" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-oW-DiF">
+                            <rect key="frame" x="0.0" y="0.0" width="244" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="2Hv-os-UyF"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlw-bV-cox">
-                            <rect key="frame" x="0.0" y="65" width="294" height="55"/>
+                            <rect key="frame" x="0.0" y="65" width="244" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="Jit-WV-NQX"/>
                             </constraints>
@@ -70,11 +71,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="j15-uq-74Z" firstAttribute="bottom" secondItem="MBK-xU-e75" secondAttribute="bottom" constant="5" id="HcN-hF-f4B"/>
+                <constraint firstItem="j15-uq-74Z" firstAttribute="trailing" secondItem="Ccc-ov-meg" secondAttribute="trailing" constant="50" id="Q3U-fx-hKq"/>
                 <constraint firstItem="Ccc-ov-meg" firstAttribute="leading" secondItem="j15-uq-74Z" secondAttribute="leading" constant="120" identifier="qwe" id="Skh-4s-M9j"/>
                 <constraint firstItem="MBK-xU-e75" firstAttribute="top" secondItem="KGi-U4-MaK" secondAttribute="top" constant="5" id="X6A-Hn-pbj"/>
-                <constraint firstItem="j15-uq-74Z" firstAttribute="trailing" secondItem="Ccc-ov-meg" secondAttribute="trailing" id="XUo-kJ-RSN"/>
                 <constraint firstItem="MBK-xU-e75" firstAttribute="leading" secondItem="j15-uq-74Z" secondAttribute="leading" constant="5" id="mzX-Zw-d8p"/>
                 <constraint firstItem="Ccc-ov-meg" firstAttribute="bottom" secondItem="j15-uq-74Z" secondAttribute="bottom" id="seh-PX-hTo"/>
+                <constraint firstItem="j15-uq-74Z" firstAttribute="trailing" secondItem="EbC-oW-DiF" secondAttribute="trailing" constant="50" id="tY3-RA-fwd"/>
                 <constraint firstItem="Ccc-ov-meg" firstAttribute="top" secondItem="KGi-U4-MaK" secondAttribute="top" id="xkX-2i-DC1"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

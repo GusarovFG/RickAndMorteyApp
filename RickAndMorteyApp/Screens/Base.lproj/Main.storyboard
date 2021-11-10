@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="672.46376811594212" y="79.6875"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="VIK-Xe-7jd">
             <objects>
-                <navigationController storyboardIdentifier="favorits" id="CWz-bN-23B" customClass="NavigationViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="favorits" id="CWz-bN-23B" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5fD-mQ-ARl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -363,7 +363,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Detail" id="2IQ-1r-wTS" customClass="DetailCharactersTableViewController" customModule="RickAndMorteyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="5tw-AJ-0S8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -1048,9 +1048,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="2IQ-1r-wTS" kind="push" identifier="LocationSegue" id="1Zt-tN-Dy7"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1088,16 +1085,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteTableViewCell" id="Gg9-Tk-mZV" customClass="FavoriteTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteTableViewCell" textLabel="ywf-Iz-er9" style="IBUITableViewCellStyleDefault" id="Gg9-Tk-mZV" customClass="FavoriteTableViewCell" customModule="RickAndMorteyApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gg9-Tk-mZV" id="itm-jY-aRk">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ywf-Iz-er9">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="2IQ-1r-wTS" kind="push" identifier="CharacterSegue" id="O9D-do-dSd"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1143,7 +1146,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1Sn-Dg-oPg"/>
+        <segue reference="FaY-ww-Xni"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>

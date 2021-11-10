@@ -24,26 +24,11 @@ class FavoritersLocatiosViewController: UIViewController {
         self.locations = CoreDataManager.shared.fetchLocations()
         self.tableView.reloadData()
     }
-
-    // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "LocationSegue" {
-             let detailVC = segue.destination as! DetailCharactersTableViewController
-             let indexPath = self.tableView.indexPathForSelectedRow
-             let lination = self.locations[indexPath?.row ?? 0]
-             detailVC.location = Location(name: lination.name ?? "" ,
-                                          type: lination.type ?? "",
-                                          dimension: lination.dimension ?? "",
-                                          residents: lination.residents as? [String] ?? [],
-                                          url: lination.url ?? "",
-                                          created: lination.created ?? "")
-
-         }
-     }
-
 }
 
-extension FavoritersLocatiosViewController: UITableViewDataSource {
+
+
+extension FavoritersLocatiosViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.locations.count
     }
@@ -69,4 +54,24 @@ extension FavoritersLocatiosViewController: UITableViewDataSource {
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailCharactersTableViewController
+        guard let locationURL = self.locations[indexPath.row].url else { return }
+        NetworkManager.shared.fetchLocation(from: locationURL) { result in
+            detailVC.location = result
+        }
+        
+        let button = UIButton(type: .close)
+        button.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        button.frame.size = CGSize(width: 50, height: 50)
+        button.frame.origin.x = 320
+        detailVC.view.addSubview(button)
+        detailVC.modalPresentationStyle = .fullScreen
+
+        self.present(detailVC, animated: true, completion: nil)
+    }
+
+    @objc func backButtonPressed(){
+        self.dismiss(animated: true, completion: nil)
+    }
 }

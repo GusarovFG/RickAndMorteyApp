@@ -22,9 +22,16 @@ class CustomHeader: UITableViewHeaderFooterView {
 
 
     @IBAction func addToFavorites(_ sender: UIButton) {
-        sender.setTitle("In Favorites", for: .normal)
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        self.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+
+        if sender.titleLabel?.text == "Add to Favorites" {
+            sender.setTitle("In Favorites", for: .normal)
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            self.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        } else {
+            sender.setTitle("Add to Favorites", for: .normal)
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+            self.favoriteButtonPressed.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+        }
 
     }
 }

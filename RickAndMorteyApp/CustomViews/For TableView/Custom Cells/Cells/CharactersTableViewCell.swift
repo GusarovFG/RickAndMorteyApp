@@ -9,6 +9,9 @@ import UIKit
 
 class CharactersTableViewCell: UITableViewCell {
 
+    var character: Character = Character(id: 0, name: "", status: "", species: "", gender: "", location: Location(name: "", type: "", dimension: "", residents: [], url: "", created: ""), image: "", episode: [], url: "", created: "")
+
+
     // MARK: IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -17,7 +20,6 @@ class CharactersTableViewCell: UITableViewCell {
         didSet {
             characterImageView?.contentMode = .scaleAspectFit
             characterImageView?.layer.cornerRadius = (characterImageView?.frame.height ?? 0) / 2
-
         }
     }
 
@@ -39,6 +41,17 @@ class CharactersTableViewCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        if CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character.id}).isEmpty  {
+            CoreDataManager.shared.saveCharacter(char: self.character)
+            self.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            self.favoriteButton.tintColor = #colorLiteral(red: 0, green: 0.6980392157, blue: 0.8392156863, alpha: 1)
+
+        } else {
+            guard let charForDelete = CoreDataManager.shared.fetchCharacters().filter({$0.id == self.character.id}).first else { return }
+            CoreDataManager.shared.persistentContainer.viewContext.delete(charForDelete)
+            self.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            self.favoriteButton.tintColor = .systemGray
+        }
 
     }
 
