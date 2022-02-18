@@ -156,6 +156,7 @@ extension MainCharactersTableViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchController.searchBar.text!)
     }
 
+
     private func filterContentForSearchText(_ searchText: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NetworkManager.shared.fetchCharacters(from: URLS.filteredCharacter.rawValue + searchText) { result in

@@ -60,7 +60,7 @@ struct Episode: Decodable {
     let name: String
     let date: String
     let episode: String
-    let characters: [String]
+    let characters: [String]/Users/faddejgusarov/Desktop/RickAndMorteyApp/RickAndMorteyApp/Controllers/EpisodesTableViewController.swift
  
     enum CodingKeys: String, CodingKey {
         case name = "name"
